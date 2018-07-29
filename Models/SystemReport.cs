@@ -10,24 +10,27 @@ namespace LHMSAPI.Models
         [BsonId]        
         public ObjectId ObjectID {get; set;}
         
+        [BsonRequired]
         [BsonElement("ReportID")]
         public string ReportID {get; set;}
 
+        //TODO: Update with logic to use the logged in user's info.
         [BsonElement("Name")]
         public string Name {get; set;}
 
         [BsonElement("ReportDate")]
-        [DataType(DataType.Date)]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         DateTime ReportDate {get; set;}
 
         [BsonElement("CreatedDate")]
-        [DataType(DataType.Date)]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [BsonElement("UpdatedDate")]
-        [DataType(DataType.Date)]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         DateTime UpdatedDate { get; set; } = DateTime.Now;
 
+        [BsonRequired]
         [BsonElement("SystemName")]
         SystemName SystemName {get; set;}
 

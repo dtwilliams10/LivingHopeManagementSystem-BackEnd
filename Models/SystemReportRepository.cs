@@ -68,7 +68,7 @@ namespace LHMSAPI.Models
             }
         }
 
-        public Task<bool> UpdateSystemReport(string id, string body)
+        public Task<bool> UpdateSystemReport(string id, string body) //TODO Need to figure out how to determine the field that is being updated.
         {
             throw new NotImplementedException();
         }

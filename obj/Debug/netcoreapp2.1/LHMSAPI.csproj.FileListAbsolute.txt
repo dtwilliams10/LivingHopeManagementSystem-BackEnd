@@ -12,3 +12,17 @@
 /Users/tyler/Development/LHMSAPI/obj/Debug/netcoreapp2.1/LHMSAPI.dll
 /Users/tyler/Development/LHMSAPI/obj/Debug/netcoreapp2.1/LHMSAPI.pdb
 /Users/tyler/Development/LHMSAPI/obj/Debug/netcoreapp2.1/LHMSAPI.csprojAssemblyReference.cache
+/Users/tyler/Development/lhms-app/lhmsapi/bin/Debug/netcoreapp2.1/LHMSAPI.deps.json
+/Users/tyler/Development/lhms-app/lhmsapi/bin/Debug/netcoreapp2.1/LHMSAPI.runtimeconfig.json
+/Users/tyler/Development/lhms-app/lhmsapi/bin/Debug/netcoreapp2.1/LHMSAPI.runtimeconfig.dev.json
+/Users/tyler/Development/lhms-app/lhmsapi/bin/Debug/netcoreapp2.1/LHMSAPI.dll
+/Users/tyler/Development/lhms-app/lhmsapi/bin/Debug/netcoreapp2.1/LHMSAPI.pdb
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.csprojAssemblyReference.cache
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.csproj.CoreCompileInputs.cache
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.RazorAssemblyInfo.cache
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.RazorAssemblyInfo.cs
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.AssemblyInfoInputs.cache
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.AssemblyInfo.cs
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.RazorTargetAssemblyInfo.cache
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.dll
+/Users/tyler/Development/lhms-app/lhmsapi/obj/Debug/netcoreapp2.1/LHMSAPI.pdb

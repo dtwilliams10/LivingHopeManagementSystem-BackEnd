@@ -32,6 +32,7 @@ namespace LHMSAPI
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
+            services.AddTransient<ISystemReportRepository, SystemReportRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
