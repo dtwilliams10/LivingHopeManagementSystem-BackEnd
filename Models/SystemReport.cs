@@ -34,27 +34,27 @@ namespace LHMSAPI.Models
         [BsonElement("SystemName")]
         SystemName SystemName {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("SystemUpdate")]
         string SystemUpdate {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("PersonnelUpdates")]
         string PersonnelUpdates {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("CreativeIdeasAndEvaluations")]
         string CreativeIdeasAndEvaluations {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("BarriersOrChallenges")]
         string BarriersOrChallenges {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("HowCanIHelpYou")]
         string HowCanIHelpYou {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("PersonalGrowthAndDevelopment")]
         string PersonalGrowthAndDevelopment {get; set;}
     }
