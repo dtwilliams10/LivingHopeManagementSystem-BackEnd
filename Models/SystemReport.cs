@@ -20,43 +20,43 @@ namespace LHMSAPI.Models
 
         [BsonElement("ReportDate")]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        DateTime ReportDate {get; set;}
+        public DateTime ReportDate {get; set;}
 
         [BsonElement("CreatedDate")]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [BsonElement("UpdatedDate")]
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-        DateTime UpdatedDate { get; set; } = DateTime.Now;
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
         [BsonRequired]
         [BsonElement("SystemName")]
-        SystemName SystemName {get; set;}
+        public SystemName SystemName {get; set;}
 
         [BsonRequired]
         [BsonElement("SystemUpdate")]
-        string SystemUpdate {get; set;}
+        public string SystemUpdate {get; set;}
 
         [BsonRequired]
         [BsonElement("PersonnelUpdates")]
-        string PersonnelUpdates {get; set;}
+        public string PersonnelUpdates {get; set;}
 
         [BsonRequired]
         [BsonElement("CreativeIdeasAndEvaluations")]
-        string CreativeIdeasAndEvaluations {get; set;}
+        public string CreativeIdeasAndEvaluations {get; set;}
 
         [BsonRequired]
         [BsonElement("BarriersOrChallenges")]
-        string BarriersOrChallenges {get; set;}
+        public string BarriersOrChallenges {get; set;}
 
         [BsonRequired]
         [BsonElement("HowCanIHelpYou")]
-        string HowCanIHelpYou {get; set;}
+        public string HowCanIHelpYou {get; set;}
 
         [BsonRequired]
         [BsonElement("PersonalGrowthAndDevelopment")]
-        string PersonalGrowthAndDevelopment {get; set;}
+        public string PersonalGrowthAndDevelopment {get; set;}
     }
 
     public enum SystemName {

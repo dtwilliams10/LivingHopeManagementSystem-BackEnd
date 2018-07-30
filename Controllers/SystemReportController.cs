@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using LHMSAPI.Models;
 using System.Threading.Tasks;
+using LHMSAPI.Infrastructure;
+using System.Collections.Generic;
 
 namespace lhmsapi.Controllers
 {
@@ -17,7 +19,7 @@ namespace lhmsapi.Controllers
 
         [NoCache]
         [HttpGet]
-        public async Task<SystemReport> Get() {
+        public async Task<IEnumerable<SystemReport>> Get() {
             return await _systemReportRepository.GetAllSystemReports();
         }
 
@@ -27,13 +29,23 @@ namespace lhmsapi.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] SystemReportParam newSystemReport) {
+        public void Post([FromBody] SystemReport newSystemReport) {
             _systemReportRepository.AddSystemReport(new SystemReport
             {
                 //TODO: Need to autogenerate Report IDs for each team/system.
-                Id = newSystemReport.ReportID,
-                
-            })
+                ReportID = newSystemReport.ReportID,
+                Name = newSystemReport.Name,
+                ReportDate = newSystemReport.ReportDate,
+                CreatedDate = newSystemReport.CreatedDate,
+                UpdatedDate = newSystemReport.UpdatedDate,
+                SystemName = newSystemReport.SystemName,
+                SystemUpdate = newSystemReport.SystemUpdate,
+                PersonnelUpdates = newSystemReport.PersonnelUpdates,
+                CreativeIdeasAndEvaluations = newSystemReport.CreativeIdeasAndEvaluations,
+                BarriersOrChallenges = newSystemReport.BarriersOrChallenges,
+                HowCanIHelpYou = newSystemReport.HowCanIHelpYou,
+                PersonalGrowthAndDevelopment = newSystemReport.PersonalGrowthAndDevelopment
+            });
         }
     }
 }
