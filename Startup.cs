@@ -33,6 +33,7 @@ namespace LHMSAPI
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
             services.AddTransient<ISystemReportRepository, SystemReportRepository>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +49,11 @@ namespace LHMSAPI
             }
 
             app.UseHttpsRedirection();
+             app.UseCors(builder =>
+                builder.WithOrigins("http://localhost:3000")
+                .AllowAnyMethod()
+                .AllowCredentials());
+
             app.UseMvc();
         }
     }
