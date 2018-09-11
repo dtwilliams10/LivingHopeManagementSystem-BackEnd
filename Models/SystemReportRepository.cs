@@ -9,11 +9,11 @@ namespace LHMSAPI.Models
 {
     public class SystemReportRepository : ISystemReportRepository
     {
-        private readonly SystemReportContext _context = null;
+        private readonly DatabaseContext _context = null;
 
         public SystemReportRepository(IOptions<Settings> settings) 
         {
-            _context = new SystemReportContext(settings);    
+            _context = new DatabaseContext(settings);    
         }
 
         public async Task AddSystemReport(SystemReport systemReport)

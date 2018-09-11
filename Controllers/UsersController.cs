@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using LHMSAPI.Models;
 
 namespace lhmsapi.Controllers
 {
@@ -33,13 +30,6 @@ namespace lhmsapi.Controllers
             };
 
             return Ok(users);
-        }
-
-        public class User
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string Summary { get; set; }
         }
     }
 }
