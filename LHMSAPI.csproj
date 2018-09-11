@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Mongodb" Version="1.7.1.4791" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.7.0" />
   </ItemGroup>
 
 </Project>
