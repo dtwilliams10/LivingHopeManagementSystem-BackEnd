@@ -7,7 +7,6 @@ namespace LHMSAPI.Models
     public class DatabaseContext
     {
         private readonly IMongoDatabase _database = null;
-
         public DatabaseContext(IOptions<Settings> settings)
         {
             var client = new MongoClient(settings.Value.ConnectionString);
