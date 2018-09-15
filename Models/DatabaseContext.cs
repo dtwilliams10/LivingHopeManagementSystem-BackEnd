@@ -9,8 +9,8 @@ namespace LHMSAPI.Models
         private readonly IMongoDatabase _database = null;
         public DatabaseContext(IOptions<Settings> settings)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            _database = client.GetDatabase(settings.Value.Database);
+            var client = new MongoClient("mongodb://localhost:27017");
+            _database = client.GetDatabase("LHMS");
         }
 
         public IMongoCollection<SystemReport> SystemReports

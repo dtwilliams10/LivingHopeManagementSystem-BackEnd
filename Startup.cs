@@ -33,6 +33,7 @@ namespace LHMSAPI
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
             services.AddTransient<ISystemReportRepository, SystemReportRepository>();
+            services.AddTransient<IUsersRepository, UsersRepository>();
             services.AddCors();
         }
 

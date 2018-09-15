@@ -2,7 +2,7 @@
 {
     public class Settings
     {
-        public string ConnectionString;
-        public string Database;
+        public string ConnectionString = "mongodb://localhost:27017";
+        public string Database = "LHMS";
     }
 }
