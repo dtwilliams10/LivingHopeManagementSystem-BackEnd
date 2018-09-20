@@ -9,11 +9,11 @@ namespace LHMSAPI.Models
 {
     public class SystemReportRepository : ISystemReportRepository
     {
-        private readonly SystemReportContext _context = null;
+        private readonly DatabaseContext _context = null;
 
         public SystemReportRepository(IOptions<Settings> settings) 
         {
-            _context = new SystemReportContext(settings);    
+            _context = new DatabaseContext(settings);    
         }
 
         public async Task AddSystemReport(SystemReport systemReport)
@@ -68,7 +68,7 @@ namespace LHMSAPI.Models
             }
         }
 
-        public Task<bool> UpdateSystemReport(string id, string body)
+        public Task<bool> UpdateSystemReport(string id, string body) //TODO Need to figure out how to determine the field that is being updated.
         {
             throw new NotImplementedException();
         }

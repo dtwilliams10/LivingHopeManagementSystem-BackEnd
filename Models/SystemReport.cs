@@ -10,50 +10,53 @@ namespace LHMSAPI.Models
         [BsonId]        
         public ObjectId ObjectID {get; set;}
         
+        [BsonRequired]
         [BsonElement("ReportID")]
         public string ReportID {get; set;}
 
+        //TODO: Update with logic to use the logged in user's info.
         [BsonElement("Name")]
         public string Name {get; set;}
 
         [BsonElement("ReportDate")]
-        [DataType(DataType.Date)]
-        DateTime ReportDate {get; set;}
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime ReportDate {get; set;}
 
         [BsonElement("CreatedDate")]
-        [DataType(DataType.Date)]
-        DateTime CreatedDate { get; set; } = DateTime.Now;
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [BsonElement("UpdatedDate")]
-        [DataType(DataType.Date)]
-        DateTime UpdatedDate { get; set; } = DateTime.Now;
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
 
+        [BsonRequired]
         [BsonElement("SystemName")]
-        SystemName SystemName {get; set;}
+        public SystemName SystemName {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("SystemUpdate")]
-        string SystemUpdate {get; set;}
+        public string SystemUpdate {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("PersonnelUpdates")]
-        string PersonnelUpdates {get; set;}
+        public string PersonnelUpdates {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("CreativeIdeasAndEvaluations")]
-        string CreativeIdeasAndEvaluations {get; set;}
+        public string CreativeIdeasAndEvaluations {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("BarriersOrChallenges")]
-        string BarriersOrChallenges {get; set;}
+        public string BarriersOrChallenges {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("HowCanIHelpYou")]
-        string HowCanIHelpYou {get; set;}
+        public string HowCanIHelpYou {get; set;}
 
-        [Required]
+        [BsonRequired]
         [BsonElement("PersonalGrowthAndDevelopment")]
-        string PersonalGrowthAndDevelopment {get; set;}
+        public string PersonalGrowthAndDevelopment {get; set;}
     }
 
     public enum SystemName {
