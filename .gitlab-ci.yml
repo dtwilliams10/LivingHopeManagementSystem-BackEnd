@@ -1,0 +1,26 @@
+stages:
+ - build
+ - pre-deploy
+ - deploy
+
+build:
+  image: docker:latest
+  stage: build
+  script:
+    - docker build -t lhmsapi .
+
+pre-deploy:
+  stage: pre-deploy
+  script:
+    - docker stop lhmsapi
+    - docker rm lhmsapi
+    - docker stop mongo
+    - docker rm mongo
+
+  allow_failure: true
+
+deploy: 
+  stage: deploy
+  script:
+    - docker run -d --name=mongo mongo;
+    - docker run -d --name=LHMSAPI lhmsapi;
