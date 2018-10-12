@@ -12,8 +12,8 @@ build:
 pre-deploy:
   stage: pre-deploy
   script:
-    - docker stop lhmsapi
-    - docker rm lhmsapi
+    - docker stop LHMSAPI
+    - docker rm LHMSAPI
     - docker stop mongo
     - docker rm mongo
 
