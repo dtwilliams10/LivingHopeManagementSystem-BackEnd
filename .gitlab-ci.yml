@@ -26,3 +26,5 @@ deploy:
     #- docker run -d -p 5000:5000 --name=LHMSAPI lhmsapi;
     - docker run -d --name=LHMSAPI lhmsapi;
     - docker run -d --name=mongo mongo;
+
+    
