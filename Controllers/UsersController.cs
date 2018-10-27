@@ -18,12 +18,12 @@ namespace lhmsapi.Controllers
         
         [NoCache]
         [HttpGet]
-        /*public async Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsers()
         {
             return await _usersRepository.GetAllUsers();
-        }*/
+        }
 
-        [HttpGet]
+       /* [HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {
             // in real life - retrieve from database
@@ -46,6 +46,6 @@ namespace lhmsapi.Controllers
             }; 
 
             return Ok(users);
-        }
+        }*/
     }
 }
