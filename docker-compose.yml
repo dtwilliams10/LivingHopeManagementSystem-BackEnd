@@ -1,0 +1,42 @@
+version: "3"
+services:
+    client:
+        image: lhms-app
+        restart: always
+        container_name: lhms-app
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:/client
+            - /client/node_modules
+        links:
+            - api
+        networks:
+            - webappnetwork
+    api:
+        image: lhmsapi
+        restart: always
+        container_name: lhmsapi
+        #ports:
+           # - "5000:5000"
+        volumes:
+            - ./api:/api
+            - /api/node_modules
+        depends_on:
+            - mongodb
+        networks:
+            - webappnetwork        
+    mongodb:
+        image: mongo
+        restart: always
+        container_name: mongodb
+        volumes:
+            - ./data-node:/data/db
+        ports:
+            - 27017:27017
+        command: mongod
+        networks:
+            - webappnetwork
+networks:
+    webappnetwork:
+        driver: bridge
