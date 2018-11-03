@@ -19,6 +19,6 @@ namespace LHMSAPI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().UseUrls("https://lhmsapi:5000");
+                .UseStartup<Startup>().UseUrls("http://lhmsapi:5000");
     }
 }
