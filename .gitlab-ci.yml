@@ -1,17 +1,7 @@
 stages:
  - build
- - deploy
-
 build:
   image: docker:latest
   stage: build
   script:
     - docker build -t lhmsapi .
-
-deploy: 
-  image: 
-    name: docker/compose:1.22.0
-    entrypoint: ["/bin/sh", "-c"]
-  stage: deploy
-  script:
-    - docker-compose -f "docker-compose.yml" up -d --build  
