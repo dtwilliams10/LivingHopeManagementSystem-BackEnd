@@ -23,7 +23,7 @@ namespace lhmsapi.Controllers
             return await _usersRepository.GetAllUsers();
         }
 
-       /* [HttpGet]
+        /*[HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {
             // in real life - retrieve from database
