@@ -23,6 +23,11 @@ namespace lhmsapi.Controllers
             return await _usersRepository.GetAllUsers();
         }
 
+        [HttpPost]
+        public void AddUser(User user)
+        {
+            _usersRepository.AddUser(user);
+        }
         /*[HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {

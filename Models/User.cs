@@ -5,8 +5,8 @@ namespace LHMSAPI.Models
 {
      public class User
         {
-            //[BsonRepresentation(_id)]
-            [BsonId]
+        //[BsonRepresentation(_id)]
+        [BsonId]
             public BsonObjectId _id { get; set; }
 
             [BsonElement("id")]
