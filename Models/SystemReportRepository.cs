@@ -11,14 +11,14 @@ namespace LHMSAPI.Models
     {
         private readonly DatabaseContext _context = null;
 
-        public SystemReportRepository(IOptions<Settings> settings) 
+        public SystemReportRepository(IOptions<Settings> settings)
         {
-            _context = new DatabaseContext(settings);    
+            _context = new DatabaseContext(settings);
         }
 
         public async Task AddSystemReport(SystemReport systemReport)
         {
-            try 
+            try
             {
                 await _context.SystemReports.InsertOneAsync(systemReport);
             }
@@ -41,7 +41,7 @@ namespace LHMSAPI.Models
 
         public async Task<SystemReport> GetSystemReport(string id)
         {
-            try 
+            try
             {
                 ObjectId internalId = GetObjectId(id);
                 return await _context.SystemReports.Find(SystemReport => SystemReport.ReportID == id
@@ -62,9 +62,9 @@ namespace LHMSAPI.Models
 
                     return actionResult.IsAcknowledged && actionResult.DeletedCount > 0;
             }
-            catch(Exception ex) 
+            catch(Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
         }
 

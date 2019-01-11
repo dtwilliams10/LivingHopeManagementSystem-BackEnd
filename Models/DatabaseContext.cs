@@ -15,15 +15,15 @@ namespace LHMSAPI.Models
 
         public IMongoCollection<SystemReport> SystemReports
         {
-            get 
+            get
             {
-                return _database.GetCollection<SystemReport>("SystemReport");
+                return _database.GetCollection<SystemReport>("systemreports");
             }
         }
 
         public IMongoCollection<User> Users
         {
-            get 
+            get
             {
                 return _database.GetCollection<User>("users");
             }
