@@ -8,7 +8,7 @@ namespace lhmsapi.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    [ApiController]    
+    [ApiController]
     public class SystemReportController : ControllerBase
     {
         private readonly ISystemReportRepository _systemReportRepository;
