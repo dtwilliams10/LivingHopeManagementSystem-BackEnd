@@ -16,9 +16,16 @@ namespace LHMSAPI.Models
         {
             _context = new DatabaseContext(settings);
         }
-        public Task AddUser(User user)
+       public async Task AddUser(User user)
         {
-            throw new System.NotImplementedException();
+            try 
+            {
+             await _context.Users.InsertOneAsync(user);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }  
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()

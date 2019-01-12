@@ -7,24 +7,23 @@ namespace LHMSAPI.Models
     public class DatabaseContext
     {
         private readonly IMongoDatabase _database = null;
-
         public DatabaseContext(IOptions<Settings> settings)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            _database = client.GetDatabase(settings.Value.Database);
+            var client = new MongoClient("mongodb://mongodb:27017/");
+            _database = client.GetDatabase("LHMS");
         }
 
         public IMongoCollection<SystemReport> SystemReports
         {
-            get 
+            get
             {
-                return _database.GetCollection<SystemReport>("SystemReport");
+                return _database.GetCollection<SystemReport>("systemreports");
             }
         }
 
         public IMongoCollection<User> Users
         {
-            get 
+            get
             {
                 return _database.GetCollection<User>("users");
             }

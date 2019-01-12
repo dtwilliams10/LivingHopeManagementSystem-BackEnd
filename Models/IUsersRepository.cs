@@ -6,6 +6,7 @@ namespace LHMSAPI.Models
     public interface IUsersRepository
     {
         Task<IEnumerable<User>> GetAllUsers();
+        
         Task<User> GetUser(string id);
 
         Task AddUser(User user);
