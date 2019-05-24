@@ -28,7 +28,8 @@ namespace lhmsapi.Controllers
         {
             _usersRepository.AddUser(user);
         }
-        /*[HttpGet]
+        /*
+        [HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {
             // in real life - retrieve from database
