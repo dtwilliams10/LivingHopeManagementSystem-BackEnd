@@ -16,19 +16,20 @@ namespace lhmsapi.Controllers
             _usersRepository = usersRepository;
         }
         
+        /*
         [NoCache]
         [HttpGet]
-        public async Task<IEnumerable<User>> GetUsers()
+         public async Task<IEnumerable<User>> GetUsers()
         {
             return await _usersRepository.GetAllUsers();
         }
-
+        */    
         [HttpPost]
         public void AddUser(User user)
         {
             _usersRepository.AddUser(user);
         }
-        /*
+        
         [HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {
@@ -52,6 +53,6 @@ namespace lhmsapi.Controllers
             }; 
 
             return Ok(users);
-        }*/
+        }
     }
 }
