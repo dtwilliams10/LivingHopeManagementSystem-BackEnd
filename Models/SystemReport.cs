@@ -7,9 +7,9 @@ namespace LHMSAPI.Models
 {
     public class SystemReport
     {
-        [BsonId]        
+        [BsonId]
         public ObjectId ObjectID {get; set;}
-        
+
         [BsonRequired]
         [BsonElement("ReportID")]
         public string ReportID {get; set;}
