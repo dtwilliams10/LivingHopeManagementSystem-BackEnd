@@ -1,0 +1,18 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "LHMSAPI",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "api",
+	"workspaceFolder": "/workspace",
+	"extensions": [
+		"ms-vscode.csharp"
+	],
+	
+	// Uncomment the next line if you want to publish any ports.
+	"appPort": [5000],
+
+	// Uncomment the next line to run commands after the container is created.
+	"postCreateCommand": "dotnet restore",
+
+	"shutdownAction": "stopCompose"
+}
