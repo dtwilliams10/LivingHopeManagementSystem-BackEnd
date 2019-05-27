@@ -10,6 +10,9 @@ services:
       context: .
       dockerfile: Dockerfile
     
+    ports:
+      - 5000:5000
+      
     volumes:
       - ..:/workspace
       # This lets you avoid setting up Git again in the container
