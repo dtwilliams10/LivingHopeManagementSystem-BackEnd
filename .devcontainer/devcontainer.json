@@ -5,7 +5,9 @@
 	"service": "api",
 	"workspaceFolder": "/workspace",
 	"extensions": [
-		"ms-vscode.csharp"
+		"ms-vscode.csharp",
+		"fatihacet.gitlab-workflow",
+		"eamodio.gitlens"
 	],
 	
 	// Uncomment the next line if you want to publish any ports.
