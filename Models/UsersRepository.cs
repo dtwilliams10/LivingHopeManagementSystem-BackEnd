@@ -2,25 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using LHMSAPI.Models;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace LHMSAPI.Models
 {
-    public class UsersRepository : IUsersRepository
+    public class UsersRepository
     {
 
-        private readonly DatabaseContext _context = null;
+        private readonly IMongoCollection<User> _users = null;
 
-        public UsersRepository(IOptions<Settings> settings)
+        public UsersRepository(IConfiguration config)
         {
-            _context = new DatabaseContext(settings);
+            var client = new MongoClient(config.GetConnectionString("MongoDb"));
+            var database = client.GetDatabase("LHMS");
+            _users = database.GetCollection<User>("users");
         }
        public async Task AddUser(User user)
         {
             try 
             {
-             await _context.Users.InsertOneAsync(user);
+             await _users.InsertOneAsync(user);
             }
             catch (Exception ex)
             {
@@ -32,7 +35,7 @@ namespace LHMSAPI.Models
         {
             try
             {
-                return await _context.Users.Find(_ => true).ToListAsync();
+                return await _users.Find(_ => true).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -65,10 +68,10 @@ namespace LHMSAPI.Models
             throw new System.NotImplementedException();
         }
 
-        Task IUsersRepository.AddUser(User user)
+        /* Task IUsersRepository.AddUser(User user)
         {
             throw new System.NotImplementedException();
-        }
+        } */
 
     }
 
