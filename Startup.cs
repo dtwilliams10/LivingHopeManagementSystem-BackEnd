@@ -52,7 +52,7 @@ namespace LHMSAPI
 
             app.UseHttpsRedirection();
              app.UseCors(builder =>
-                builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://lhms.homeserver.dtwilliams10.com")
+                builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://test.lhms.dtwilliams10.com")
                 .AllowAnyMethod()
                 .AllowCredentials());
 
