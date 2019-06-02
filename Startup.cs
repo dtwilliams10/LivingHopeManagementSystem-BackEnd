@@ -30,11 +30,6 @@ namespace LHMSAPI
             services.AddScoped<UsersRepository>();
             services.AddScoped<SystemReportRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            /* services.Configure<Settings>(options =>
-            {
-                options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-                options.Database = Configuration.GetSection("MongoConnection:Database").Value;
-            }); */
             services.AddCors();
         }
 
