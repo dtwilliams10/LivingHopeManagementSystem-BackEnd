@@ -26,14 +26,10 @@ namespace LHMSAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<DatabaseContext>();
+            services.AddScoped<UsersRepository>();
+            services.AddScoped<SystemReportRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.Configure<Settings>(options =>
-            {
-                options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-                options.Database = Configuration.GetSection("MongoConnection:Database").Value;
-            });
-            services.AddTransient<ISystemReportRepository, SystemReportRepository>();
-            services.AddTransient<IUsersRepository, UsersRepository>();
             services.AddCors();
         }
 
@@ -51,7 +47,7 @@ namespace LHMSAPI
 
             app.UseHttpsRedirection();
              app.UseCors(builder =>
-                builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://lhms.homeserver.dtwilliams10.com")
+                builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://test.lhms.dtwilliams10.com")
                 .AllowAnyMethod()
                 .AllowCredentials());
 

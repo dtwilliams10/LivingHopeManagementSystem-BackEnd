@@ -11,9 +11,9 @@ namespace lhmsapi.Controllers
     [ApiController]
     public class SystemReportController : ControllerBase
     {
-        private readonly ISystemReportRepository _systemReportRepository;
+        private readonly SystemReportRepository _systemReportRepository;
 
-        public SystemReportController(ISystemReportRepository systemReportRepository) {
+        public SystemReportController(SystemReportRepository systemReportRepository) {
             _systemReportRepository = systemReportRepository;
         }
 
@@ -29,8 +29,8 @@ namespace lhmsapi.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] SystemReport newSystemReport) {
-            _systemReportRepository.AddSystemReport(new SystemReport
+        public async void PostAsync([FromBody] SystemReport newSystemReport) {
+            await _systemReportRepository.AddSystemReport(new SystemReport
             {
                 //TODO: Need to autogenerate Report IDs for each team/system.
                 ReportID = newSystemReport.ReportID,
