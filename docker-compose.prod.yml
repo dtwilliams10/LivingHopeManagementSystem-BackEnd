@@ -1,0 +1,51 @@
+version: "3"
+services:
+    client:
+        image: lhms-app
+        restart: always
+        container_name: lhms-app
+        ports:
+            - "3000:80"
+        environment:
+            LETSENCRYPT_EMAIL: david.williams110913@gmail.com
+            LETSENCRYPT_HOST: lhms.dtwilliams10.com
+            VIRTUAL_HOST: lhms.dtwilliams10.com
+        volumes:
+            - ./client:/client
+            - /client/node_modules
+        links:
+            - api
+        networks:
+            - webappnetwork
+    api:
+        image: lhmsapi
+        restart: always
+        container_name: lhmsapi
+        environment:
+            LETSENCRYPT_EMAIL: david.williams110913@gmail.com
+            LETSENCRYPT_HOST: lhmsapi.dtwilliams10.com
+            VIRTUAL_HOST: lhmsapi.dtwilliams10.com
+            ASPNETCORE_ENVIRONMENT: Production
+            ASPNETCORE_URLS: https://lhmsapi.dtwilliams10.com
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./api:/api
+            - /api/node_modules
+        depends_on:
+            - mongodb
+        networks:
+            - webappnetwork
+    mongodb:
+        image: mongo
+        restart: always
+        container_name: mongodb
+        volumes:
+            - ./data-node:/data/db
+        ports:
+            - "27017:32769"
+        networks:
+            - webappnetwork
+networks:
+    webappnetwork:
+        driver: bridge
