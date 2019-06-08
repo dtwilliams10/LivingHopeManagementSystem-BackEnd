@@ -1,6 +1,5 @@
 stages:
  - build
- - deploy
 
 test build job:
   image: docker:latest
@@ -12,24 +11,6 @@ test build job:
   script:
     - docker build -t lhmsapi .
 
-test deploy job:
-  image:
-    name: docker/compose:1.22.0
-    entrypoint: ["/bin/sh", "-c"]
-  stage: deploy
-  script:
-    - docker network disconnect lhms-frontend_webappnetwork proxy
-    - docker-compose -f "docker-compose.test.yml" down
-    - docker-compose -f "docker-compose.test.yml" up -d --build
-    - docker network connect lhms-frontend_webappnetwork proxy
-  environment:
-    name: staging
-    url: https://test.lhmsapi.dtwilliams10.com
-  only:
-    - develop@LHMS/LHMS-API
-  tags:
-    - develop
-
 prod build job:
     image: docker:latest
     stage: build
@@ -39,21 +20,3 @@ prod build job:
       - production
     script:
       - docker build -t lhmsapi .
-
-prod deploy job:
- image:
-  name: docker/compose:1.22.0
-  entrypoint: ["/bin/sh", "-c"]
- stage: deploy
- script:
-  - docker network disconnect lhms-frontend_webappnetwork proxy
-  - docker-compose -f "docker-compose.prod.yml" down
-  - docker-compose -f "docker-compose.prod.yml" up -d --build
-  - docker network connect lhms-frontend_webappnetwork proxy
- environment:
-  name: staging
-  url: https://lhmsapi.dtwilliams10.com
- only:
-  - master@LHMS/LHMS-API
- tags:
-  - production
