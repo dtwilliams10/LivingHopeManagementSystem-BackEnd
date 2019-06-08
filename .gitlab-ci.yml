@@ -26,7 +26,7 @@ test deploy job:
     name: staging
     url: https://test.lhmsapi.dtwilliams10.com
   only:
-    - develop@LHMS/LHMS-FrontEnd
+    - develop@LHMS/LHMS-API
   tags:
     - develop
 
