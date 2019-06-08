@@ -1,7 +1,22 @@
 stages:
  - build
-build:
+
+test build job:
   image: docker:latest
   stage: build
+  only:
+    - develop@LHMS/LHMS-API
+  tags: 
+    - develop
   script:
     - docker build -t lhmsapi .
+
+prod build job:
+    image: docker:latest
+    stage: build
+    only:
+      - master@LHMS/LHMS-API
+    tags: 
+      - production
+    script:
+      - docker build -t lhmsapi .

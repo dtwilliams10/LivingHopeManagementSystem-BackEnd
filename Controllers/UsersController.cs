@@ -11,24 +11,25 @@ namespace lhmsapi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersRepository _usersRepository;
-        public UsersController(IUsersRepository usersRepository) {
+        private readonly UsersRepository _usersRepository;
+        public UsersController(UsersRepository usersRepository) {
             _usersRepository = usersRepository;
         }
         
         [NoCache]
         [HttpGet]
-        public async Task<IEnumerable<User>> GetUsers()
+         public async Task<IEnumerable<User>> GetUsers()
         {
             return await _usersRepository.GetAllUsers();
         }
-
+           
         [HttpPost]
-        public void AddUser(User user)
+        public async Task AddUserAsync(User user)
         {
-            _usersRepository.AddUser(user);
+             await _usersRepository.AddUser(user);
         }
-        /*[HttpGet]
+
+        /* [HttpGet]
         public ActionResult<IEnumerable<User>> List()
         {
             // in real life - retrieve from database
@@ -51,6 +52,6 @@ namespace lhmsapi.Controllers
             }; 
 
             return Ok(users);
-        }*/
+        } */
     }
 }

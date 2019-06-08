@@ -1,26 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace LHMSAPI.Models
 {
-    public class SystemReportRepository : ISystemReportRepository
+    public class SystemReportRepository
     {
-        private readonly DatabaseContext _context = null;
+        private readonly IMongoCollection<SystemReport> _systemReport = null;
 
-        public SystemReportRepository(IOptions<Settings> settings)
+        public SystemReportRepository(IConfiguration config)
         {
-            _context = new DatabaseContext(settings);
+            var client = new MongoClient(config.GetConnectionString("MongoDb"));
+            var database = client.GetDatabase("LHMS");
+            _systemReport = database.GetCollection<SystemReport>("SystemReport");
         }
 
         public async Task AddSystemReport(SystemReport systemReport)
         {
             try
             {
-                await _context.SystemReports.InsertOneAsync(systemReport);
+                await _systemReport.InsertOneAsync(systemReport);
             }
             catch (Exception ex)
             {
@@ -31,7 +34,7 @@ namespace LHMSAPI.Models
         public async Task<IEnumerable<SystemReport>> GetAllSystemReports()
         {
             try {
-                return await _context.SystemReports.Find(_ => true).ToListAsync();
+                return await _systemReport.Find(_ => true).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -44,7 +47,7 @@ namespace LHMSAPI.Models
             try
             {
                 ObjectId internalId = GetObjectId(id);
-                return await _context.SystemReports.Find(SystemReport => SystemReport.ReportID == id
+                return await _systemReport.Find(SystemReport => SystemReport.ReportID == id
                 || SystemReport.ObjectID == internalId).FirstOrDefaultAsync();
             }
             catch (Exception ex)
@@ -57,7 +60,7 @@ namespace LHMSAPI.Models
         {
             try
             {
-                DeleteResult actionResult = await _context.SystemReports.DeleteOneAsync(
+                DeleteResult actionResult = await _systemReport.DeleteOneAsync(
                     Builders<SystemReport>.Filter.Eq("Id", id));
 
                     return actionResult.IsAcknowledged && actionResult.DeletedCount > 0;
