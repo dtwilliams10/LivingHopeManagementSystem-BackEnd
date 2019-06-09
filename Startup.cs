@@ -29,7 +29,7 @@ namespace LHMSAPI
             services.AddScoped<DatabaseContext>();
             services.AddScoped<UsersRepository>();
             services.AddScoped<SystemReportRepository>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
         }
 
