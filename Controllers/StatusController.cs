@@ -1,7 +1,6 @@
 using System;
 using LHMSAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace LHMSAPI.Controllers
 {   

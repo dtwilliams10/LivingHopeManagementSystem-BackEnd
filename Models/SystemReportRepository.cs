@@ -3,72 +3,36 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using MongoDB.Bson;
-using MongoDB.Driver;
+
 
 namespace LHMSAPI.Models
 {
     public class SystemReportRepository
     {
-        private readonly IMongoCollection<SystemReport> _systemReport = null;
 
         public SystemReportRepository(IConfiguration config)
         {
-            var client = new MongoClient(config.GetConnectionString("MongoDb"));
-            var database = client.GetDatabase("LHMS");
-            _systemReport = database.GetCollection<SystemReport>("SystemReport");
+            throw new NotImplementedException();
         }
 
-        public async Task AddSystemReport(SystemReport systemReport)
+        public Task AddSystemReport(SystemReport systemReport)
         {
-            try
-            {
-                await _systemReport.InsertOneAsync(systemReport);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<SystemReport>> GetAllSystemReports()
+        public Task<IEnumerable<SystemReport>> GetAllSystemReports()
         {
-            try {
-                return await _systemReport.Find(_ => true).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<SystemReport> GetSystemReport(string id)
+        public Task<SystemReport> GetSystemReport(string id)
         {
-            try
-            {
-                ObjectId internalId = GetObjectId(id);
-                return await _systemReport.Find(SystemReport => SystemReport.ReportID == id
-                || SystemReport.ObjectID == internalId).FirstOrDefaultAsync();
-            }
-            catch (Exception ex)
-            {
-                throw(ex);
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<bool> RemoveSystemReport(string id)
+        public Task<bool> RemoveSystemReport(string id)
         {
-            try
-            {
-                DeleteResult actionResult = await _systemReport.DeleteOneAsync(
-                    Builders<SystemReport>.Filter.Eq("Id", id));
-
-                    return actionResult.IsAcknowledged && actionResult.DeletedCount > 0;
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
         public Task<bool> UpdateSystemReport(string id, string body) //TODO Need to figure out how to determine the field that is being updated.
@@ -76,13 +40,9 @@ namespace LHMSAPI.Models
             throw new NotImplementedException();
         }
 
-        private ObjectId GetObjectId(string id)
+        private int GetObjectId(string id)
         {
-            ObjectId internalId;
-            if (!ObjectId.TryParse(id, out internalId))
-            internalId = ObjectId.Empty;
-
-            return internalId;
+            throw new NotImplementedException();
         }
     }
 }

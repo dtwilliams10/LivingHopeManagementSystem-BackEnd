@@ -1,46 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using LHMSAPI.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
 
 namespace LHMSAPI.Models
 {
     public class UsersRepository
     {
 
-        private readonly IMongoCollection<User> _users = null;
-
         public UsersRepository(IConfiguration config)
         {
-            var client = new MongoClient(config.GetConnectionString("MongoDb"));
-            var database = client.GetDatabase("LHMS");
-            _users = database.GetCollection<User>("users");
+            throw new NotImplementedException();
         }
-       public async Task AddUser(User user)
+       public Task AddUser(User user)
         {
-            try 
-            {
-             await _users.InsertOneAsync(user);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }  
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<User>> GetAllUsers()
+        public Task<IEnumerable<User>> GetAllUsers()
         {
-            try
-            {
-                return await _users.Find(_ => true).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+           throw new NotImplementedException();
         }
 
         public Task<User> GetUser(string id)
