@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using LHMSAPI.Models;
 
 namespace LHMSAPI
@@ -26,10 +20,9 @@ namespace LHMSAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<DatabaseContext>();
-            services.AddScoped<UsersRepository>();
             services.AddScoped<SystemReportRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PostgreSQL")));
             services.AddCors();
         }
 
@@ -46,11 +39,10 @@ namespace LHMSAPI
             }
 
             app.UseHttpsRedirection();
-             app.UseCors(builder =>
+            app.UseCors(builder =>
                 builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://test.lhms.dtwilliams10.com")
                 .AllowAnyMethod()
                 .AllowCredentials());
-
             app.UseMvc();
         }
     }

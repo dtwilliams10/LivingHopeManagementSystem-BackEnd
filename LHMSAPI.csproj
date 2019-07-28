@@ -9,7 +9,8 @@
     <!--Will enable this again at a later time-->
     <!--<PackageReference Include="GraphQL" Version="2.4.0" />-->
     <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.4.0" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
   </ItemGroup>
 </Project> 

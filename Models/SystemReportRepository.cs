@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-
+using Microsoft.Extensions.Configuration;   
 
 namespace LHMSAPI.Models
 {
     public class SystemReportRepository
     {
-
         public SystemReportRepository(IConfiguration config)
         {
             throw new NotImplementedException();
@@ -35,7 +32,8 @@ namespace LHMSAPI.Models
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateSystemReport(string id, string body) //TODO Need to figure out how to determine the field that is being updated.
+        //TODO Need to figure out how to determine the field that is being updated.
+        public Task<bool> UpdateSystemReport(string id, string body)
         {
             throw new NotImplementedException();
         }
