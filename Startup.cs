@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using LHMSAPI.Models;
+using LHMSAPI.Repository;
 
 namespace LHMSAPI
 {
@@ -21,8 +21,9 @@ namespace LHMSAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<SystemReportRepository>();
+            services.AddScoped<StatusRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("PostgreSQL")));
+            services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
             services.AddCors();
         }
 

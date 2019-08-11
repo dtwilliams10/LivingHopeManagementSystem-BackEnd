@@ -1,27 +1,13 @@
-using Microsoft.EntityFrameworkCore;
-
-namespace LHMSAPI.Models
-{
-    public class DatabaseContext : DbContext
-    {
-
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options){ }
-        public DbSet<SystemReport> SystemReports { get; set; }
-    }
-
-
-
-
-    public class SystemReport
+public class SystemReport
     {
         public int Id { get; set; }
 
-        //TODO: Update with logic to use the logged in user's info.
+        //TODO: Update with logic to use the logged in user's info from Identity Server 4.
         public string Name { get; set; }
 
         public System.DateTime ReportDate { get; set; }
 
-        public System.DateTime CreatedDate { get; set; } = System.DateTime.Now;
+        public System.DateTime CreatedDate { get; set; }
 
         public System.DateTime UpdatedDate { get; set; } = System.DateTime.Now;
 
@@ -51,5 +37,3 @@ namespace LHMSAPI.Models
         CampusPreservation,
         ChristianDevelopment
     }
-
-}

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using LHMSAPI.Models;
 using System.Threading.Tasks;
 using LHMSAPI.Infrastructure;
 using System.Collections.Generic;
+using LHMSAPI.Repository;
 
 namespace lhmsapi.Controllers
 {
@@ -20,12 +20,12 @@ namespace lhmsapi.Controllers
         [NoCache]
         [HttpGet]
         public async Task<IEnumerable<SystemReport>> Get() {
-            return await _systemReportRepository.GetAllSystemReports();
+            return await _systemReportRepository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public async Task<SystemReport> Get(string id) {
-            return await _systemReportRepository.GetSystemReport(id) ?? new SystemReport();
+        public async Task<SystemReport> Get(int id) {
+            return await _systemReportRepository.GetByID(id) ?? new SystemReport();
         }
 
         /* [HttpPost]
