@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace LHMSAPI.Repository
@@ -6,7 +7,7 @@ namespace LHMSAPI.Repository
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options){ }
         public DbSet<SystemReport> SystemReports { get; set; }
-        
+
     }
 
 }

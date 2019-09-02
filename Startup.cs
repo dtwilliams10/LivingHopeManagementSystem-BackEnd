@@ -10,6 +10,7 @@ namespace LHMSAPI
 {
     public class Startup
     {
+        public static string environment {get; set;}
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,12 +25,14 @@ namespace LHMSAPI
             services.AddScoped<StatusRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
-            services.AddCors();
+            services.AddCors();        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            environment = env.EnvironmentName;
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

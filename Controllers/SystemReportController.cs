@@ -28,7 +28,12 @@ namespace lhmsapi.Controllers
             return await _systemReportRepository.GetByID(id) ?? new SystemReport();
         }
 
-        /* [HttpPost]
+        [HttpPost]
+        public string Add(){
+            return _systemReportRepository.Add();
+        }
+
+        /*[HttpPost]
         public async void PostAsync([FromBody] SystemReport newSystemReport) {
             await _systemReportRepository.AddSystemReport(new SystemReport
             {
@@ -46,6 +51,6 @@ namespace lhmsapi.Controllers
                 HowCanIHelpYou = newSystemReport.HowCanIHelpYou,
                 PersonalGrowthAndDevelopment = newSystemReport.PersonalGrowthAndDevelopment
             });
-        } */
+        } */ 
     }
 }

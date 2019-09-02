@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
@@ -39,6 +40,13 @@ namespace LHMSAPI.Repository
                     }
                     reader.Dispose();
                 }
+            }
+
+            catch(System.Net.Sockets.SocketException ex)
+            { 
+             Console.WriteLine(ex);
+             //TODO: Updated this to return a 500 error rather than a 200. 
+             return "An error ocurred connecting with the database. Please contact an administrator."; 
             }
 
             finally

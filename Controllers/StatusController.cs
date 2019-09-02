@@ -20,7 +20,9 @@ namespace LHMSAPI.Controllers
         [HttpGet(Name = "GetDatabaseStatus")]
         public async Task<string> GetDatabaseStatus()
         {
-            return await _statusRepository.GetDatabaseStatus();
+            string response = await _statusRepository.GetDatabaseStatus();
+
+            return response;
         }
     }
 }

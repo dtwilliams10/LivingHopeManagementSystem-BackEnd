@@ -16,9 +16,9 @@ namespace LHMSAPI.Repository
         {
         }
 
-        void Add(SystemReport item)
+        public string Add()
         {
-            throw new NotImplementedException();
+            return "test call for Add System Report";
         }
 
         void Delete(SystemReport item)
@@ -36,7 +36,7 @@ namespace LHMSAPI.Repository
             throw new NotImplementedException();
         }
 
-        Task<bool> RemoveSystemReport(string id)
+        Task<bool> RemoveSystemReport(int id)
         {
             throw new NotImplementedException();
         }
