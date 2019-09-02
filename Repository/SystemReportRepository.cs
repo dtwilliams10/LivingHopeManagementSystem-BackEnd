@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;   
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace LHMSAPI.Repository
 {
-    public class SystemReportRepository: IRepository<SystemReport>
+    public class SystemReportRepository
     {
-        SystemReportRepository(IConfiguration config)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly DatabaseContext _context;
 
-        public SystemReportRepository()
+        public SystemReportRepository(DatabaseContext context)
         {
+            _context = context;
         }
 
         public string Add()
@@ -26,14 +26,112 @@ namespace LHMSAPI.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<SystemReport>> GetAll()
+        public async Task<IEnumerable<SystemReport>> GetAll()
         {
-            throw new NotImplementedException();
+            List<SystemReport> SystemReports = new List<SystemReport>();
+            var conn = _context.Database.GetDbConnection();
+            try
+            {
+                await conn.OpenAsync();
+                using (var command = conn.CreateCommand())
+                {
+                    string query = "SELECT * FROM public.\"SystemReports\";";
+                    command.CommandText = query;
+                    DbDataReader reader = await command.ExecuteReaderAsync();
+
+                    if (reader.HasRows)
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var rows = new SystemReport
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                ReportDate = reader.GetDateTime(2),
+                                CreatedDate = reader.GetDateTime(3),
+                                UpdatedDate = reader.GetDateTime(4),
+                                SystemName = (SystemName)reader.GetInt64(5),
+                                SystemUpdate = reader.GetString(6),
+                                PersonnelUpdates = reader.GetString(7),
+                                CreativeIdeasAndEvaluations = reader.GetString(8),
+                                BarriersOrChallenges = reader.GetString(9),
+                                HowCanIHelpYou = reader.GetString(10),
+                                PersonalGrowthAndDevelopment = reader.GetString(11)
+                            };
+                            SystemReports.Add(rows);
+                        }
+
+                    }
+                    reader.Dispose();
+                }
+            }
+
+            catch (System.Net.Sockets.SocketException ex)
+            {
+                Console.WriteLine(ex);
+                //TODO: Updated this to return a 500 error rather than a 200. 
+                //return "An error ocurred connecting with the database. Please contact an administrator."; 
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+            return SystemReports;
         }
 
-        public Task<SystemReport> GetByID(int id)
+        public async Task<SystemReport> GetByID(int id)
         {
-            throw new NotImplementedException();
+            SystemReport SystemReport = new SystemReport();
+            var conn = _context.Database.GetDbConnection();
+            try
+            {
+                await conn.OpenAsync();
+                using (var command = conn.CreateCommand())
+                {
+                    string query = "SELECT * FROM public.\"SystemReports\" WHERE \"Id\" = " + id + " ;";
+                    command.CommandText = query;
+                    DbDataReader reader = await command.ExecuteReaderAsync();
+
+                    if (reader.HasRows)
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var systemReport = new SystemReport
+                            {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                ReportDate = reader.GetDateTime(2),
+                                CreatedDate = reader.GetDateTime(3),
+                                UpdatedDate = reader.GetDateTime(4),
+                                SystemName = (SystemName)reader.GetInt64(5),
+                                SystemUpdate = reader.GetString(6),
+                                PersonnelUpdates = reader.GetString(7),
+                                CreativeIdeasAndEvaluations = reader.GetString(8),
+                                BarriersOrChallenges = reader.GetString(9),
+                                HowCanIHelpYou = reader.GetString(10),
+                                PersonalGrowthAndDevelopment = reader.GetString(11)
+                            };
+                            SystemReport = systemReport;
+                        }
+
+                    }
+                    reader.Dispose();
+                }
+            }
+
+            catch (System.Net.Sockets.SocketException ex)
+            {
+                Console.WriteLine(ex);
+                //TODO: Updated this to return a 500 error rather than a 200. 
+                //return "An error ocurred connecting with the database. Please contact an administrator."; 
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+            return SystemReport;
         }
 
         Task<bool> RemoveSystemReport(int id)
@@ -42,31 +140,6 @@ namespace LHMSAPI.Repository
         }
 
         void Update(SystemReport item)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<SystemReport>.Add(SystemReport item)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<SystemReport>.Delete(SystemReport item)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<SystemReport> IRepository<SystemReport>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        SystemReport IRepository<SystemReport>.GetByID(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<SystemReport>.Update(SystemReport item)
         {
             throw new NotImplementedException();
         }
