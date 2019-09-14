@@ -13,23 +13,28 @@ namespace lhmsapi.Controllers
     {
         private readonly SystemReportRepository _systemReportRepository;
 
-        public SystemReportController(SystemReportRepository systemReportRepository) {
+        public SystemReportController(SystemReportRepository systemReportRepository)
+        {
             _systemReportRepository = systemReportRepository;
         }
 
+        //Figure out a way to return only a few properties of the report, rather than the entire object. 
         [NoCache]
         [HttpGet]
-        public async Task<IEnumerable<SystemReport>> Get() {
+        public async Task<IEnumerable<SystemReport>> Get()
+        {
             return await _systemReportRepository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public async Task<SystemReport> Get(int id) {
+        public async Task<SystemReport> Get(int id)
+        {
             return await _systemReportRepository.GetByID(id) ?? new SystemReport();
         }
 
         [HttpPost]
-        public string Add(){
+        public string Add()
+        {
             return _systemReportRepository.Add();
         }
 
@@ -51,6 +56,6 @@ namespace lhmsapi.Controllers
                 HowCanIHelpYou = newSystemReport.HowCanIHelpYou,
                 PersonalGrowthAndDevelopment = newSystemReport.PersonalGrowthAndDevelopment
             });
-        } */ 
+        } */
     }
 }
