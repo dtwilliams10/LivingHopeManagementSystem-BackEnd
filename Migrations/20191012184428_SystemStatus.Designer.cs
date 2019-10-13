@@ -3,15 +3,17 @@ using System;
 using LHMSAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LHMSAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191012184428_SystemStatus")]
+    partial class SystemStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,19 +21,7 @@ namespace LHMSAPI.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("LHMSAPI.Models.SystemName", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SystemName");
-                });
-
-            modelBuilder.Entity("LHMSAPI.Models.SystemReport", b =>
+            modelBuilder.Entity("SystemReport", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -54,9 +44,9 @@ namespace LHMSAPI.Migrations
 
                     b.Property<DateTime>("ReportDate");
 
-                    b.Property<int>("SystemNameId");
+                    b.Property<int>("SystemName");
 
-                    b.Property<int>("SystemReportStatusId");
+                    b.Property<int>("SystemReportStatus");
 
                     b.Property<string>("SystemUpdate");
 
@@ -64,14 +54,10 @@ namespace LHMSAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SystemNameId");
-
-                    b.HasIndex("SystemReportStatusId");
-
                     b.ToTable("SystemReports");
                 });
 
-            modelBuilder.Entity("LHMSAPI.Models.SystemStatus", b =>
+            modelBuilder.Entity("SystemStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -81,19 +67,6 @@ namespace LHMSAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SystemStatus");
-                });
-
-            modelBuilder.Entity("LHMSAPI.Models.SystemReport", b =>
-                {
-                    b.HasOne("LHMSAPI.Models.SystemName", "SystemName")
-                        .WithMany("SystemReports")
-                        .HasForeignKey("SystemNameId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("LHMSAPI.Models.SystemStatus", "SystemReportStatus")
-                        .WithMany()
-                        .HasForeignKey("SystemReportStatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

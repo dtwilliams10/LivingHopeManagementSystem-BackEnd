@@ -3,15 +3,17 @@ using System;
 using LHMSAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LHMSAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191013190003_SystemName")]
+    partial class SystemName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +28,11 @@ namespace LHMSAPI.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int?>("SystemReportId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SystemReportId");
 
                     b.ToTable("SystemName");
                 });
@@ -54,19 +60,11 @@ namespace LHMSAPI.Migrations
 
                     b.Property<DateTime>("ReportDate");
 
-                    b.Property<int>("SystemNameId");
-
-                    b.Property<int>("SystemReportStatusId");
-
                     b.Property<string>("SystemUpdate");
 
                     b.Property<DateTime>("UpdatedDate");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SystemNameId");
-
-                    b.HasIndex("SystemReportStatusId");
 
                     b.ToTable("SystemReports");
                 });
@@ -78,22 +76,27 @@ namespace LHMSAPI.Migrations
 
                     b.Property<string>("Status");
 
+                    b.Property<int?>("SystemReportId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("SystemReportId");
 
                     b.ToTable("SystemStatus");
                 });
 
-            modelBuilder.Entity("LHMSAPI.Models.SystemReport", b =>
+            modelBuilder.Entity("LHMSAPI.Models.SystemName", b =>
                 {
-                    b.HasOne("LHMSAPI.Models.SystemName", "SystemName")
-                        .WithMany("SystemReports")
-                        .HasForeignKey("SystemNameId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("LHMSAPI.Models.SystemReport")
+                        .WithMany("SystemName")
+                        .HasForeignKey("SystemReportId");
+                });
 
-                    b.HasOne("LHMSAPI.Models.SystemStatus", "SystemReportStatus")
-                        .WithMany()
-                        .HasForeignKey("SystemReportStatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity("LHMSAPI.Models.SystemStatus", b =>
+                {
+                    b.HasOne("LHMSAPI.Models.SystemReport")
+                        .WithMany("SystemReportStatus")
+                        .HasForeignKey("SystemReportId");
                 });
 #pragma warning restore 612, 618
         }

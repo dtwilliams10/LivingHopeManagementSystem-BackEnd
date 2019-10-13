@@ -3,15 +3,17 @@ using System;
 using LHMSAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LHMSAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191013202414_UpdatedSystemReportFK")]
+    partial class UpdatedSystemReportFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,9 +56,9 @@ namespace LHMSAPI.Migrations
 
                     b.Property<DateTime>("ReportDate");
 
-                    b.Property<int>("SystemNameId");
+                    b.Property<int?>("SystemNameId");
 
-                    b.Property<int>("SystemReportStatusId");
+                    b.Property<int?>("SystemReportStatusId");
 
                     b.Property<string>("SystemUpdate");
 
@@ -87,13 +89,11 @@ namespace LHMSAPI.Migrations
                 {
                     b.HasOne("LHMSAPI.Models.SystemName", "SystemName")
                         .WithMany("SystemReports")
-                        .HasForeignKey("SystemNameId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SystemNameId");
 
                     b.HasOne("LHMSAPI.Models.SystemStatus", "SystemReportStatus")
                         .WithMany()
-                        .HasForeignKey("SystemReportStatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SystemReportStatusId");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
+using LHMSAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace LHMSAPI.Repository
 {
@@ -50,13 +50,15 @@ namespace LHMSAPI.Repository
                                 ReportDate = reader.GetDateTime(2),
                                 CreatedDate = reader.GetDateTime(3),
                                 UpdatedDate = reader.GetDateTime(4),
-                                SystemName = (SystemName)reader.GetInt64(5),
-                                SystemUpdate = reader.GetString(6),
-                                PersonnelUpdates = reader.GetString(7),
-                                CreativeIdeasAndEvaluations = reader.GetString(8),
-                                BarriersOrChallenges = reader.GetString(9),
-                                HowCanIHelpYou = reader.GetString(10),
-                                PersonalGrowthAndDevelopment = reader.GetString(11)
+                                SystemUpdate = reader.GetString(5),
+                                PersonnelUpdates = reader.GetString(6),
+                                CreativeIdeasAndEvaluations = reader.GetString(7),
+                                BarriersOrChallenges = reader.GetString(8),
+                                HowCanIHelpYou = reader.GetString(9),
+                                PersonalGrowthAndDevelopment = reader.GetString(10),
+                                Active = reader.GetBoolean(11)
+                                //SystemReportStatus = (SystemStatus)reader.GetInt32(12),
+
                             };
                             SystemReports.Add(rows);
                         }
@@ -104,17 +106,16 @@ namespace LHMSAPI.Repository
                                 ReportDate = reader.GetDateTime(2),
                                 CreatedDate = reader.GetDateTime(3),
                                 UpdatedDate = reader.GetDateTime(4),
-                                SystemName = (SystemName)reader.GetInt64(5),
-                                SystemUpdate = reader.GetString(6),
-                                PersonnelUpdates = reader.GetString(7),
-                                CreativeIdeasAndEvaluations = reader.GetString(8),
-                                BarriersOrChallenges = reader.GetString(9),
-                                HowCanIHelpYou = reader.GetString(10),
-                                PersonalGrowthAndDevelopment = reader.GetString(11)
+                                SystemUpdate = reader.GetString(5),
+                                PersonnelUpdates = reader.GetString(6),
+                                CreativeIdeasAndEvaluations = reader.GetString(7),
+                                BarriersOrChallenges = reader.GetString(8),
+                                HowCanIHelpYou = reader.GetString(9),
+                                PersonalGrowthAndDevelopment = reader.GetString(10),
+                                Active = reader.GetBoolean(11)
                             };
                             SystemReport = systemReport;
                         }
-
                     }
                     reader.Dispose();
                 }

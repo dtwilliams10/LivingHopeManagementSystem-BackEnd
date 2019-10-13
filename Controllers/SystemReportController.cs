@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using LHMSAPI.Infrastructure;
 using System.Collections.Generic;
 using LHMSAPI.Repository;
+using LHMSAPI.Models;
 
 namespace lhmsapi.Controllers
 {
