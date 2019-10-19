@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using LHMSAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
+using LHMSAPI.Repository;
 
 namespace LHMSAPI.Controllers
 {

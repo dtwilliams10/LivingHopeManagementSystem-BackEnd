@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using LHMSAPI.Infrastructure;
-using System.Collections.Generic;
-using LHMSAPI.Repository;
 using LHMSAPI.Models;
+using LHMSAPI.Repository;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace lhmsapi.Controllers
 {
