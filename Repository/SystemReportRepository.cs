@@ -16,9 +16,9 @@ namespace LHMSAPI.Repository
             _context = context;
         }
 
-        public string Add()
+        public void AddSystemReport(SystemReport systemReport)
         {
-            return "test call for Add System Report";
+            
         }
 
         void Delete(SystemReport item)

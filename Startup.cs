@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,11 +9,13 @@ namespace LHMSAPI
 {
     public class Startup
     {
-        public static string environment {get; set;}
+        public static string environment { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
 
@@ -23,8 +25,21 @@ namespace LHMSAPI
             services.AddScoped<SystemReportRepository>();
             services.AddScoped<StatusRepository>();
             services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
-            services.AddCors();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+            {
+                builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+            });
+        });
             services.AddControllers();
+
+            services.AddDbContext<SystemReportContext>(options =>
+                    options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,14 +55,11 @@ namespace LHMSAPI
             {
                 app.UseHsts();
             }
-
+            
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseEndpoints(endpoints => {endpoints.MapDefaultControllerRoute();});
-            app.UseCors(builder =>
-                builder.WithOrigins("https://lhms.dtwilliams10.com", "http://localhost:3000", "https://test.lhms.dtwilliams10.com")
-                .AllowAnyMethod()
-                .AllowCredentials());
+            app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
         }
     }
 }
