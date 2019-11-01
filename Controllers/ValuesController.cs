@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LHMSAPI.Controllers
 {
+    ///TODO: Need to remove this and fix CORS properly
+    [DisableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -17,7 +17,7 @@ namespace LHMSAPI.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/values/{id}
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {

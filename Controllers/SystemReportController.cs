@@ -1,51 +1,114 @@
-using Microsoft.AspNetCore.Mvc;
 using LHMSAPI.Models;
-using System.Threading.Tasks;
-using LHMSAPI.Infrastructure;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace lhmsapi.Controllers
+namespace LHMSAPI.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/[controller]")]
+    ///TODO: Need to remove this and fix CORS properly
+    [DisableCors]
     [ApiController]
+    [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
     {
-        private readonly SystemReportRepository _systemReportRepository;
+        private readonly SystemReportContext _context;
 
-        public SystemReportController(SystemReportRepository systemReportRepository) {
-            _systemReportRepository = systemReportRepository;
+        public SystemReportController(SystemReportContext context)
+        {
+            _context = context;
         }
 
-        [NoCache]
+        // GET: api/SystemReport
         [HttpGet]
-        public async Task<IEnumerable<SystemReport>> Get() {
-            return await _systemReportRepository.GetAllSystemReports();
+        [Produces("application/json")]
+
+        public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
+        {
+            return await _context.SystemReport.ToListAsync();
         }
 
+        // GET: api/SystemReport/5
         [HttpGet("{id}")]
-        public async Task<SystemReport> Get(string id) {
-            return await _systemReportRepository.GetSystemReport(id) ?? new SystemReport();
+        public async Task<ActionResult<SystemReport>> GetSystemReport(int id)
+        {
+            var systemReport = await _context.SystemReport.FindAsync(id);
+
+            if (systemReport == null)
+            {
+                return NotFound();
+            }
+
+            return systemReport;
         }
 
-        [HttpPost]
-        public async void PostAsync([FromBody] SystemReport newSystemReport) {
-            await _systemReportRepository.AddSystemReport(new SystemReport
+        // PUT: api/SystemReport/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutSystemReport(int id, SystemReport systemReport)
+        {
+            if (id != systemReport.Id)
             {
-                //TODO: Need to autogenerate Report IDs for each team/system.
-                ReportID = newSystemReport.ReportID,
-                Name = newSystemReport.Name,
-                ReportDate = newSystemReport.ReportDate,
-                CreatedDate = newSystemReport.CreatedDate,
-                UpdatedDate = newSystemReport.UpdatedDate,
-                SystemName = newSystemReport.SystemName,
-                SystemUpdate = newSystemReport.SystemUpdate,
-                PersonnelUpdates = newSystemReport.PersonnelUpdates,
-                CreativeIdeasAndEvaluations = newSystemReport.CreativeIdeasAndEvaluations,
-                BarriersOrChallenges = newSystemReport.BarriersOrChallenges,
-                HowCanIHelpYou = newSystemReport.HowCanIHelpYou,
-                PersonalGrowthAndDevelopment = newSystemReport.PersonalGrowthAndDevelopment
-            });
+                return BadRequest();
+            }
+
+            _context.Entry(systemReport).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SystemReportExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/SystemReport
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPost]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<ActionResult<SystemReport>> PostSystemReport(SystemReport systemReport)
+        {
+            _context.SystemReport.Add(systemReport);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetSystemReport", new { id = systemReport.Id }, systemReport);
+        }
+
+        // DELETE: api/SystemReport/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<SystemReport>> DeleteSystemReport(int id)
+        {
+            var systemReport = await _context.SystemReport.FindAsync(id);
+            if (systemReport == null)
+            {
+                return NotFound();
+            }
+
+            _context.SystemReport.Remove(systemReport);
+            await _context.SaveChangesAsync();
+
+            return systemReport;
+        }
+
+        private bool SystemReportExists(int id)
+        {
+            return _context.SystemReport.Any(e => e.Id == id);
         }
     }
 }

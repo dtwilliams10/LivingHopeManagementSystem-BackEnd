@@ -1,25 +1,28 @@
-using System;
-using LHMSAPI.Models;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
+using LHMSAPI.Repository;
 
 namespace LHMSAPI.Controllers
-{   
+{
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class StatusController : ControllerBase
     {
-        private readonly DatabaseContext _databaseContext;
-        public StatusController(DatabaseContext databaseContext)
+
+        private readonly StatusRepository _statusRepository;
+
+        public StatusController(StatusRepository statusRepository)
         {
-            _databaseContext = databaseContext;
+            _statusRepository = statusRepository;
         }
 
-        [HttpGet]
-        public string GetDatabaseStatus()
+        [HttpGet(Name = "GetDatabaseStatus")]
+        public async Task<string> GetDatabaseStatus()
         {
-           return _databaseContext.GetDatabaseStatus();
+            string response = await _statusRepository.GetDatabaseStatus();
+
+            return response;
         }
     }
 }
