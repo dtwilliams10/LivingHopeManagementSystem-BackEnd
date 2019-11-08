@@ -33,7 +33,8 @@ namespace LHMSAPI
             {
                 builder.WithOrigins("http://localhost:3000", "https://*.dtwilliams10.com")
                                     .AllowAnyHeader()
-                                    .AllowAnyMethod();
+                                    .AllowAnyMethod()
+                                    .SetIsOriginAllowedToAllowWildcardSubdomains();
             });
             });
             services.AddControllers();
