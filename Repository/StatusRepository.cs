@@ -36,14 +36,13 @@ namespace LHMSAPI.Repository
                         var rows = new Status {status = reader.GetString(0)};
                         status.Add(rows.status);
                         }
-
                     }
                     reader.Dispose();
                 }
             }
 
             catch(System.Net.Sockets.SocketException ex)
-            { 
+            {
              Console.WriteLine(ex);
              //TODO: Updated this to return a 500 error rather than a 200. 
              return "An error ocurred connecting with the database. Please contact an administrator."; 
