@@ -23,6 +23,7 @@ namespace LHMSAPI.Controllers
         }
 
         // GET: api/SystemReport
+        [DisableCors]
         [HttpGet]
         [Produces("application/json")]
 
