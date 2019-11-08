@@ -31,15 +31,13 @@ namespace LHMSAPI
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
             {
-                builder.WithOrigins("http://localhost:3000")
+                builder.WithOrigins("http://localhost:3000", "https://*.dtwilliams10.com")
                                     .AllowAnyHeader()
-                                    .AllowAnyMethod();
+                                    .AllowAnyMethod()
+                                    .SetIsOriginAllowedToAllowWildcardSubdomains();
             });
-        });
+            });
             services.AddControllers();
-
-            services.AddDbContext<SystemReportContext>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,10 +53,10 @@ namespace LHMSAPI
             {
                 app.UseHsts();
             }
-            
-            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
         }
     }
