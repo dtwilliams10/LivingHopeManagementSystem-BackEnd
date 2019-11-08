@@ -1,71 +1,34 @@
 INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
-VALUES (1,
-'Administrative'
-);
+	"Id", "Name")
+	VALUES (0, 'Youth');
 
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (1, 'FirstTouch');
 
-VALUES (
-2,
-'Childrens'
-);
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (2, 'SecondTouch');
 
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (3, 'SpecializedMinistries');
 
-VALUES (
-3,
-'First Touch'
-);
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (4, 'Children');
 
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (5, 'Administrative');
 
-VALUES (
-4,
-'Second Touch'
-);
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (6, 'CampusPreservation');
 
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
-
-VALUES (
-5,
-'Youth'
-);
-
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
-
-VALUES (
-6,
-'Worship'
-);
-
-INSERT INTO public."SystemName"(
-"Id",
-"Name"
-)
-
-VALUES (
-7,
-'Administrative'
-);
-
+	INSERT INTO public."SystemName"(
+	"Id", "Name")
+	VALUES (7, 'ChristianDevelopment');
 INSERT INTO public."SystemStatus"(
 	"Id",
 	"Status"
