@@ -35,11 +35,8 @@ namespace LHMSAPI
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
             });
-        });
+            });
             services.AddControllers();
-
-            services.AddDbContext<SystemReportContext>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +52,7 @@ namespace LHMSAPI
             {
                 app.UseHsts();
             }
-            
+
             app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseRouting();

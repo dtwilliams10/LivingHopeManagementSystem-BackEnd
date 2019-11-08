@@ -1,6 +1,6 @@
 INSERT INTO public."SystemReports"(
-"Id", 
-"Name", 
+"Id",
+"Name",
 "ReportDate", 
 "CreatedDate", 
 "UpdatedDate",

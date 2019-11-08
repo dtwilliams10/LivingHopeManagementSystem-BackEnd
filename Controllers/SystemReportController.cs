@@ -1,4 +1,5 @@
 using LHMSAPI.Models;
+using LHMSAPI.Repository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,9 @@ namespace LHMSAPI.Controllers
     [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
     {
-        private readonly SystemReportContext _context;
+        private readonly DatabaseContext _context;
 
-        public SystemReportController(SystemReportContext context)
+        public SystemReportController(DatabaseContext context)
         {
             _context = context;
         }
@@ -27,14 +28,14 @@ namespace LHMSAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
         {
-            return await _context.SystemReport.ToListAsync();
+            return await _context.SystemReports.ToListAsync();
         }
 
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SystemReport>> GetSystemReport(int id)
         {
-            var systemReport = await _context.SystemReport.FindAsync(id);
+            var systemReport = await _context.SystemReports.FindAsync(id);
 
             if (systemReport == null)
             {
@@ -84,7 +85,7 @@ namespace LHMSAPI.Controllers
         [Produces("application/json")]
         public async Task<ActionResult<SystemReport>> PostSystemReport(SystemReport systemReport)
         {
-            _context.SystemReport.Add(systemReport);
+            _context.SystemReports.Add(systemReport);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSystemReport", new { id = systemReport.Id }, systemReport);
@@ -94,13 +95,13 @@ namespace LHMSAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<SystemReport>> DeleteSystemReport(int id)
         {
-            var systemReport = await _context.SystemReport.FindAsync(id);
+            var systemReport = await _context.SystemReports.FindAsync(id);
             if (systemReport == null)
             {
                 return NotFound();
             }
 
-            _context.SystemReport.Remove(systemReport);
+            _context.SystemReports.Remove(systemReport);
             await _context.SaveChangesAsync();
 
             return systemReport;
@@ -108,7 +109,7 @@ namespace LHMSAPI.Controllers
 
         private bool SystemReportExists(int id)
         {
-            return _context.SystemReport.Any(e => e.Id == id);
+            return _context.SystemReports.Any(e => e.Id == id);
         }
     }
 }
