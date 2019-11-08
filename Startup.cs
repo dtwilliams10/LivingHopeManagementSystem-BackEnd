@@ -22,10 +22,10 @@ namespace LHMSAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<SystemReportRepository>();
             services.AddScoped<StatusRepository>();
-            services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
-
+            services.AddDbContext<DatabaseContext>(options => {
+                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")).UseLazyLoadingProxies();
+            });
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
