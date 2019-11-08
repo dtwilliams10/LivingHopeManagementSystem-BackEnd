@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace LHMSAPI.Controllers
 {
     ///TODO: Need to remove this and fix CORS properly
-    [DisableCors]
     [ApiController]
     [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
@@ -23,7 +22,6 @@ namespace LHMSAPI.Controllers
         }
 
         // GET: api/SystemReport
-        [DisableCors]
         [HttpGet]
         [Produces("application/json")]
 
