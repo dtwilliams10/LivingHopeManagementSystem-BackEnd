@@ -1,10 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace LHMSAPI.Models
 {
     public class SystemReport
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     //TODO: Update with logic to use the logged in user's info from Identity Server 4.
@@ -26,10 +29,14 @@ namespace LHMSAPI.Models
     public DateTime UpdatedDate { get; set; } = System.DateTime.Now;
 
     public int SystemReportStatusId { get; set; }
-    public SystemStatus SystemReportStatus { get; set; }
+
+    [JsonIgnore]
+    public virtual SystemStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
-    public SystemName SystemName { get; set; }
+    
+    [JsonIgnore]
+    public virtual SystemName SystemName { get; set; }
 
     public string SystemUpdate { get; set; }
 

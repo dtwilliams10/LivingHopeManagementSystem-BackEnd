@@ -1,5 +1,6 @@
 using LHMSAPI.Models;
 using LHMSAPI.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LHMSAPI.Controllers
 {
-    ///TODO: Need to remove this and fix CORS properly
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
