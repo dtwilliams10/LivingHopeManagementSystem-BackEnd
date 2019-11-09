@@ -28,9 +28,8 @@ namespace LHMSAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
         {
-            return await _context.SystemReports.ToListAsync();
+            return await _context.SystemReports.Where(s => s.Active == true).ToListAsync();
         }
-
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SystemReport>> GetSystemReport(int id)

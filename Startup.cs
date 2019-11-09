@@ -23,7 +23,8 @@ namespace LHMSAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<StatusRepository>();
-            services.AddDbContext<DatabaseContext>(options => {
+            services.AddDbContext<DatabaseContext>(options =>
+            {
                 options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")).UseLazyLoadingProxies();
             });
             services.AddCors(options =>
@@ -51,7 +52,7 @@ namespace LHMSAPI
             }
             else
             {
-                app.UseHsts();
+                app.UseExceptionHandler("/Error");
             }
             app.UseAuthorization();
             app.UseHttpsRedirection();
