@@ -31,11 +31,13 @@ namespace LHMSAPI.Models
     public int SystemReportStatusId { get; set; }
 
     [JsonIgnore]
+    [ForeignKey("SystemReportStatusId")]
     public virtual SystemStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
-    
+
     [JsonIgnore]
+    [ForeignKey("SystemNameId")]
     public virtual SystemName SystemName { get; set; }
 
     public string SystemUpdate { get; set; }

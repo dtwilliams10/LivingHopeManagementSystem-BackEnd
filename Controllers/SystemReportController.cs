@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +29,9 @@ namespace LHMSAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
         {
-            return await _context.SystemReports.Where(s => s.Active == true).ToListAsync();
+            var SystemReports =  await _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToListAsync();
+
+            return SystemReports;
         }
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
