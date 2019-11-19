@@ -34,8 +34,6 @@ namespace LHMSAPI.Models
 
     public int SystemNameId { get; set; }
 
-    //public string SystemName {get; set;}
-
     [ForeignKey("SystemNameId")]
     public SystemName SystemName { get; set; }
 
