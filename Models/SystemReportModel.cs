@@ -1,7 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace LHMSAPI.Models
 {
@@ -30,15 +29,15 @@ namespace LHMSAPI.Models
 
     public int SystemReportStatusId { get; set; }
 
-    [JsonIgnore]
     [ForeignKey("SystemReportStatusId")]
-    public virtual SystemStatus SystemReportStatus { get; set; }
+    public SystemStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
 
-    [JsonIgnore]
+    //public string SystemName {get; set;}
+
     [ForeignKey("SystemNameId")]
-    public virtual SystemName SystemName { get; set; }
+    public SystemName SystemName { get; set; }
 
     public string SystemUpdate { get; set; }
 
