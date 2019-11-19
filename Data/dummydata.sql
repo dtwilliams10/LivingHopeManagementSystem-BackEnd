@@ -4,19 +4,19 @@ INSERT INTO public."SystemName"(
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (1, 'FirstTouch');
+	VALUES (1, 'First Touch');
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (2, 'SecondTouch');
+	VALUES (2, 'Second Touch');
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (3, 'SpecializedMinistries');
+	VALUES (3, 'Specialized Ministries');
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (4, 'Children');
+	VALUES (4, 'Childrens Ministries');
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
@@ -24,11 +24,11 @@ INSERT INTO public."SystemName"(
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (6, 'CampusPreservation');
+	VALUES (6, 'Campus Preservation');
 
 	INSERT INTO public."SystemName"(
 	"Id", "Name")
-	VALUES (7, 'ChristianDevelopment');
+	VALUES (7, 'Christian Development');
 INSERT INTO public."SystemStatus"(
 	"Id",
 	"Status"
@@ -82,8 +82,8 @@ VALUES (
 INSERT INTO public."SystemReports"(
 "Id",
 "Name",
-"ReportDate", 
-"CreatedDate", 
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
