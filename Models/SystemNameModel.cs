@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace LHMSAPI.Models
 {
     public class SystemName
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<SystemReport> SystemReports {get; set;}
+        [JsonIgnore]
+        public virtual ICollection<SystemReport> SystemReports {get; set;}
     }
 }

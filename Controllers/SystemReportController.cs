@@ -1,6 +1,6 @@
 using LHMSAPI.Models;
 using LHMSAPI.Repository;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LHMSAPI.Controllers
 {
-    ///TODO: Need to remove this and fix CORS properly
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
@@ -27,9 +27,14 @@ namespace LHMSAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
         {
-            return await _context.SystemReports.ToListAsync();
+            var SystemReports =  await _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToListAsync();
+            foreach(SystemReport sr in SystemReports)
+            {
+               sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
+               sr.SystemReportStatus.Status = _context.SystemStatus.Find(sr.SystemReportStatusId).Status.ToString();
+            }
+            return SystemReports;
         }
-
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SystemReport>> GetSystemReport(int id)

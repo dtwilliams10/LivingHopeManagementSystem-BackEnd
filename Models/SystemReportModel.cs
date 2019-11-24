@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LHMSAPI.Models
 {
     public class SystemReport
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     //TODO: Update with logic to use the logged in user's info from Identity Server 4.
@@ -26,9 +28,13 @@ namespace LHMSAPI.Models
     public DateTime UpdatedDate { get; set; } = System.DateTime.Now;
 
     public int SystemReportStatusId { get; set; }
+
+    [ForeignKey("SystemReportStatusId")]
     public SystemStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
+
+    [ForeignKey("SystemNameId")]
     public SystemName SystemName { get; set; }
 
     public string SystemUpdate { get; set; }
