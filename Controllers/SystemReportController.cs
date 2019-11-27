@@ -89,6 +89,7 @@ namespace LHMSAPI.Controllers
         [Produces("application/json")]
         public async Task<ActionResult<SystemReport>> PostSystemReport(SystemReport systemReport)
         {
+            systemReport.Active = true;
             _context.SystemReports.Add(systemReport);
             await _context.SaveChangesAsync();
 
