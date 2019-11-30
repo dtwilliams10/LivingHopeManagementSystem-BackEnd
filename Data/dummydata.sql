@@ -1,87 +1,161 @@
-INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (0, 'Youth');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (1, 'First Touch');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (2, 'Second Touch');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (3, 'Specialized Ministries');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (4, 'Childrens Ministries');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (5, 'Administrative');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (6, 'Campus Preservation');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (7, 'Christian Development');
-INSERT INTO public."SystemStatus"(
-	"Id",
-	"Status"
-)
-
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
 VALUES (
-	0,
-	'Inactive'
-);
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
 
-INSERT INTO public."SystemStatus"(
-	"Id",
-	"Status"
-)
-
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
 VALUES (
-	1,
-	'Draft'
-);
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
 
-INSERT INTO public."SystemStatus"(
-	"Id",
-	"Status"
-)
-
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
 VALUES (
-	2,
-	'Submitted'
-);
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
 
-INSERT INTO public."SystemStatus"(
-	"Id",
-	"Status"
-)
-
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
 VALUES (
-	3,
-	'Approved'
-);
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
 
-INSERT INTO public."SystemStatus"(
-	"Id",
-	"Status"
-)
-
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
 VALUES (
-	4,
-	'Rejected'
-);
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
 
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -94,8 +168,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (1,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -109,9 +184,9 @@ VALUES (1,
 0,
 '1');
 
-
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -124,8 +199,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (2,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -139,8 +215,9 @@ VALUES (2,
 0,
 '1');
 
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -153,8 +230,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (3,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -168,9 +246,9 @@ VALUES (3,
 0,
 '1');
 
-
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -183,8 +261,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (4,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -198,9 +277,9 @@ VALUES (4,
 0,
 '1');
 
-
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -213,8 +292,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (5,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -228,9 +308,9 @@ VALUES (5,
 0,
 '1');
 
-
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -243,8 +323,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (6,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -258,9 +339,9 @@ VALUES (6,
 0,
 '1');
 
-
-INSERT INTO public."SystemReports"("Id",
-"Name",
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
 "ReportDate",
 "CreatedDate",
 "UpdatedDate",
@@ -273,38 +354,9 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (7,
+VALUES (
 'Tyler Williams',
-'today',
-'today',
-'today',
-1,
-'This is my System Update',
-'This is my personnel Update',
-'These are my Creative Ideas and Evaluations',
-'These are my barriers or challenges',
-'this is how you can help me',
-'Personal Growth and Development',
-1,
-'1');
-
-INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
-"UpdatedDate",
-"SystemNameId",
-"SystemUpdate",
-"PersonnelUpdates",
-"CreativeIdeasAndEvaluations",
-"BarriersOrChallenges",
-"HowCanIHelpYou",
-"PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
-VALUES (8,
-'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -319,10 +371,10 @@ VALUES (8,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -333,8 +385,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (9,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -349,10 +402,10 @@ VALUES (9,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -363,8 +416,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (10,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -379,10 +433,10 @@ VALUES (10,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -393,37 +447,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (11,
+VALUES (
 'Tyler Williams',
-'today',
-'today',
-'today',
-1,
-'This is my System Update',
-'This is my personnel Update',
-'These are my Creative Ideas and Evaluations',
-'These are my barriers or challenges',
-'this is how you can help me',
-'Personal Growth and Development',
-0,
-'1');
-INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
-"UpdatedDate",
-"SystemNameId",
-"SystemUpdate",
-"PersonnelUpdates",
-"CreativeIdeasAndEvaluations",
-"BarriersOrChallenges",
-"HowCanIHelpYou",
-"PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
-VALUES (12,
-'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -438,10 +464,10 @@ VALUES (12,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -452,8 +478,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (13,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -466,11 +493,12 @@ VALUES (13,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -481,8 +509,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (14,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -495,11 +524,12 @@ VALUES (14,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -510,8 +540,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (15,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -524,11 +555,12 @@ VALUES (15,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -539,8 +571,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (16,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -553,11 +586,12 @@ VALUES (16,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -568,8 +602,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (17,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -582,11 +617,12 @@ VALUES (17,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -597,8 +633,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (18,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -611,11 +648,12 @@ VALUES (18,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -626,8 +664,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (19,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -640,11 +679,12 @@ VALUES (19,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -655,8 +695,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (20,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -669,11 +710,12 @@ VALUES (20,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -684,8 +726,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (21,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -698,11 +741,12 @@ VALUES (21,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -713,8 +757,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (22,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -727,11 +772,12 @@ VALUES (22,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -742,8 +788,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (23,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -756,11 +803,12 @@ VALUES (23,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -771,8 +819,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (24,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -785,11 +834,12 @@ VALUES (24,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -800,8 +850,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (25,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -814,11 +865,12 @@ VALUES (25,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -829,8 +881,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (26,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -843,11 +896,12 @@ VALUES (26,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -858,8 +912,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (27,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -872,11 +927,12 @@ VALUES (27,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -887,8 +943,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (28,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -901,11 +958,12 @@ VALUES (28,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -916,8 +974,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (29,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -930,11 +989,12 @@ VALUES (29,
 'Personal Growth and Development',
 0,
 '1');
+
 INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
 "UpdatedDate",
 "SystemNameId",
 "SystemUpdate",
@@ -945,8 +1005,9 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (31,
+VALUES (
 'Tyler Williams',
+'My System Report',
 'today',
 'today',
 'today',
@@ -958,4 +1019,563 @@ VALUES (31,
 'this is how you can help me',
 'Personal Growth and Development',
 0,
-'true');
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"ReporterName",
+"ReportName",
+"ReportDate",
+"CreatedDate",
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
+'Tyler Williams',
+'My System Report',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+

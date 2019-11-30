@@ -10,8 +10,9 @@ namespace LHMSAPI.Models
     public int Id { get; set; }
 
     //TODO: Update with logic to use the logged in user's info from Identity Server 4.
+    public string ReporterName {get; set;}
 
-    public string Name { get; set; }
+    public string ReportName { get; set; }
 
     public bool Active { get; set; }
 
