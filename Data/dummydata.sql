@@ -1,5 +1,4 @@
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -13,7 +12,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (1,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -29,7 +28,7 @@ VALUES (1,
 '1');
 
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -43,7 +42,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (2,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -58,7 +57,7 @@ VALUES (2,
 0,
 '1');
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -72,7 +71,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (3,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -88,7 +87,7 @@ VALUES (3,
 '1');
 
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -102,7 +101,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (4,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -118,7 +117,7 @@ VALUES (4,
 '1');
 
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -132,7 +131,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (5,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -148,7 +147,7 @@ VALUES (5,
 '1');
 
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -162,7 +161,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (6,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -178,7 +177,7 @@ VALUES (6,
 '1');
 
 
-INSERT INTO public."SystemReports"("Id",
+INSERT INTO public."SystemReports"(
 "Name",
 "ReportDate",
 "CreatedDate",
@@ -192,7 +191,7 @@ INSERT INTO public."SystemReports"("Id",
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (7,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -208,7 +207,6 @@ VALUES (7,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -222,7 +220,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (8,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -238,7 +236,7 @@ VALUES (8,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
+
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -252,7 +250,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (9,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -268,7 +266,6 @@ VALUES (9,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -282,7 +279,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (10,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -298,7 +295,6 @@ VALUES (10,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -312,36 +308,8 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (11,
-'Tyler Williams',
-'today',
-'today',
-'today',
-1,
-'This is my System Update',
-'This is my personnel Update',
-'These are my Creative Ideas and Evaluations',
-'These are my barriers or challenges',
-'this is how you can help me',
-'Personal Growth and Development',
-0,
-'1');
-INSERT INTO public."SystemReports"(
-"Id",
-"Name",
-"ReportDate", 
-"CreatedDate", 
-"UpdatedDate",
-"SystemNameId",
-"SystemUpdate",
-"PersonnelUpdates",
-"CreativeIdeasAndEvaluations",
-"BarriersOrChallenges",
-"HowCanIHelpYou",
-"PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
-VALUES (12,
+
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -357,7 +325,6 @@ VALUES (12,
 '1');
 
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -371,7 +338,36 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (13,
+VALUES (
+'Tyler Williams',
+'today',
+'today',
+'today',
+1,
+'This is my System Update',
+'This is my personnel Update',
+'These are my Creative Ideas and Evaluations',
+'These are my barriers or challenges',
+'this is how you can help me',
+'Personal Growth and Development',
+0,
+'1');
+
+INSERT INTO public."SystemReports"(
+"Name",
+"ReportDate", 
+"CreatedDate", 
+"UpdatedDate",
+"SystemNameId",
+"SystemUpdate",
+"PersonnelUpdates",
+"CreativeIdeasAndEvaluations",
+"BarriersOrChallenges",
+"HowCanIHelpYou",
+"PersonalGrowthAndDevelopment",
+"SystemReportStatusId",
+"Active")
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -386,7 +382,6 @@ VALUES (13,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -400,7 +395,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (14,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -415,7 +410,6 @@ VALUES (14,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -429,7 +423,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (15,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -444,7 +438,6 @@ VALUES (15,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -458,7 +451,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (16,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -473,7 +466,6 @@ VALUES (16,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -487,7 +479,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (17,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -502,7 +494,6 @@ VALUES (17,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -516,7 +507,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (18,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -531,7 +522,6 @@ VALUES (18,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -545,7 +535,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (19,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -560,7 +550,6 @@ VALUES (19,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -574,7 +563,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (20,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -589,7 +578,6 @@ VALUES (20,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -603,7 +591,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (21,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -618,7 +606,6 @@ VALUES (21,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -632,7 +619,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (22,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -647,7 +634,6 @@ VALUES (22,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -661,7 +647,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (23,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -676,7 +662,6 @@ VALUES (23,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -690,7 +675,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (24,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -705,7 +690,6 @@ VALUES (24,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -719,7 +703,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (25,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -734,7 +718,6 @@ VALUES (25,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -748,7 +731,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (26,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -763,7 +746,6 @@ VALUES (26,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -777,7 +759,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (27,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -792,7 +774,6 @@ VALUES (27,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -806,7 +787,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (28,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -821,7 +802,6 @@ VALUES (28,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -835,7 +815,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (29,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
@@ -850,7 +830,6 @@ VALUES (29,
 0,
 '1');
 INSERT INTO public."SystemReports"(
-"Id",
 "Name",
 "ReportDate", 
 "CreatedDate", 
@@ -864,7 +843,7 @@ INSERT INTO public."SystemReports"(
 "PersonalGrowthAndDevelopment",
 "SystemReportStatusId",
 "Active")
-VALUES (31,
+VALUES (
 'Tyler Williams',
 'today',
 'today',
