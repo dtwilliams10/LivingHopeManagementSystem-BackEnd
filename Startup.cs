@@ -52,10 +52,11 @@ namespace LHMSAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthorization();
+            
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(MyAllowSpecificOrigins);
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
         }
     }
