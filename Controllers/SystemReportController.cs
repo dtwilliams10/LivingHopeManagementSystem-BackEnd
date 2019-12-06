@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LHMSAPI.Controllers
 {
-    [Authorize]
+    ///[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SystemReportController : ControllerBase
