@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Threading.Tasks;
 using LHMSAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using LHMSAPI.Helpers;
 
 namespace LHMSAPI.Repository
 {

@@ -3,10 +3,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using LHMSAPI.Helpers;
 using LHMSAPI.Repository;
-using Microsoft.AspNetCore.Identity;
-using System;
-using Serilog;
 
 namespace LHMSAPI
 {

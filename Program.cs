@@ -1,5 +1,5 @@
 ﻿using System;
-using LHMSAPI.Repository;
+using LHMSAPI.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
