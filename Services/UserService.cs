@@ -11,6 +11,7 @@ namespace LHMSAPI.Services
     {
         User Authenticate(string username, string password);
         IEnumerable<User> GetAll();
+        User GetById(int id);
         User Create(User user, string password);
         void Update(User user, string password = null);
         void Delete(int id);
@@ -44,10 +45,10 @@ namespace LHMSAPI.Services
         public User Create(User user, string password)
         {
             if(string.IsNullOrWhiteSpace(password))
-            throw new ApplicationException("Password is required");
+            throw new AppException("Password is required");
 
             if(_context.Users.Any(x=>x.username == user.username))
-                throw new ApplicationException("Username \"" + user.username + "\" is already taken");
+                throw new AppException("Username \"" + user.username + "\" is already taken");
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -76,17 +77,22 @@ namespace LHMSAPI.Services
             return _context.Users;
         }
 
+        public User GetById(int id)
+        {
+            return _context.Users.Find(id);
+        }
+
         public void Update(User userParam, string password = null)
         {
             var user = _context.Users.Find(userParam.id);
 
             if(user == null)
-                throw new ApplicationException("User not found");
+                throw new AppException("User not found");
 
             if(!string.IsNullOrWhiteSpace(userParam.username) && userParam.username != user.username)
             {
                 if(_context.Users.Any(x => x.username == userParam.username))
-                    throw new ApplicationException("Username " + userParam.username + " is already taken");
+                    throw new AppException("Username " + userParam.username + " is already taken");
 
                 user.username = userParam.username;
             }

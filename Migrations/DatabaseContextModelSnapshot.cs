@@ -16,8 +16,35 @@ namespace LHMSAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("LHMSAPI.Entities.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("firstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("lastName")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("passwordHash")
+                        .HasColumnType("bytea");
+
+                    b.Property<byte[]>("passwordSalt")
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("username")
+                        .HasColumnType("text");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Users");
+                });
 
             modelBuilder.Entity("LHMSAPI.Models.SystemName", b =>
                 {

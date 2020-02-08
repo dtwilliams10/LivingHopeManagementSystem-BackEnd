@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 using LHMSAPI.Services;
 using AutoMapper;
 using LHMSAPI.Helpers;
@@ -11,12 +10,15 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System;
 using LHMSAPI.Models;
+using LHMSAPI.Models.Users;
+using LHMSAPI.Entities;
+using System.Collections.Generic;
 
 namespace LHMSAPI.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
@@ -38,7 +40,7 @@ namespace LHMSAPI.Controllers
 
             if(user == null)
                 return BadRequest(new { message = "Username or password is incorrect"});
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -63,6 +65,66 @@ namespace LHMSAPI.Controllers
                 LastName = user.lastName,
                 Token = tokenString
             });
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody]RegisterModel model)
+        {
+            // map model to entity
+            var user = _mapper.Map<User>(model);
+
+            try
+            {
+                // create user
+                _userService.Create(user, model.password);
+                return Ok();
+            }
+            catch (AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var users = _userService.GetAll();
+            var model = _mapper.Map<IList<UserModel>>(users);
+            return Ok(model);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var user = _userService.GetById(id);
+            var model = _mapper.Map<UserModel>(user);
+            return Ok(model);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody]UpdateModel model)
+        {
+            var user = _mapper.Map<User>(model);
+            user.id = id;
+
+            try
+            {
+                _userService.Update(user, model.password);
+                return Ok();
+            }
+            catch (AppException ex)
+            {
+                return BadRequest(new { message = ex.Message});
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _userService.Delete(id);
+            return Ok();
         }
     }
 }
