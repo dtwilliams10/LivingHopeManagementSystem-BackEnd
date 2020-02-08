@@ -22,6 +22,6 @@ namespace LHMSAPI.Helpers
         public DbSet<SystemName> SystemName { get; set; }
 
         public DbSet<User> Users {get; set;}
-   }
+    }
 
 }
