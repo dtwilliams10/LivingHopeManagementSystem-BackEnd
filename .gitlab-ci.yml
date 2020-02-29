@@ -6,7 +6,7 @@ test build job:
   stage: build
   only:
     - develop@LHMS/LHMS-API
-  tags: 
+  tags:
     - develop
   script:
     - docker build -t lhmsapi .
@@ -16,7 +16,7 @@ prod build job:
     stage: build
     only:
       - master@LHMS/LHMS-API
-    tags: 
+    tags:
       - production
     script:
       - docker build -t lhmsapi .
