@@ -52,26 +52,26 @@ namespace LHMSAPI
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            var appSettingsSection = _configuration.GetSection("AppSettings");
+            IConfigurationSection appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
 
-            var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
+            AppSettings appSettings = appSettingsSection.Get<AppSettings>();
+            byte[] key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            _ = services.AddAuthentication(x =>
+              {
+                  x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                  x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+              })
             .AddJwtBearer(x =>
             {
                 x.Events = new JwtBearerEvents
                 {
                     OnTokenValidated = context =>
                     {
-                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-                        var userId = int.Parse(context.Principal.Identity.Name);
-                        var user = userService.GetById(userId);
-                        if(user == null)
+                        IUserService userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                        int userId = int.Parse(context.Principal.Identity.Name);
+                        Entities.User user = userService.GetById(userId);
+                        if (user == null)
                         {
                             context.Fail("Unauthorized");
                         }

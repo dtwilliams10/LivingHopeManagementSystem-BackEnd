@@ -36,14 +36,14 @@ namespace LHMSAPI.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]AuthenticateModel model)
         {
-            var user = _userService.Authenticate(model.userName, model.password);
+            User user = _userService.Authenticate(model.userName, model.password);
 
             if(user == null)
                 return BadRequest(new { message = "Username or password is incorrect"});
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            byte[] key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity( new Claim[]
                 {
@@ -53,8 +53,8 @@ namespace LHMSAPI.Controllers
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
             };
 
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+            string tokenString = tokenHandler.WriteToken(token);
 
             // return basic user info and authentication token
             return Ok(new
@@ -72,7 +72,7 @@ namespace LHMSAPI.Controllers
         public IActionResult Register([FromBody]RegisterModel model)
         {
             // map model to entity
-            var user = _mapper.Map<User>(model);
+            User user = _mapper.Map<User>(model);
 
             try
             {
@@ -90,23 +90,23 @@ namespace LHMSAPI.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _userService.GetAll();
-            var model = _mapper.Map<IList<UserModel>>(users);
+            IEnumerable<User> users = _userService.GetAll();
+            IList<UserModel> model = _mapper.Map<IList<UserModel>>(users);
             return Ok(model);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var user = _userService.GetById(id);
-            var model = _mapper.Map<UserModel>(user);
+            User user = _userService.GetById(id);
+            UserModel model = _mapper.Map<UserModel>(user);
             return Ok(model);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]UpdateModel model)
         {
-            var user = _mapper.Map<User>(model);
+            User user = _mapper.Map<User>(model);
             user.id = id;
 
             try
