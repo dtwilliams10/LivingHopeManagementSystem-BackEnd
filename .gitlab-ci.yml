@@ -28,8 +28,10 @@ prod build job:
     script:
       - docker build -t lhmsapi .
 
-  #prod deploy job:
-  #stage: .post
-  #trigger:
-  #  project: LHMS/LHMS-FrontEnd
-  #  branch: master
+prod deploy job:
+  stage: .post
+  only:
+    - master@LHMS/LHMS-API
+  trigger:
+    project: LHMS/LHMS-FrontEnd
+    branch: master
