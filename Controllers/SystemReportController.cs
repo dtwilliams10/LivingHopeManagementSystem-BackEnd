@@ -1,11 +1,11 @@
 using LHMSAPI.Models;
-using LHMSAPI.Repository;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using LHMSAPI.Helpers;
 
 namespace LHMSAPI.Controllers
 {
@@ -27,7 +27,7 @@ namespace LHMSAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
         {
-            var SystemReports =  await _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToListAsync();
+            List<SystemReport> SystemReports = await _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToListAsync();
             foreach(SystemReport sr in SystemReports)
             {
                sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
@@ -39,7 +39,7 @@ namespace LHMSAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SystemReport>> GetSystemReport(int id)
         {
-            var systemReport = await _context.SystemReports.FindAsync(id);
+            SystemReport systemReport = await _context.SystemReports.FindAsync(id);
 
             if (systemReport == null)
             {
@@ -101,7 +101,7 @@ namespace LHMSAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<SystemReport>> DeleteSystemReport(int id)
         {
-            var systemReport = await _context.SystemReports.FindAsync(id);
+            SystemReport systemReport = await _context.SystemReports.FindAsync(id);
             if (systemReport == null)
             {
                 return NotFound();
