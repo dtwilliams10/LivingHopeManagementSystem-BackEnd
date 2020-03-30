@@ -1,5 +1,6 @@
 stages:
  - build
+ - .post
 
 test build job:
   image: docker:latest
@@ -11,6 +12,12 @@ test build job:
   script:
     - docker build -t lhmsapi .
 
+test deploy job:
+  stage: .post
+  trigger:
+    project: LHMS/LHMS-FrontEnd
+    branch: develop
+
 prod build job:
     image: docker:latest
     stage: build
@@ -20,3 +27,8 @@ prod build job:
       - production
     script:
       - docker build -t lhmsapi .
+prod deploy job:
+  stage: .post
+  trigger:
+    project: LHMS/LHMS-FrontEnd
+    branch: master
