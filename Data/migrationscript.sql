@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS "LHMS";
+
+CREATE DATABASE "LHMS";
+
 CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
     "MigrationId" character varying(150) NOT NULL,
     "ProductVersion" character varying(32) NOT NULL,

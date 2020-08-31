@@ -1,5 +1,4 @@
 using LHMSAPI.Models;
-using LHMSAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -21,7 +20,6 @@ namespace LHMSAPI.Helpers
         public DbSet<SystemStatus> SystemStatus { get; set; }
         public DbSet<SystemName> SystemName { get; set; }
 
-        public DbSet<User> Users {get; set;}
     }
 
 }

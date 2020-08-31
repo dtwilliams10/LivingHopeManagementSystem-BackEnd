@@ -6,7 +6,7 @@ namespace LHMSAPI.Models {
 
       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
       public int Id { get; set; }
-     public string Status {get; set; }
+      public string Status {get; set; }
     }
 
 }

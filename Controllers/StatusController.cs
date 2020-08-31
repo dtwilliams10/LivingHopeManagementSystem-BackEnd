@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using LHMSAPI.Repository;
+using LHMSAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LHMSAPI.Controllers
@@ -10,17 +10,17 @@ namespace LHMSAPI.Controllers
     public class StatusController : ControllerBase
     {
 
-        private readonly StatusRepository _statusRepository;
+        private readonly IStatusService _statusService;
 
-        public StatusController(StatusRepository statusRepository)
+        public StatusController(IStatusService statusService)
         {
-            _statusRepository = statusRepository;
+            _statusService = statusService;
         }
 
         [HttpGet(Name = "GetDatabaseStatus")]
         public async Task<string> GetDatabaseStatus()
         {
-            string response = await _statusRepository.GetDatabaseStatus();
+            string response = await _statusService.getDatabaseStatus();
 
             return response;
         }
