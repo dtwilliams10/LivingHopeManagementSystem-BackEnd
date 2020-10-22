@@ -24,7 +24,7 @@ namespace LHMSAPI
 
             try
             {
-                Log.Information("Starting host...");
+                Log.Information("Starting LHMSAPI Host...");
                 CreateHostBuilder(args).Build().Run();
                 return 0;
             }
