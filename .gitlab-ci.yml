@@ -10,7 +10,7 @@ test build job:
   tags:
     - develop
   script:
-    - docker build -f test.Dockerfile-t lhmsapi .
+    - docker build -f test.Dockerfile -t lhmsapi .
 
 test deploy job:
   stage: .post
