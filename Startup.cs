@@ -13,35 +13,26 @@ namespace LHMSAPI
 {
     public class Startup
     {
-        private readonly IWebHostEnvironment _env;
-        private readonly IConfiguration _configuration;
-        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        private readonly IConfiguration Configuration;
+        public Startup(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _env = env;
+            Configuration = configuration;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>();
             services.AddScoped<IStatusService, StatusService>();
-
-            services.AddDbContext<DatabaseContext>(options =>
-            {
-                options.UseNpgsql(_configuration.GetConnectionString("PostgreSQL"));
-            });
+            services.AddScoped<ISystemReportService, SystemReportService>();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddCors();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            IConfigurationSection appSettingsSection = _configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
-
-            AppSettings appSettings = appSettingsSection.Get<AppSettings>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostEnvironment env, DatabaseContext databaseContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext context)
         {
             //Environment check
             if (env.IsProduction())
@@ -50,14 +41,29 @@ namespace LHMSAPI
             }
             else
             {
-                app.UseDeveloperExceptionPage();
-                databaseContext.Database.Migrate();
+                //app.UseDeveloperExceptionPage();
+                var migrated = true;
+                try
+                {
+                    Serilog.Log.Information("Attempting to migrate database.");
+                    context.Database.Migrate();
+                } catch (Npgsql.NpgsqlException ex)
+                {
+                    migrated = false;
+                    Serilog.Log.Error("Migration failed!");
+                    Serilog.Log.Error(ex.ToString());
+                }
+
+                if (migrated)
+                Serilog.Log.Information("Database migrated successfully!");
             }
 
             app.UseRouting();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-            app.UseAuthentication();
+            app.UseCors(x => x
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true)
+            .AllowCredentials());
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
