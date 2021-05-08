@@ -9,9 +9,8 @@ using LHMSAPI.Helpers;
 
 namespace LHMSAPI.Controllers
 {
-    [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class SystemReportController : ControllerBase
     {
         private readonly DatabaseContext _context;
@@ -89,7 +88,7 @@ namespace LHMSAPI.Controllers
         [Produces("application/json")]
         public async Task<ActionResult<SystemReport>> PostSystemReport(SystemReport systemReport)
         {
-            ///TODO: Need to move this into its own repo file and finish calls that way. 
+            ///TODO: Need to move this into its own repo file and finish calls that way.
             systemReport.Active = true;
             _context.SystemReports.Add(systemReport);
             await _context.SaveChangesAsync();
