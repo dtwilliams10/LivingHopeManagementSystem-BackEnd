@@ -4,40 +4,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using LHMSAPI.Helpers;
+using LHMSAPI.Services;
 
+//TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
 namespace LHMSAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class SystemReportController : ControllerBase
     {
-        private readonly DatabaseContext _context;
+        private readonly ISystemReportService _systemReportService;
 
-        public SystemReportController(DatabaseContext context)
+        public SystemReportController(ISystemReportService systemReportService)
         {
-            _context = context;
+            _systemReportService = systemReportService;
         }
 
         // GET: api/SystemReport
         [HttpGet]
-        [Produces("application/json")]
-
-        public async Task<ActionResult<IEnumerable<SystemReport>>> GetSystemReport()
+        public ActionResult<IEnumerable<SystemReport>> GetAllSystemReports()
         {
-            List<SystemReport> SystemReports = await _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToListAsync();
-            foreach(SystemReport sr in SystemReports)
-            {
-               sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
-               sr.SystemReportStatus.Status = _context.SystemStatus.Find(sr.SystemReportStatusId).Status.ToString();
-            }
-            return SystemReports;
+            var systemReports = _systemReportService.GetAllSystemReports();
+            return Ok(systemReports);
         }
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SystemReport>> GetSystemReport(int id)
+        public ActionResult<SystemReport> GetSystemReportById(int id)
         {
+            var systemReport = _systemReportService.GetByID(id);
+            return Ok(systemReport);
+
+            /*
             SystemReport systemReport = await _context.SystemReports.FindAsync(id);
 
             if (systemReport == null)
@@ -45,15 +43,19 @@ namespace LHMSAPI.Controllers
                 return NotFound();
             }
 
-            return systemReport;
+            return systemReport;*/
         }
 
         // PUT: api/SystemReport/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSystemReport(int id, SystemReport systemReport)
+        public ActionResult<SystemReport> UpdateSystemReport(int id, SystemReport systemReport)
         {
+
+            var _systemReport = _systemReportService.Update(id, systemReport);
+            return Ok(_systemReport);
+            /*
             if (id != systemReport.Id)
             {
                 return BadRequest();
@@ -78,28 +80,26 @@ namespace LHMSAPI.Controllers
             }
 
             return NoContent();
+            */
         }
 
         // POST: api/SystemReport
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        [Consumes("application/json")]
-        [Produces("application/json")]
-        public async Task<ActionResult<SystemReport>> PostSystemReport(SystemReport systemReport)
+        public ActionResult<SystemReport> PostSystemReport(SystemReport systemReport)
         {
-            ///TODO: Need to move this into its own repo file and finish calls that way.
-            systemReport.Active = true;
-            _context.SystemReports.Add(systemReport);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetSystemReport", new { id = systemReport.Id }, systemReport);
+            var _systemReport = _systemReportService.Create(systemReport);
+            return Ok(_systemReport);
         }
 
         // DELETE: api/SystemReport/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<SystemReport>> DeleteSystemReport(int id)
+        public ActionResult DeleteSystemReport(int id)
         {
+            _systemReportService.Delete(id);
+            return Ok();
+            /*
             SystemReport systemReport = await _context.SystemReports.FindAsync(id);
             if (systemReport == null)
             {
@@ -110,11 +110,14 @@ namespace LHMSAPI.Controllers
             await _context.SaveChangesAsync();
 
             return systemReport;
+            */
         }
 
+        /*
         private bool SystemReportExists(int id)
         {
             return _context.SystemReports.Any(e => e.Id == id);
         }
+        */
     }
 }
