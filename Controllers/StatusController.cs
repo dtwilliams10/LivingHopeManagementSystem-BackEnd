@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LHMSAPI.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class StatusController : ControllerBase
     {
@@ -17,10 +16,10 @@ namespace LHMSAPI.Controllers
             _statusService = statusService;
         }
 
-        [HttpGet(Name = "GetDatabaseStatus")]
-        public async Task<string> GetDatabaseStatus()
+        [HttpGet]
+        public Task<string> GetDatabaseStatus()
         {
-            string response = await _statusService.getDatabaseStatus();
+            var response = _statusService.getDatabaseStatus();
 
             return response;
         }
