@@ -16,6 +16,7 @@ namespace LHMSAPI.Helpers
         {
             options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL"));
         }
+
         public DbSet<SystemReport> SystemReports { get; set; }
         public DbSet<SystemStatus> SystemStatus { get; set; }
         public DbSet<SystemName> SystemName { get; set; }
