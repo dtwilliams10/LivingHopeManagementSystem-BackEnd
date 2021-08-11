@@ -70,7 +70,8 @@ namespace LHMSAPI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHealthChecks("/health");
+                ///Adding this caused the app to crash on startup. Need to investigate
+                //endpoints.MapHealthChecks("/health");
                 endpoints.MapControllers();
             });
         }
