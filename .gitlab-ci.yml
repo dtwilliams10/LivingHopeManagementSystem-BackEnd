@@ -19,6 +19,7 @@ test deploy job:
   trigger:
     project: LHMS/app
     branch: develop
+    stage: deploy
 
 prod build job:
     image: docker:latest
