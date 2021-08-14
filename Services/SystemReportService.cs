@@ -41,7 +41,14 @@ namespace LHMSAPI.Services
             {
                 systemReport.SystemName = _context.SystemName.Find(systemReport.SystemNameId);
                 systemReport.SystemReportStatus = _context.SystemReportStatus.Find(systemReport.SystemReportStatusId);
-                _context.SystemReports.Add(systemReport);
+                try {
+                    _context.SystemReports.AddAsync(systemReport);
+                }
+                catch (Npgsql.NpgsqlException ex)
+                {
+                    Serilog.Log.Error("Error in Report Commit: {@ex}", ex.ToString());
+                }
+                _context.SaveChanges();
                 return systemReport;
             }
             catch (Exception ex)
