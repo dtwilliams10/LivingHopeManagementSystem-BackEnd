@@ -31,7 +31,7 @@ namespace LHMSAPI.Models
     public int SystemReportStatusId { get; set; }
 
     [ForeignKey("SystemReportStatusId")]
-    public SystemStatus SystemReportStatus { get; set; }
+    public SystemReportStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
 

@@ -31,13 +31,16 @@ namespace LHMSAPI.Services
             _context = context;
         }
 
-        public SystemReport Create(SystemReport model)
+        public SystemReport Create(SystemReport systemReport)
         {
             //TODO: Add logic to pull logged in user and assign to Reporter spot.
-            var systemReport = model;
+            systemReport.CreatedDate = DateTime.Now;
+            systemReport.UpdatedDate = DateTime.Now;
             systemReport.Active = true;
+            systemReport.SystemNameId = 8;
+            systemReport.SystemReportStatusId = 1;
+
             try {
-                systemReport.Active = true;
                 _context.SystemReports.Add(systemReport);
                 return systemReport;
             }
@@ -59,7 +62,7 @@ namespace LHMSAPI.Services
             foreach(SystemReport sr in systemReports)
             {
                sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
-               sr.SystemReportStatus.Status = _context.SystemStatus.Find(sr.SystemReportStatusId).Status.ToString();
+               sr.SystemReportStatus.Status = _context.SystemReportStatus.Find(sr.SystemReportStatusId).Status.ToString();
             }
 
             return systemReports;

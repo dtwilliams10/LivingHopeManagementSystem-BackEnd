@@ -1,10 +1,6 @@
 using LHMSAPI.Models;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using LHMSAPI.Helpers;
 using LHMSAPI.Services;
 
 //TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
@@ -87,7 +83,7 @@ namespace LHMSAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public ActionResult<SystemReport> PostSystemReport(SystemReport systemReport)
+        public ActionResult<SystemReport> CreateSystemReport(SystemReport systemReport)
         {
             var _systemReport = _systemReportService.Create(systemReport);
             return Ok(_systemReport);

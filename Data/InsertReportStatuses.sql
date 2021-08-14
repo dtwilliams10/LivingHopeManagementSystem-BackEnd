@@ -1,4 +1,4 @@
-INSERT INTO public."SystemStatus"(
+INSERT INTO public."SystemReportStatus"(
 	"Id",
 	"Status"
 )
@@ -8,7 +8,7 @@ VALUES (
 	'Inactive'
 );
 
-INSERT INTO public."SystemStatus"(
+INSERT INTO public."SystemReportStatus"(
 	"Id",
 	"Status"
 )
@@ -18,7 +18,7 @@ VALUES (
 	'Draft'
 );
 
-INSERT INTO public."SystemStatus"(
+INSERT INTO public."SystemReportStatus"(
 	"Id",
 	"Status"
 )
@@ -28,7 +28,7 @@ VALUES (
 	'Submitted'
 );
 
-INSERT INTO public."SystemStatus"(
+INSERT INTO public."SystemReportStatus"(
 	"Id",
 	"Status"
 )
@@ -38,7 +38,7 @@ VALUES (
 	'Approved'
 );
 
-INSERT INTO public."SystemStatus"(
+INSERT INTO public."SystemReportStatus"(
 	"Id",
 	"Status"
 )

@@ -24,6 +24,7 @@ namespace LHMSAPI
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<IStatusService, StatusService>();
             services.AddScoped<ISystemReportService, SystemReportService>();
+            services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddCors();

@@ -45,21 +45,5 @@ namespace LHMSAPI
                 webBuilder.UseStartup<Startup>().UseUrls("http://lhmsapi:5000");
                 webBuilder.UseSerilog();
             });
-
-        private static void CreateDbIfNotExists(IHost host)
-        {
-            using IServiceScope scope = host.Services.CreateScope();
-            IServiceProvider services = scope.ServiceProvider;
-
-            try
-            {
-                DatabaseContext context = services.GetRequiredService<DatabaseContext>();
-                context.Database.EnsureCreated();
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "An error occurred creating the DB.");
-            }
-        }
     }
 }
