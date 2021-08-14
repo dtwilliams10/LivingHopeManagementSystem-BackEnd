@@ -30,16 +30,6 @@ namespace LHMSAPI.Controllers
         {
             var systemReport = _systemReportService.GetByID(id);
             return Ok(systemReport);
-
-            /*
-            SystemReport systemReport = await _context.SystemReports.FindAsync(id);
-
-            if (systemReport == null)
-            {
-                return NotFound();
-            }
-
-            return systemReport;*/
         }
 
         // PUT: api/SystemReport/5
@@ -51,32 +41,6 @@ namespace LHMSAPI.Controllers
 
             var _systemReport = _systemReportService.Update(id, systemReport);
             return Ok(_systemReport);
-            /*
-            if (id != systemReport.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(systemReport).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SystemReportExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-            */
         }
 
         // POST: api/SystemReport
@@ -95,25 +59,6 @@ namespace LHMSAPI.Controllers
         {
             _systemReportService.Delete(id);
             return Ok();
-            /*
-            SystemReport systemReport = await _context.SystemReports.FindAsync(id);
-            if (systemReport == null)
-            {
-                return NotFound();
-            }
-
-            _context.SystemReports.Remove(systemReport);
-            await _context.SaveChangesAsync();
-
-            return systemReport;
-            */
         }
-
-        /*
-        private bool SystemReportExists(int id)
-        {
-            return _context.SystemReports.Any(e => e.Id == id);
-        }
-        */
     }
 }
