@@ -1,7 +1,7 @@
-using LHMSAPI.Models;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LHMSAPI.Services;
+using LHMSAPI.Models;
+using System.Collections.Generic;
 
 namespace LHMSAPI.Controllers
 {
