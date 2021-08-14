@@ -37,6 +37,9 @@ namespace LHMSAPI.Services
             systemReport.CreatedDate = DateTime.Now;
             systemReport.UpdatedDate = DateTime.Now;
             systemReport.Active = true;
+            if(systemReport.SystemReportStatusId == 0)
+            systemReport.SystemReportStatusId = 1;
+
             try
             {
                 systemReport.SystemName = _context.SystemName.Find(systemReport.SystemNameId);
@@ -68,8 +71,8 @@ namespace LHMSAPI.Services
             List<SystemReport> systemReports = _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToList();
             foreach(SystemReport sr in systemReports)
             {
-               sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
-               sr.SystemReportStatus.Status = _context.SystemReportStatus.Find(sr.SystemReportStatusId).Status.ToString();
+                sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
+                sr.SystemReportStatus.Status = _context.SystemReportStatus.Find(sr.SystemReportStatusId).Status.ToString();
             }
 
             return systemReports;
@@ -78,6 +81,8 @@ namespace LHMSAPI.Services
         public SystemReport GetByID(int id)
         {
             SystemReport systemReport = _context.SystemReports.SingleOrDefault(s => s.Id == id);
+            systemReport.SystemName = _context.SystemName.SingleOrDefault(s => s.Id == systemReport.SystemNameId);
+            systemReport.SystemReportStatus = _context.SystemReportStatus.SingleOrDefault(s => s.Id == systemReport.SystemReportStatusId);
             return systemReport;
         }
 
