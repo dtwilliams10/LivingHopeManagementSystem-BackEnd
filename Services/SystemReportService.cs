@@ -37,10 +37,10 @@ namespace LHMSAPI.Services
             systemReport.CreatedDate = DateTime.Now;
             systemReport.UpdatedDate = DateTime.Now;
             systemReport.Active = true;
-            systemReport.SystemNameId = 8;
-            systemReport.SystemReportStatusId = 1;
-
-            try {
+            try
+            {
+                systemReport.SystemName = _context.SystemName.Find(systemReport.SystemNameId);
+                systemReport.SystemReportStatus = _context.SystemReportStatus.Find(systemReport.SystemReportStatusId);
                 _context.SystemReports.Add(systemReport);
                 return systemReport;
             }
