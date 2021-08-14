@@ -1,49 +1,9 @@
-INSERT INTO public."SystemReportStatus"(
-	"Id",
-	"Status"
-)
-
-VALUES (
-	0,
-	'Inactive'
-);
-
-INSERT INTO public."SystemReportStatus"(
-	"Id",
-	"Status"
-)
-
-VALUES (
-	1,
-	'Draft'
-);
-
-INSERT INTO public."SystemReportStatus"(
-	"Id",
-	"Status"
-)
-
-VALUES (
-	2,
-	'Submitted'
-);
-
-INSERT INTO public."SystemReportStatus"(
-	"Id",
-	"Status"
-)
-
-VALUES (
-	3,
-	'Approved'
-);
-
-INSERT INTO public."SystemReportStatus"(
-	"Id",
-	"Status"
-)
-
-VALUES (
-	4,
-	'Rejected'
-);
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Inactive');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Draft');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Submitted to Team Lead');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Rejected by Team Lead');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Approved by Team Lead');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Approved by System Director');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Rejected by Team Lead');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Approved by Administrative Pastor');
+INSERT INTO public."SystemReportStatus"("Status") VALUES ('Rejected by Administrative Pastor');

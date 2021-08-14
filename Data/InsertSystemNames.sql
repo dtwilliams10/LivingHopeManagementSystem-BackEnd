@@ -1,39 +1,11 @@
-INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (0, 'Youth System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (1, 'First Touch System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (2, 'Second Touch System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (3, 'Specialized System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (4, 'Childrens System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (5, 'Administrative System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (6, 'Campus Preservation System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (7, 'Christian Development System');
-
-	INSERT INTO public."SystemName"(
-	"Id", "Name")
-	VALUES (8, 'Hispanic System');
-
-	INSERT INTO public."SystemName"(
-		"Id", "Name")
-	VALUES(9, 'Media System')
+INSERT INTO public."SystemName"("Name") VALUES ('Youth System');
+INSERT INTO public."SystemName"("Name") VALUES ('First Touch System');
+INSERT INTO public."SystemName"("Name") VALUES ('Second Touch System');
+INSERT INTO public."SystemName"("Name") VALUES ('Specialized Ministries System');
+INSERT INTO public."SystemName"("Name") VALUES ('Childrens System');
+INSERT INTO public."SystemName"("Name")	VALUES ('Administrative System');
+INSERT INTO public."SystemName"("Name")	VALUES ('Campus Preservation System');
+INSERT INTO public."SystemName"("Name") VALUES ('Christian Development System');
+INSERT INTO public."SystemName"("Name") VALUES ('Hispanic System');
+INSERT INTO public."SystemName"("Name") VALUES ('Media System');
+INSERT INTO public."SystemName"("Name") VALUES ('Worship System');
