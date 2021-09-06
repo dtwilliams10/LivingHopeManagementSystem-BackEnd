@@ -11,7 +11,6 @@ test build job:
     - develop
   script:
     - docker build -f test.Dockerfile -t lhmsapi .
-
 test deploy job:
   stage: .post
   only:
@@ -29,7 +28,6 @@ prod build job:
       - production
     script:
       - docker build -f prod.Dockerfile -t lhmsapi .
-
 prod deploy job:
   stage: .post
   only:
