@@ -26,12 +26,12 @@ namespace LHMSAPI.Models
 
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime UpdatedDate { get; set; } = System.DateTime.Now;
+    public DateTime UpdatedDate { get; set; }
 
     public int SystemReportStatusId { get; set; }
 
     [ForeignKey("SystemReportStatusId")]
-    public SystemStatus SystemReportStatus { get; set; }
+    public SystemReportStatus SystemReportStatus { get; set; }
 
     public int SystemNameId { get; set; }
 

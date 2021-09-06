@@ -6,32 +6,34 @@ test build job:
   image: docker:latest
   stage: build
   only:
-    - develop@LHMS/LHMS-API
+    - develop@LHMS/api
   tags:
     - develop
   script:
-    - docker build -t lhmsapi .
+    - docker build -f test.Dockerfile -t lhmsapi .
 
 test deploy job:
   stage: .post
+  only:
+    - develop@LHMS/api
   trigger:
-    project: LHMS/LHMS-FrontEnd
+    project: LHMS/app
     branch: develop
 
 prod build job:
     image: docker:latest
     stage: build
     only:
-      - master@LHMS/LHMS-API
+      - master@LHMS/api
     tags:
       - production
     script:
-      - docker build -t lhmsapi .
+      - docker build -f prod.Dockerfile -t lhmsapi .
 
 prod deploy job:
   stage: .post
   only:
-    - master@LHMS/LHMS-API
+    - master@LHMS/api
   trigger:
-    project: LHMS/LHMS-FrontEnd
+    project: LHMS/app
     branch: master

@@ -2,22 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
-using LHMSAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using LHMSAPI.Helpers;
+using WebApi.Entities;
 
-namespace LHMSAPI.Repository
+namespace LHMSAPI.Services
 {
-    public class StatusRepository
+    public interface IStatusService
+    {
+        Task<string> getDatabaseStatus();
+    }
+
+    public class StatusService : IStatusService
     {
         private readonly DatabaseContext _context;
 
-        public StatusRepository(DatabaseContext context)
+        public StatusService(DatabaseContext context)
         {
             _context = context;
         }
 
-        public async Task<string> GetDatabaseStatus()
+        public async Task<string> getDatabaseStatus()
         {
             List<string> status = new List<string>();
             DbConnection conn = _context.Database.GetDbConnection();
@@ -42,9 +47,8 @@ namespace LHMSAPI.Repository
 
             catch(System.Net.Sockets.SocketException ex)
             {
-             Console.WriteLine(ex);
-             //TODO: Updated this to return a 500 error rather than a 200.
-             return "An error ocurred connecting with the database. Please contact an administrator.";
+                Console.WriteLine(ex);
+                return "An error ocurred connecting with the database. Please contact an administrator.";
             }
 
             finally
