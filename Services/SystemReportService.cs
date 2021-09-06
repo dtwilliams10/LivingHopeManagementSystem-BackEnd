@@ -63,7 +63,19 @@ namespace LHMSAPI.Services
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            /*Check if the record with the provided ID exists. If it does, delete it. If not return an error/success*/
+            SystemReport systemReport = _context.SystemReports.SingleOrDefault(s => s.Id == id);
+            if(systemReport != null)
+            {
+                try{
+                    _context.SystemReports.Remove(systemReport);
+                    _context.SaveChanges();
+                } catch (Exception ex){
+                    Serilog.Log.Error("Error deleting System Report with ID: {@id}", ex);
+                    throw new AppException();
+                }
+            }
+
         }
 
         public IEnumerable<SystemReport> GetAllSystemReports()
