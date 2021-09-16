@@ -15,5 +15,5 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 RUN apk update
 RUN apk add vim
-ENTRYPOINT ["dotnet", "SystemReportsdll"]
+ENTRYPOINT ["dotnet", "SystemReports.dll"]
 EXPOSE 5000
