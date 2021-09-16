@@ -11,6 +11,7 @@ test build job:
     - develop
   script:
     - docker build -f test.Dockerfile -t systemreports .
+
 test deploy job:
   stage: .post
   only:
@@ -28,6 +29,7 @@ prod build job:
       - production
     script:
       - docker build -f prod.Dockerfile -t systemreports .
+
 prod deploy job:
   stage: .post
   only:
