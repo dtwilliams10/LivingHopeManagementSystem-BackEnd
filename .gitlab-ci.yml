@@ -6,7 +6,7 @@ test build job:
   image: docker:latest
   stage: build
   only:
-    - develop@LHMS/api
+    - develop@LHMS/SystemReports
   tags:
     - develop
   script:
@@ -14,7 +14,7 @@ test build job:
 test deploy job:
   stage: .post
   only:
-    - develop@LHMS/api
+    - develop@LHMS/SystemReports
   trigger:
     project: LHMS/app
     branch: develop
@@ -23,7 +23,7 @@ prod build job:
     image: docker:latest
     stage: build
     only:
-      - master@LHMS/api
+      - master@LHMS/SystemReports
     tags:
       - production
     script:
@@ -31,7 +31,7 @@ prod build job:
 prod deploy job:
   stage: .post
   only:
-    - master@LHMS/api
+    - master@LHMS/SystemReports
   trigger:
     project: LHMS/app
     branch: master
