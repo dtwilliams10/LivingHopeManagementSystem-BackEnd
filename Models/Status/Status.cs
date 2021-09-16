@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace LHMS.SystemReports.Models
 {
-    public class StatusResponse
+    public class Status
     {
         [Key]
         public int Id {get; set;}

@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Globalization;
 
-namespace LHMSAPI.Helpers
+namespace LHMS.SystemReports.Helpers
 {
     public class AppException : Exception
     {

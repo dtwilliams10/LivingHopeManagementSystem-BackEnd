@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using LHMSAPI.Services;
-using LHMSAPI.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using LHMS.SystemReports.Services;
+using LHMS.SystemReports.Models;
 using System.Collections.Generic;
 
-namespace LHMSAPI.Controllers
+namespace LHMS.SystemReports.Controllers
 {
     [ApiController]
     [Route("[controller]")]

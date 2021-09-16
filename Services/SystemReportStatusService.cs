@@ -1,9 +1,9 @@
-using LHMSAPI.Helpers;
-using LHMSAPI.Models;
+﻿using LHMS.SystemReports.Helpers;
+using LHMS.SystemReports.Models;
 using System;
 using System.Collections.Generic;
 
-namespace LHMSAPI.Services
+namespace LHMS.SystemReports.Services
 {
     public interface ISystemReportStatusService
     {

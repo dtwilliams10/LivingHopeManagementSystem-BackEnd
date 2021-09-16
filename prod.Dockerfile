@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
+﻿FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build-env
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
@@ -15,5 +15,5 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 RUN apk update
 RUN apk add vim
-ENTRYPOINT ["dotnet", "LHMSAPI.dll"]
+ENTRYPOINT ["dotnet", "SystemReportsdll"]
 EXPOSE 5000

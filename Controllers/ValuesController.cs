@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LHMSAPI.Controllers
+namespace LHMS.SystemReports.Controllers
 {
     ///TODO: Need to remove this and fix CORS properly
     [DisableCors]

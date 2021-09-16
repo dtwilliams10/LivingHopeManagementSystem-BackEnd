@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LHMSAPI.Migrations
+namespace LHMS.SystemReports.Migrations
 {
     public partial class UpdatedStatusModelFK : Migration
     {

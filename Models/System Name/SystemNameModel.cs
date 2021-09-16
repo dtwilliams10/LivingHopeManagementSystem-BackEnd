@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace LHMSAPI.Models
+namespace LHMS.SystemReports.Models
 {
     public class SystemName
     {

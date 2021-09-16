@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using LHMSAPI.Helpers;
-using LHMSAPI.Models;
+using LHMS.SystemReports.Helpers;
+using LHMS.SystemReports.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LHMSAPI.Services
+namespace LHMS.SystemReports.Services
 {
     public interface ISystemReportService
     {

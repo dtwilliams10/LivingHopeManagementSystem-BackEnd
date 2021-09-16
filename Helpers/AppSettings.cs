@@ -1,4 +1,4 @@
-namespace LHMSAPI.Helpers
+﻿namespace LHMS.SystemReports.Helpers
 {
     public class AppSettings
     {

@@ -1,10 +1,10 @@
-using LHMSAPI.Models;
+﻿using LHMS.SystemReports.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using LHMSAPI.Services;
+using LHMS.SystemReports.Services;
 
 //TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
-namespace LHMSAPI.Controllers
+namespace LHMS.SystemReportsControllers
 {
     [ApiController]
     [Route("[controller]")]

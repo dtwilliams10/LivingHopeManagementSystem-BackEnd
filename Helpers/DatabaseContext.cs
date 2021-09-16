@@ -1,8 +1,8 @@
-using LHMSAPI.Models;
+﻿using LHMS.SystemReports.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace LHMSAPI.Helpers
+namespace LHMS.SystemReports.Helpers
 {
     public class DatabaseContext : DbContext
     {

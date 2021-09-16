@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using LHMSAPI.Helpers;
-using WebApi.Entities;
+using LHMS.SystemReports.Helpers;
+using LHMS.SystemReports.Models;
 
-namespace LHMSAPI.Services
+namespace LHMS.SystemReports.Services
 {
     public interface IStatusService
     {
@@ -38,7 +38,7 @@ namespace LHMSAPI.Services
                 {
                     while (await reader.ReadAsync())
                     {
-                        Status rows = new Status { status = reader.GetString(0) };
+                        StatusResponse rows = new StatusResponse { status = reader.GetString(0) };
                         status.Add(rows.status);
                     }
                 }

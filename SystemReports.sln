@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LHMSAPI", "LHMSAPI.csproj", "{863858C8-CABF-4721-BBD5-8B688DED8368}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemReports", "SystemReports.csproj", "{863858C8-CABF-4721-BBD5-8B688DED8368}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

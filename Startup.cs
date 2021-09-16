@@ -1,15 +1,15 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using LHMSAPI.Helpers;
-using LHMSAPI.Services;
+using LHMS.SystemReports.Helpers;
+using LHMS.SystemReports.Services;
 using System;
 
-namespace LHMSAPI
+namespace LHMS.SystemReports
 {
     public class Startup
     {

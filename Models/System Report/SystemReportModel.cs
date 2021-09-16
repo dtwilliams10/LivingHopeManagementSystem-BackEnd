@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LHMSAPI.Models
+namespace LHMS.SystemReports.Models
 {
     public class SystemReport
 {

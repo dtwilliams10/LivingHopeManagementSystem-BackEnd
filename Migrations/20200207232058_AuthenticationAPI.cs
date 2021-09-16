@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace LHMSAPI.Migrations
+namespace LHMS.SystemReports.Migrations
 {
     public partial class AuthenticationAPI : Migration
     {
