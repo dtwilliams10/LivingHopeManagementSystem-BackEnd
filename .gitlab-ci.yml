@@ -10,13 +10,14 @@ test build job:
   tags:
     - develop
   script:
-    - docker build -f test.Dockerfile -t lhmsapi .
+    - docker build -f test.Dockerfile -t systemreports .
+
 test deploy job:
   stage: .post
   only:
     - develop@LHMS/SystemReports
   trigger:
-    project: LHMS/app
+    project: LHMS/LHMS
     branch: develop
 
 prod build job:
@@ -27,11 +28,12 @@ prod build job:
     tags:
       - production
     script:
-      - docker build -f prod.Dockerfile -t lhmsapi .
+      - docker build -f prod.Dockerfile -t systemreports .
+
 prod deploy job:
   stage: .post
   only:
     - master@LHMS/SystemReports
   trigger:
-    project: LHMS/app
+    project: LHMS/LHMS
     branch: master
