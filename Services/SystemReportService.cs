@@ -36,7 +36,6 @@ namespace LHMS.SystemReports.Services
             //TODO: Add logic to pull logged in user and assign to Reporter spot.
             systemReport.CreatedDate = DateTime.Now;
             systemReport.UpdatedDate = DateTime.Now;
-            systemReport.Active = true;
             if(systemReport.SystemReportStatusId == 0)
             systemReport.SystemReportStatusId = 1;
 
@@ -80,7 +79,7 @@ namespace LHMS.SystemReports.Services
 
         public IEnumerable<SystemReport> GetAllSystemReports()
         {
-            List<SystemReport> systemReports = _context.SystemReports.Where(s => s.Active == true).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToList();
+            List<SystemReport> systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId != 0).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToList();
             foreach(SystemReport sr in systemReports)
             {
                 sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
