@@ -79,7 +79,7 @@ namespace LHMS.SystemReports.Services
 
         public IEnumerable<SystemReport> GetAllSystemReports()
         {
-            List<SystemReport> systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId != 0).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToList();
+            List<SystemReport> systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking().ToList();
             foreach(SystemReport sr in systemReports)
             {
                 sr.SystemName.Name = _context.SystemName.Find(sr.SystemNameId).Name.ToString();
