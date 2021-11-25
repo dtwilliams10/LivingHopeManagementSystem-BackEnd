@@ -16,12 +16,13 @@ namespace LHMS.SystemReports.Controllers
             _statusService = statusService;
         }
 
+        /// <summary>
+        /// Gets the database status.
+        /// </summary>
         [HttpGet]
         public Task<string> GetDatabaseStatus()
         {
-            var response = _statusService.getDatabaseStatus();
-
-            return response;
+            return _statusService.getDatabaseStatus();
         }
     }
 }

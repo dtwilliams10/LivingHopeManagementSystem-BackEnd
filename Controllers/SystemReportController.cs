@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LHMS.SystemReports.Services;
+using Microsoft.AspNetCore.Http;
 
 //TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
 namespace LHMS.SystemReportsControllers
@@ -19,6 +20,9 @@ namespace LHMS.SystemReportsControllers
 
         // GET: api/SystemReport
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         public ActionResult<IEnumerable<SystemReport>> GetAll()
         {
             var systemReports = _systemReportService.GetAllSystemReports();
@@ -26,6 +30,9 @@ namespace LHMS.SystemReportsControllers
         }
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         public ActionResult<SystemReport> GetById(int id)
         {
             var systemReport = _systemReportService.GetByID(id);
@@ -36,6 +43,8 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Produces("application/json")]
+        [Consumes("application/json")]
         public ActionResult<SystemReport> Update(int id, SystemReport systemReport)
         {
 
@@ -47,6 +56,8 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Produces("application/json")]
+        [Consumes("application/json")]
         public ActionResult Create(SystemReport systemReport)
         {
             _systemReportService.Create(systemReport);
