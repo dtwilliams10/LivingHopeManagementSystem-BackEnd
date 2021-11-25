@@ -9,3 +9,4 @@ INSERT INTO public."SystemName"("Name") VALUES ('Christian Development System');
 INSERT INTO public."SystemName"("Name") VALUES ('Hispanic System');
 INSERT INTO public."SystemName"("Name") VALUES ('Media System');
 INSERT INTO public."SystemName"("Name") VALUES ('Worship System');
+INSERT INTO public."SystemName"("Name") VALUES ('Creative System');
