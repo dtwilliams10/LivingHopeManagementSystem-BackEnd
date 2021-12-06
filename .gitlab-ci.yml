@@ -9,6 +9,14 @@ test build job:
     - develop@LHMS/SystemReports
   tags:
     - develop
+  variables:
+    SECRET : $Secret
+    EMAILFROM : $EmailFrom
+    SMTPHOST : $SmtpHost
+    SMTPPORT : $SmtpPort
+    SMTPUSER : $SmtpUser
+    SMTPPASS : $SmtpPass
+    STAGINGCONNECTSTRING : $StagingConnectString
   script:
     - docker build -f test.Dockerfile -t systemreports .
 
@@ -27,6 +35,15 @@ prod build job:
       - master@LHMS/SystemReports
     tags:
       - production
+    variables:
+      SECRET : $Secret
+      EMAILFROM : $EmailFrom
+      SMTPHOST : $SmtpHost
+      SMTPPORT : $SmtpPort
+      SMTPUSER : $SmtpUser
+      SMTPPASS : $SmtpPass
+      PROD_CONNECT_STRING : $ProdConnectString
+
     script:
       - docker build -f prod.Dockerfile -t systemreports .
 
