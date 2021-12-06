@@ -16,7 +16,7 @@ test build job:
     SMTPPORT : $SmtpPort
     SMTPUSER : $SmtpUser
     SMTPPASS : $SmtpPass
-    STAGING_CONNECT_STRING : $StagingConnectString
+    STAGINGCONNECTSTRING : $StagingConnectString
   script:
     - docker build -f test.Dockerfile -t systemreports .
 
