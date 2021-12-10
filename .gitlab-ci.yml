@@ -18,7 +18,7 @@ test build job:
     - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' appsettings.Staging.json
     - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' appsettings.Staging.json
     - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' appsettings.Staging.json
-    - sed -i 's/$ConnectString/'"$STAGINGCONNECTSTRING"'/g' appsettings.Staging.json
+    - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' appsettings.Staging.json
     - docker build -f test.Dockerfile -t systemreports .
 
 test deploy job:
