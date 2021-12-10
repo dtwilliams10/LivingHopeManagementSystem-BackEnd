@@ -9,16 +9,9 @@ test build job:
     - develop@LHMS/SystemReports
   tags:
     - develop
-  variables:
-    SECRET : $Secret
-    EMAILFROM : $EmailFrom
-    SMTPHOST : $SmtpHost
-    SMTPPORT : $SmtpPort
-    SMTPUSER : $SmtpUser
-    SMTPPASS : $SmtpPass
-    STAGINGCONNECTSTRING : $StagingConnectString
+
   script:
-    - echo \"SMTPPASS\"
+    - echo "$SMTPPASS"
     - sed -i 's/\"$Secret\"/SECRET/g' appsettings.Staging.json
     - sed -i 's/\"$Emailfrom\"/EMAILFROM/g' appsettings.Staging.json
     - sed -i 's/\"$SmtpHost\"/SMTPHOST/g' appsettings.Staging.json
