@@ -18,6 +18,7 @@ test build job:
     SMTPPASS : $SmtpPass
     STAGINGCONNECTSTRING : $StagingConnectString
   script:
+    - echo \"$SmtpPass\"
     - sed -i 's/\"$Secret\"/Secret/g' appsettings.Staging.json
     - sed -i 's/\"$Emailfrom\"/EmailFrom/g' appsettings.Staging.json
     - sed -i 's/\"$SmtpHost\"/SmtpHost/g' appsettings.Staging.json
