@@ -42,8 +42,14 @@ namespace LHMS.SystemReports
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
             {
-                webBuilder.UseStartup<Startup>().UseUrls("http://systemreports:5000");
-                webBuilder.UseSerilog();
+                try
+                {
+                    webBuilder.UseStartup<Startup>().UseUrls("http://systemreports:5000");
+                    webBuilder.UseSerilog();
+                } catch (Exception ex)
+                {
+                    Serilog.Log.Error(ex.ToString());
+                }
             });
     }
 }
