@@ -18,13 +18,13 @@ test build job:
     SMTPPASS : $SmtpPass
     STAGINGCONNECTSTRING : $StagingConnectString
   script:
-    - sed -i 's/"$Secret"/$Secret/g' appsettings.Staging.json
-    - sed -i 's/"$Emailfrom"/$EmailFrom/g' appsettings.Staging.json
-    - sed -i 's/"$SmtpHost"/$SmtpHost/g' appsettings.Staging.json
-    - sed -i 's/"$SmptPort"/$SmtpPort/g' appsettings.Staging.json
-    - sed -i 's/"$SmtpUser"/$SmtpUser/g' appsettings.Staging.json
-    - sed -i 's/"$SmtpPass"/$SmtpPass/g' appsettings.Staging.json
-    - sed -i 's/"$StagingConnectString"/$StagingConnectString/g' appsettings.Staging.json
+    - sed -i 's/\"$Secret"\/$Secret/g' appsettings.Staging.json
+    - sed -i 's/\"$Emailfrom"\/$EmailFrom/g' appsettings.Staging.json
+    - sed -i 's/\"$SmtpHost"\/$SmtpHost/g' appsettings.Staging.json
+    - sed -i 's/\"$SmptPort"\/$SmtpPort/g' appsettings.Staging.json
+    - sed -i 's/\"$SmtpUser"\/$SmtpUser/g' appsettings.Staging.json
+    - sed -i 's/\"$SmtpPass"\/$SmtpPass/g' appsettings.Staging.json
+    - sed -i 's/\"$StagingConnectString"\/$StagingConnectString/g' appsettings.Staging.json
     - docker build -f test.Dockerfile -t systemreports .
 
 test deploy job:
