@@ -9,13 +9,10 @@ test build job:
     - develop@LHMS/SystemReports
   tags:
     - develop
-
-  variables:
-   - EMAILFROM : $EMAILFROM
-
+    
   script:
     - echo "$STAGINGCONNECTSTRING"
-    - sed -i 's/$Secret/`$SECRET`/g' appsettings.Staging.json
+    - sed -i 's/$Secret/'"$SECRET"'/g' appsettings.Staging.json
     - sed -i 's/\"$Emailfrom\"/$EMAILFROM/g' appsettings.Staging.json
     - sed -i 's/\"$SmtpHost\"/$SMTPHOST/g' appsettings.Staging.json
     - sed -i 's/\"$SmtpPort\"/$SMTPPORT/g' appsettings.Staging.json
