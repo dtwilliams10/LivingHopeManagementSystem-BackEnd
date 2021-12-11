@@ -13,7 +13,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0.12-alpine3.14
 WORKDIR /app
 COPY --from=build-env /app/out .
-RUN apk update
-RUN apk add vim
 ENTRYPOINT ["dotnet", "SystemReports.dll"]
 EXPOSE 5000
