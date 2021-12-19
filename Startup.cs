@@ -21,6 +21,7 @@ namespace LHMS.SystemReports
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen();
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<IStatusService, StatusService>();
             services.AddScoped<ISystemReportService, SystemReportService>();
@@ -39,11 +40,17 @@ namespace LHMS.SystemReports
             //Environment check
             if (env.IsProduction())
             {
+                Serilog.Log.Information("Running in production.");
                 app.UseExceptionHandler("/Error");
             }
             else
             {
                 //app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SystemReports V1")
+                );
+
                 var migrated = true;
                 try
                 {

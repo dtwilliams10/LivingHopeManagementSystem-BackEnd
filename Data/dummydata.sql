@@ -11,8 +11,7 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId")
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -26,8 +25,7 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -42,8 +40,7 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId")
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -57,8 +54,7 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -73,8 +69,7 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId")
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -88,8 +83,7 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -104,8 +98,7 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId")
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -119,8 +112,7 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -135,8 +127,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -150,8 +142,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -166,8 +158,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+)
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -181,8 +173,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -197,8 +189,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -212,8 +204,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -228,8 +220,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -243,8 +235,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -259,8 +251,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -274,8 +266,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -290,8 +282,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -305,8 +297,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -321,8 +313,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -336,8 +328,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -352,8 +344,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -367,8 +359,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -383,8 +375,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -398,8 +390,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -414,8 +406,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -429,8 +421,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -445,8 +437,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -460,8 +452,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -476,8 +468,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -491,8 +483,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -507,8 +499,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -522,8 +514,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -538,8 +530,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -553,8 +545,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -569,8 +561,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -584,8 +576,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -600,8 +592,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -615,8 +607,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -631,8 +623,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -646,8 +638,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -662,8 +654,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -677,8 +669,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -693,8 +685,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -708,8 +700,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -724,8 +716,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -739,8 +731,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -755,8 +747,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -770,8 +762,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -786,8 +778,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -801,8 +793,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -817,8 +809,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -832,8 +824,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -848,8 +840,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -863,8 +855,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -879,8 +871,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -894,8 +886,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -910,8 +902,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -925,8 +917,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -941,8 +933,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -956,8 +948,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -972,8 +964,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -987,8 +979,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1003,8 +995,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1018,8 +1010,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1034,8 +1026,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1049,8 +1041,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1065,8 +1057,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1080,8 +1072,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1096,8 +1088,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1111,8 +1103,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1127,8 +1119,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1142,8 +1134,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1158,8 +1150,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1173,8 +1165,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1189,8 +1181,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1204,8 +1196,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1220,8 +1212,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1235,8 +1227,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1251,8 +1243,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1266,8 +1258,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1282,8 +1274,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1297,8 +1289,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1313,8 +1305,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1328,8 +1320,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1344,8 +1336,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1359,8 +1351,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1375,8 +1367,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1390,8 +1382,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1406,8 +1398,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1421,8 +1413,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1437,8 +1429,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1452,8 +1444,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1468,8 +1460,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1483,8 +1475,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1499,8 +1491,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1514,8 +1506,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1530,8 +1522,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1545,8 +1537,8 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
 INSERT INTO public."SystemReports"(
 "ReporterName",
@@ -1561,8 +1553,8 @@ INSERT INTO public."SystemReports"(
 "BarriersOrChallenges",
 "HowCanIHelpYou",
 "PersonalGrowthAndDevelopment",
-"SystemReportStatusId",
-"Active")
+"SystemReportStatusId"
+ )
 VALUES (
 'Tyler Williams',
 'My System Report',
@@ -1576,6 +1568,6 @@ VALUES (
 'These are my barriers or challenges',
 'this is how you can help me',
 'Personal Growth and Development',
-0,
-'1');
+2
+);
 
