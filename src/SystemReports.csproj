@@ -24,4 +24,11 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.AssemblyInfoInputs.cache" />
+  </ItemGroup>
 </Project>
