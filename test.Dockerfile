@@ -15,5 +15,5 @@ RUN dotnet publish -c Debug -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0.12-alpine3.14
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "SystemReports.dll"]
 EXPOSE 5000
+ENTRYPOINT ["dotnet", "SystemReports.dll"]
