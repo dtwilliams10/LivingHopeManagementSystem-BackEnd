@@ -1,8 +1,10 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:5.0.403-alpine3.14 AS build-env
 WORKDIR /app
 
-# Copy csproj and restore as distinct layers
-COPY *.csproj ./
+# Copy Test csproj and restore as distinct layers
+COPY *.sln .
+COPY Tests/*.csproj ./Tests/
+COPY src/*.csproj ./src/
 RUN dotnet restore
 
 # Copy everything else and build
