@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:5.0.403-alpine3.14 AS build-env
+﻿FROM mcr.microsoft.com/dotnet/sdk:6.0.202-alpine3.15 AS build-env
 WORKDIR /app
 
 # Copy Test csproj and restore as distinct layers
@@ -12,7 +12,7 @@ COPY . ./
 RUN dotnet publish -c Debug -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.12-alpine3.14
+FROM mcr.microsoft.com/dotnet/aspnet:6.0.4-alpine3.15
 WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 5000
