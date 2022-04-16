@@ -11,14 +11,14 @@ test build job:
     - develop
 
   script:
-    - sed -i 's/$Secret/'"$SECRET"'/g' appsettings.Staging.json
-    - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' appsettings.Staging.json
-    - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' appsettings.Staging.json
-    - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' appsettings.Staging.json
-    - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' appsettings.Staging.json
-    - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' appsettings.Staging.json
-    - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' appsettings.Staging.json
-    - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' appsettings.Staging.json
+    - sed -i 's/$Secret/'"$SECRET"'/g' src/appsettings.Staging.json
+    - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' src/appsettings.Staging.json
+    - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' src/appsettings.Staging.json
+    - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' src/appsettings.Staging.json
+    - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' src/appsettings.Staging.json
+    - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' src/appsettings.Staging.json
+    - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' src/appsettings.Staging.json
+    - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' src/appsettings.Staging.json
     - docker build -f test.Dockerfile -t systemreports .
 
 test deploy job:
@@ -38,14 +38,14 @@ prod build job:
       - production
 
     script:
-      - sed -i 's/$Secret/'"$SECRET"'/g' appsettings.Production.json
-      - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' appsettings.Production.json
-      - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' appsettings.Production.json
-      - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' appsettings.Production.json
-      - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' appsettings.Production.json
-      - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' appsettings.Production.json
-      - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' appsettings.Production.json
-      - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' appsettings.Production.json
+      - sed -i 's/$Secret/'"$SECRET"'/g' src/appsettings.Staging.json
+      - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' src/appsettings.Staging.json
+      - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' src/appsettings.Staging.json
+      - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' src/appsettings.Staging.json
+      - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' src/appsettings.Staging.json
+      - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' src/appsettings.Staging.json
+      - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' src/appsettings.Staging.json
+      - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' src/appsettings.Staging.json
       - docker build -f prod.Dockerfile -t systemreports .
 
 prod deploy job:

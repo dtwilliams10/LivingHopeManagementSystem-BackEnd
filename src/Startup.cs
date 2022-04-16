@@ -21,13 +21,13 @@ namespace LHMS.SystemReports
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddSwaggerGen();
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<IStatusService, StatusService>();
             services.AddScoped<ISystemReportService, SystemReportService>();
             services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
             services.AddScoped<ISystemNameService, SystemNameService>();
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddCors();
             services.AddControllers();

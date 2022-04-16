@@ -44,7 +44,7 @@ namespace LHMS.SystemReports
             {
                 try
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://systemreports:5000");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://systemreports:5002");
                     webBuilder.UseSerilog();
                 } catch (Exception ex)
                 {
