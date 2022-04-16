@@ -3,7 +3,7 @@ WORKDIR /app
 
 # Copy csproj and restore as distinct layers
 COPY *.sln .
-COPY Tests/*.csproj ./Tests/
+COPY tests/*.csproj ./tests/
 COPY src/*.csproj ./src/
 RUN dotnet restore
 
@@ -15,5 +15,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:6.0.4-alpine3.15
 WORKDIR /app
 COPY --from=build-env /app/out .
-EXPOSE 5000
+EXPOSE 5002
 ENTRYPOINT ["dotnet", "SystemReports.dll"]
