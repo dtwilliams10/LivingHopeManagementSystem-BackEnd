@@ -18,6 +18,7 @@ namespace LHMS.SystemReports
         {
             Configuration = configuration;
         }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -45,26 +46,24 @@ namespace LHMS.SystemReports
             }
             else
             {
-                //app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "SystemReports V1")
                 );
 
-                var migrated = true;
                 try
                 {
                     Serilog.Log.Information("Attempting to migrate database.");
                     context.Database.Migrate();
-                } catch (Npgsql.NpgsqlException ex)
+                    Serilog.Log.Information("Database migrated successfully!");
+                } 
+                catch (Npgsql.NpgsqlException ex)
                 {
-                    migrated = false;
                     Serilog.Log.Error("Migration failed!");
                     Serilog.Log.Error(ex.ToString());
+                    return;
                 }
-
-                if (migrated)
-                Serilog.Log.Information("Database migrated successfully!");
             }
 
             app.UseRouting();
