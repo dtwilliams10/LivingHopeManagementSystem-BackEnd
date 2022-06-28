@@ -30,8 +30,7 @@ namespace LHMS.SystemReports.Services
             {
                 await conn.OpenAsync();
                 using DbCommand command = conn.CreateCommand();
-                string query = "SELECT version();";
-                command.CommandText = query;
+                command.CommandText = "SELECT version()";
                 DbDataReader reader = await command.ExecuteReaderAsync();
 
                 if (reader.HasRows)
@@ -47,7 +46,7 @@ namespace LHMS.SystemReports.Services
 
             catch(System.Net.Sockets.SocketException ex)
             {
-                Serilog.Log.Fatal(ex.Message);
+                Serilog.Log.Error(ex.Message);
                 return "An error ocurred connecting with the database. Please contact an administrator.";
             }
 
