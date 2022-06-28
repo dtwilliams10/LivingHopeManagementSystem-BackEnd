@@ -38,7 +38,7 @@ namespace LHMS.SystemReports.Services
                 {
                     while (await reader.ReadAsync())
                     {
-                        StatusResponse rows = new StatusResponse { status = reader.GetString(0) };
+                        Status rows = new Status { status = reader.GetString(0) };
                         status.Add(rows.status);
                     }
                 }
@@ -47,7 +47,7 @@ namespace LHMS.SystemReports.Services
 
             catch(System.Net.Sockets.SocketException ex)
             {
-                Console.WriteLine(ex);
+                Serilog.Log.Fatal(ex.Message);
                 return "An error ocurred connecting with the database. Please contact an administrator.";
             }
 
