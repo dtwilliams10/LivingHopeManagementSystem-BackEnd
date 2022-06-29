@@ -15,6 +15,7 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddSwaggerGen();
+    builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
     builder.Services.AddDbContext<DatabaseContext>();
     builder.Services.AddScoped<IStatusService, StatusService>();
     builder.Services.AddScoped<ISystemReportService, SystemReportService>();
@@ -36,7 +37,7 @@ try
 
     var app = builder.Build();
 
-    Log.Information("Starting SystemReports Service!");
+    Log.Information("Starting System Reports Service!");
 
     if (app.Environment.IsProduction())
     {
@@ -61,7 +62,7 @@ try
             }
             Log.Information("Database migrated successfully!");
         }
-        catch (Npgsql.NpgsqlException ex)
+        catch (Exception ex)
         {
             Log.Error("Migration failed!");
             Log.Error(ex.ToString());
@@ -88,7 +89,7 @@ try
 
     app.UseSerilogRequestLogging();
 
-    await app.RunAsync();
+    app.Run();
 }
 catch (Exception ex)
 {
