@@ -5,6 +5,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MailKit" Version="3.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
     <PackageReference Include="Serilog" Version="2.11.0" />
@@ -15,12 +20,4 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.GeneratedMSBuildEditorConfig.editorconfig" />
-    <None Remove="SystemReportsTests\obj\Debug\net5.0\SystemReportsTests.AssemblyInfoInputs.cache" />
-    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
-  </ItemGroup>
-</Project>
+  </Project>
