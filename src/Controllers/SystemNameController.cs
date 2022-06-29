@@ -23,6 +23,5 @@ namespace LHMS.SystemReports.Controllers
             var systemNames = _systemNameService.GetAllSystemNames();
             return Ok(systemNames);
         }
-
     }
 }

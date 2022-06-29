@@ -9,7 +9,7 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish -c Debug -o out
+RUN dotnet publish -c Debug -o out src/SystemReports.csproj
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0.4-alpine3.15

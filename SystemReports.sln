@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "SystemReports", "src\SystemReports.csproj", "{D01941C9-E1C9-4FD8-9A9D-05252C489864}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemReports", "src\SystemReports.csproj", "{D01941C9-E1C9-4FD8-9A9D-05252C489864}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemReportsTests", "tests\SystemReportsTests.csproj", "{9791EFBD-1D4E-46E1-9FC0-195030D4E76A}"
 EndProject
