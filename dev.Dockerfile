@@ -12,7 +12,7 @@ COPY . ./
 RUN dotnet publish -c Debug -o out src/SystemReports.csproj
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0.4-alpine3.15
+FROM mcr.microsoft.com/dotnet/aspnet:6.0.8-alpine3.15
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENV ASPNETCORE_URLS=http://*:5002
