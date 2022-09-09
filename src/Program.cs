@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using LHMS.SystemReports.Helpers;
 using LHMS.SystemReports.Services;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +47,15 @@ try
     }
     else
     {
+        if(app.Environment.IsStaging())
+        {
+            while (!System.Diagnostics.Debugger.IsAttached)
+            {
+                Thread.Sleep(100); //Or Task.Delay()
+            }
+
+        }
+
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c =>
