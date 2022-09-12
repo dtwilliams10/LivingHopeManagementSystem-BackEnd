@@ -47,6 +47,7 @@ try
     }
     else
     {
+        /*
         if(app.Environment.IsStaging())
         {
             while (!System.Diagnostics.Debugger.IsAttached)
@@ -55,6 +56,7 @@ try
             }
 
         }
+        */
 
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
