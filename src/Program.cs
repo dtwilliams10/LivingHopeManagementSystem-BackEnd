@@ -63,23 +63,23 @@ try
         app.UseSwaggerUI(c =>
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "SystemReports V1")
         );
+    }
 
-        try
+    try
+    {
+        Log.Information("Attempting to migrate database.");
+        using (var context = app.Services.CreateScope())
         {
-            Log.Information("Attempting to migrate database.");
-            using (var context = app.Services.CreateScope())
-            {
-                var databaseContext = context.ServiceProvider.GetRequiredService<DatabaseContext>();
-                databaseContext.Database.Migrate();
-            }
-            Log.Information("Database migrated successfully!");
+            var databaseContext = context.ServiceProvider.GetRequiredService<DatabaseContext>();
+            databaseContext.Database.Migrate();
         }
-        catch (Exception ex)
-        {
-            Log.Error("Migration failed!");
-            Log.Error(ex.ToString());
-            return;
-        }
+        Log.Information("Database migrated successfully!");
+    }
+    catch (Exception ex)
+    {
+        Log.Error("Migration failed!");
+        Log.Error(ex.ToString());
+        return;
     }
 
     app.UseRouting();
