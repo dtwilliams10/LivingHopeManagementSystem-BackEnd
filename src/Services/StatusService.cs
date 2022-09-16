@@ -30,15 +30,14 @@ namespace LHMS.SystemReports.Services
             {
                 await conn.OpenAsync();
                 using DbCommand command = conn.CreateCommand();
-                string query = "SELECT version();";
-                command.CommandText = query;
+                command.CommandText = "SELECT version()";
                 DbDataReader reader = await command.ExecuteReaderAsync();
 
                 if (reader.HasRows)
                 {
                     while (await reader.ReadAsync())
                     {
-                        StatusResponse rows = new StatusResponse { status = reader.GetString(0) };
+                        Status rows = new Status { status = reader.GetString(0) };
                         status.Add(rows.status);
                     }
                 }
@@ -47,7 +46,7 @@ namespace LHMS.SystemReports.Services
 
             catch(System.Net.Sockets.SocketException ex)
             {
-                Console.WriteLine(ex);
+                Serilog.Log.Error(ex.Message);
                 return "An error ocurred connecting with the database. Please contact an administrator.";
             }
 

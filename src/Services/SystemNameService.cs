@@ -2,12 +2,13 @@
 using LHMS.SystemReports.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LHMS.SystemReports.Services
 {
     public interface ISystemNameService
     {
-        IEnumerable<SystemName> GetAllSystemNames();
+        IQueryable<SystemName> GetAllSystemNames();
     }
 
     public class SystemNameService : ISystemNameService
@@ -19,11 +20,11 @@ namespace LHMS.SystemReports.Services
             _context = context;
         }
 
-        public IEnumerable<SystemName> GetAllSystemNames()
+        public IQueryable<SystemName> GetAllSystemNames()
         {
             try
             {
-                var systemNames = _context.SystemName.AsQueryable();
+                var systemNames = _context.SystemNames;
                 return systemNames;
             }
             catch (Exception ex)

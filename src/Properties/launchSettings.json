@@ -5,7 +5,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:21080",
-      "sslPort": 44310
+      "sslPort": 44301
     }
   },
   "profiles": {
@@ -17,14 +17,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LHMSAPI": {
+    "SystemReports": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "applicationUrl": "http://localhost:5002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5000"
+      }
     }
   }
 }

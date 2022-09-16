@@ -3,4 +3,6 @@ obj/
 .vs/
 .vscode/
 .DS_Store
+src/logs/*
 src/appsettings.Development.json
+src/appsettings.json
