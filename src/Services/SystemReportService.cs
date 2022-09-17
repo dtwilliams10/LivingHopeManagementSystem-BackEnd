@@ -77,7 +77,7 @@ namespace LHMS.SystemReports.Services
 
         public IQueryable<SystemReport> GetAllSystemReports()
         {
-            IQueryable<SystemReport> systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsNoTracking();
+            var systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsQueryable();
             foreach (SystemReport sr in systemReports)
             {
                 sr.SystemName.Name = _context.SystemNames.Find(sr.SystemNameId).Name.ToString();
