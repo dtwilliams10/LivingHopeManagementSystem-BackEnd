@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LHMS.SystemReports.Models
+namespace LHMS.SystemReports.Entities
 {
     public class SystemReport
     {
