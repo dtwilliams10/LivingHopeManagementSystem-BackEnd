@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using LHMS.SystemReports.Helpers;
 using LHMS.SystemReports.Services;
 using Microsoft.AspNetCore.Builder;
