@@ -1,4 +1,4 @@
-﻿using LHMS.SystemReports.Models;
+﻿using LHMS.SystemReports.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -12,10 +12,8 @@ namespace LHMS.SystemReports.Helpers
         {
             Configuration = configuration;
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseNpgsql(Configuration.GetConnectionString("SystemReports"));
-        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseNpgsql(Configuration.GetConnectionString("SystemReports"), o => o.UseNodaTime());
 
         public DbSet<SystemReport> SystemReports { get; set; }
         public DbSet<SystemReportStatus> SystemReportStatus { get; set; }
