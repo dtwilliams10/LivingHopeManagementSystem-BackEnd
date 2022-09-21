@@ -1,13 +1,11 @@
-﻿using LHMS.SystemReports.Entities;
-
-namespace LHMS.SystemReports.Models.SystemReport
+﻿namespace LHMS.SystemReports.Models.SystemReport
 {
     public class SystemReportResponse
     {
         public int Id { get; set; }
 
         //TODO: Update with logic to use the logged in user's info from Identity Server 4.
-        public string ReporterId { get; set; }
+        public string ReporterName { get; set; }
 
         public string ReportName { get; set; }
 
@@ -19,11 +17,7 @@ namespace LHMS.SystemReports.Models.SystemReport
 
         public int SystemReportStatusId { get; set; }
 
-        public SystemReportStatus SystemReportStatus { get; set; }
-
         public int SystemNameId { get; set; }
-
-        public SystemName SystemName { get; set; }
 
         public string SystemUpdate { get; set; }
 

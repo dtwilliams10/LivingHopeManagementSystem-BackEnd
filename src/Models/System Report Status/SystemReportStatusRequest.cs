@@ -1,4 +1,4 @@
-﻿namespace SystemReports.Models.SystemReportStatus
+﻿namespace LHMS.SystemReports.Models.SystemReportStatus
 {
     public class SystemReportStatusRequest
     {

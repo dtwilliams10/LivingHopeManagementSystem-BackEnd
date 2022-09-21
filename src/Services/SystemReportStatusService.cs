@@ -1,5 +1,5 @@
 ﻿using LHMS.SystemReports.Helpers;
-using LHMS.SystemReports.Models;
+using LHMS.SystemReports.Entities;
 using System;
 using System.Collections.Generic;
 
