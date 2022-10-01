@@ -52,16 +52,16 @@ try
     }
     else
     {
-        #if (Debug)
-            if(app.Environment.IsStaging())
-            {
-                while (!System.Diagnostics.Debugger.IsAttached)
-                {
-                    System.Threading.Thread.Sleep(100); //Or Task.Delay()
-                }
+        // #if (Debug)
+        //     if(app.Environment.IsStaging())
+        //     {
+        //         while (!System.Diagnostics.Debugger.IsAttached)
+        //         {
+        //             System.Threading.Thread.Sleep(100); //Or Task.Delay()
+        //         }
 
-            }
-        #endif
+        //     }
+        // #endif
 
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
