@@ -1,4 +1,6 @@
-﻿namespace LHMS.SystemReports.Models.SystemReport
+﻿using LHMS.SystemReports.Models.SystemReportStatus;
+
+namespace LHMS.SystemReports.Models.SystemReport
 {
     public class SystemReportResponse
     {
@@ -15,9 +17,9 @@
 
         public NodaTime.Instant? UpdatedDate { get; set; }
 
-        public int SystemReportStatusId { get; set; }
+        public SystemReportStatusResponse SystemReportStatus {get; set;}
 
-        public int SystemNameId { get; set; }
+        public SystemNameResponse SystemName {get; set;}
 
         public string SystemUpdate { get; set; }
 
@@ -32,4 +34,3 @@
         public string PersonalGrowthAndDevelopment { get; set; }
     }
 }
-
