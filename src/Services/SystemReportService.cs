@@ -83,25 +83,26 @@ namespace LHMS.SystemReports.Services
 
         public IQueryable<SystemReportResponse> GetAllSystemReports()
         {
-            var systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsQueryable();
+            var systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).ToList();
             
-            IQueryable<SystemReportResponse> response = null;
+            List<SystemReportResponse> response = new List<SystemReportResponse>();
             foreach(SystemReport sr in systemReports)
             {
+                sr.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == sr.SystemNameId);
+                sr.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == sr.SystemReportStatusId);
                 var mappedReport = _mapper.Map<SystemReportResponse>(sr);
-                response.Append(mappedReport);
+                response.Add(mappedReport);
             }
             
-            return response;
+            return response.AsQueryable();
         }
 
         public SystemReportResponse GetByID(int id)
         {
-            var systemReport = _context.SystemReports.FirstOrDefault(s => s.Id == id);
+            SystemReport systemReport = _context.SystemReports.FirstOrDefault(s => s.Id == id);
             systemReport.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == systemReport.SystemNameId);
             systemReport.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == systemReport.SystemReportStatusId);
-
-            var response = _mapper.Map<SystemReportResponse>(systemReport);
+            SystemReportResponse response = _mapper.Map<SystemReportResponse>(systemReport);
             return response;
         }
 
@@ -112,7 +113,8 @@ namespace LHMS.SystemReports.Services
 
         public SystemReportResponse Update(SystemReportRequest systemReport)
         {
-            //IQueryable<SystemReport> systemReports = _context.SystemReports.Where(s => s.)
+            SystemReport systemReports = _context.SystemReports.First(s => s.Id == systemReport.Id);
+
             throw new System.NotImplementedException();
         }
     }
