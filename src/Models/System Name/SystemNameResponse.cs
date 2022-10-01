@@ -3,7 +3,7 @@
     public class SystemNameResponse
     {
         public int Id { get; set; }
-        public string SystemName { get; set; }
+        public string Name { get; set; }
     }
 }
 
