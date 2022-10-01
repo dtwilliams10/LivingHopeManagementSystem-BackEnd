@@ -14,6 +14,7 @@ namespace LHMS.SystemReports.Helpers
             CreateMap<SystemReportStatus, SystemReportStatusResponse>();
             CreateMap<SystemReportRequest, SystemReport>();
             CreateMap<SystemReportStatusRequest, SystemReportStatus>();
+            CreateMap<SystemNameRequest, SystemName>();
         }
     }
 }
