@@ -37,7 +37,7 @@ namespace LHMS.SystemReports.Services
                 {
                     while (await reader.ReadAsync())
                     {
-                        Status rows = new Status { status = reader.GetString(0) };
+                        StatusResponse rows = new StatusResponse { status = reader.GetString(0) };
                         status.Add(rows.status);
                     }
                 }

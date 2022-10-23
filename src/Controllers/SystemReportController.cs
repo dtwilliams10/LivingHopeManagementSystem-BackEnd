@@ -1,4 +1,4 @@
-﻿using LHMS.SystemReports.Models;
+﻿using LHMS.SystemReports.Models.SystemReport;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LHMS.SystemReports.Services;
@@ -19,14 +19,14 @@ namespace LHMS.SystemReportsControllers
 
         // GET: api/SystemReport
         [HttpGet]
-        public ActionResult<IEnumerable<SystemReport>> GetAll()
+        public ActionResult<IEnumerable<SystemReportResponse>> GetAll()
         {
             var systemReports = _systemReportService.GetAllSystemReports();
             return Ok(systemReports);
         }
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
-        public ActionResult<SystemReport> GetById(int id)
+        public ActionResult<SystemReportResponse> GetById(int id)
         {
             var systemReport = _systemReportService.GetByID(id);
             return Ok(systemReport);
@@ -36,10 +36,10 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public ActionResult<SystemReport> Update(int id, SystemReport systemReport)
+        public ActionResult<SystemReportResponse> Update(int id, SystemReportRequest systemReport)
         {
 
-            var _systemReport = _systemReportService.Update(id, systemReport);
+            var _systemReport = _systemReportService.Update(systemReport);
             return Ok(_systemReport);
         }
 
@@ -47,7 +47,7 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public ActionResult Create(SystemReport systemReport)
+        public ActionResult Create(SystemReportRequest systemReport)
         {
             _systemReportService.Create(systemReport);
             return Ok();

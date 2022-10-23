@@ -2,23 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using LHMS.SystemReports.Helpers;
-using LHMS.SystemReports.Models;
+using LHMS.SystemReports.Models.SystemReport;
+using LHMS.SystemReports.Entities;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using AutoMapper;
 
 namespace LHMS.SystemReports.Services
 {
     public interface ISystemReportService
     {
-        IQueryable<SystemReport> GetAllSystemReports();
+        IQueryable<SystemReportResponse> GetAllSystemReports();
 
-        IQueryable<SystemReport> GetLoggedInUsersSystemReports();
+        IQueryable<SystemReportResponse> GetLoggedInUsersSystemReports();
 
-        SystemReport GetByID(int id);
+        SystemReportResponse GetByID(int id);
 
-        SystemReport Create(SystemReport model);
+        SystemReportResponse Create(SystemReportRequest model);
 
-        SystemReport Update(int id, SystemReport model);
+        SystemReportResponse Update(SystemReportRequest model);
 
         void Delete(int id);
     }
@@ -26,26 +28,30 @@ namespace LHMS.SystemReports.Services
     public class SystemReportService : ISystemReportService
     {
         private readonly DatabaseContext _context;
+        private readonly IMapper _mapper;
 
-        public SystemReportService(DatabaseContext context)
+        public SystemReportService(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public SystemReport Create(SystemReport systemReport)
+        public SystemReportResponse Create(SystemReportRequest systemReportRequest)
         {
             try
             {
+
+                var systemReport = _mapper.Map<SystemReport>(systemReportRequest);
                 //TODO: Add logic to pull logged in user and assign to Reporter spot.
-                systemReport.CreatedDate = DateTime.Now;
-                systemReport.UpdatedDate = DateTime.Now;
+                systemReport.CreatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
+                systemReport.UpdatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
                 if (systemReport.SystemReportStatusId == 0)
                     systemReport.SystemReportStatusId = 1;
-                systemReport.SystemName = _context.SystemNames.Find(systemReport.SystemNameId);
-                systemReport.SystemReportStatus = _context.SystemReportStatus.Find(systemReport.SystemReportStatusId);
                 _context.SystemReports.AddAsync(systemReport);
                 _context.SaveChanges();
-                return systemReport;
+
+                var response = _mapper.Map<SystemReportResponse>(systemReport);
+                return response;
             }
             catch (Exception ex)
             {
@@ -58,7 +64,7 @@ namespace LHMS.SystemReports.Services
         public void Delete(int id)
         {
             /*Check if the record with the provided ID exists. If it does, delete it. If not return an error/success*/
-            SystemReport systemReport = _context.SystemReports.SingleOrDefault(s => s.Id == id);
+            var systemReport = _context.SystemReports.SingleOrDefault(s => s.Id == id);
             if (systemReport != null)
             {
                 try
@@ -75,34 +81,40 @@ namespace LHMS.SystemReports.Services
 
         }
 
-        public IQueryable<SystemReport> GetAllSystemReports()
+        public IQueryable<SystemReportResponse> GetAllSystemReports()
         {
-            var systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).Include(name => name.SystemName).Include(status => status.SystemReportStatus).AsQueryable();
-            foreach (SystemReport sr in systemReports)
+            var systemReports = _context.SystemReports.Where(s => s.SystemReportStatusId > 1).ToList();
+            
+            List<SystemReportResponse> response = new List<SystemReportResponse>();
+            foreach(SystemReport sr in systemReports)
             {
-                sr.SystemName.Name = _context.SystemNames.Find(sr.SystemNameId).Name.ToString();
-                sr.SystemReportStatus.Status = _context.SystemReportStatus.Find(sr.SystemReportStatusId).Status.ToString();
+                sr.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == sr.SystemNameId);
+                sr.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == sr.SystemReportStatusId);
+                var mappedReport = _mapper.Map<SystemReportResponse>(sr);
+                response.Add(mappedReport);
             }
-
-            return systemReports;
+            
+            return response.AsQueryable();
         }
 
-        public SystemReport GetByID(int id)
+        public SystemReportResponse GetByID(int id)
         {
             SystemReport systemReport = _context.SystemReports.FirstOrDefault(s => s.Id == id);
             systemReport.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == systemReport.SystemNameId);
             systemReport.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == systemReport.SystemReportStatusId);
-            return systemReport;
+            SystemReportResponse response = _mapper.Map<SystemReportResponse>(systemReport);
+            return response;
         }
 
-        public IQueryable<SystemReport> GetLoggedInUsersSystemReports()
+        public IQueryable<SystemReportResponse> GetLoggedInUsersSystemReports()
         {
             throw new System.NotImplementedException();
         }
 
-        public SystemReport Update(int id, SystemReport model)
+        public SystemReportResponse Update(SystemReportRequest systemReport)
         {
-            //IQueryable<SystemReport> systemReports = _context.SystemReports.Where(s => s.)
+            SystemReport systemReports = _context.SystemReports.First(s => s.Id == systemReport.Id);
+
             throw new System.NotImplementedException();
         }
     }

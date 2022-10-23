@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LHMS.SystemReports.Models
+namespace LHMS.SystemReports.Entities
 {
     public class SystemReport
     {
@@ -14,17 +12,11 @@ namespace LHMS.SystemReports.Models
 
         public string ReportName { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime ReportDate { get; set; }
+        public NodaTime.Instant ReportDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime CreatedDate { get; set; }
+        public NodaTime.Instant CreatedDate { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime UpdatedDate { get; set; }
+        public NodaTime.Instant UpdatedDate { get; set; }
 
         public int SystemReportStatusId { get; set; }
 

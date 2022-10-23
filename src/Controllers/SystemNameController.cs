@@ -1,4 +1,4 @@
-﻿using LHMS.SystemReports.Models;
+﻿using LHMS.SystemReports.Models.SystemReport;
 using LHMS.SystemReports.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace LHMS.SystemReports.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<SystemName>> GetAll()
+        public ActionResult<IEnumerable<SystemNameResponse>> GetAll()
         {
             var systemNames = _systemNameService.GetAllSystemNames();
             return Ok(systemNames);

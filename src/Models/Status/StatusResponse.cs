@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LHMS.SystemReports.Models
 {
-    public class Status
+    public class StatusResponse
     {
         [Key]
         public int Id {get; set;}

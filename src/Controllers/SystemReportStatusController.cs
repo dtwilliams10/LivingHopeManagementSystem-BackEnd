@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LHMS.SystemReports.Services;
-using LHMS.SystemReports.Models;
 using System.Collections.Generic;
+using LHMS.SystemReports.Models.SystemReportStatus;
 
 namespace LHMS.SystemReports.Controllers
 {
@@ -17,7 +17,7 @@ namespace LHMS.SystemReports.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<SystemReportStatus>> GetAll()
+        public ActionResult<IEnumerable<SystemReportStatusResponse>> GetAll()
         {
             var systemReportStatuses = _systemReportStatusService.GetAllSystemReportStatuses();
             return Ok(systemReportStatuses);

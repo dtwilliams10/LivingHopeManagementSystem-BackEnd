@@ -1,5 +1,6 @@
-﻿using System;
-using System.Threading;
+﻿#define Debug
+
+using System;
 using LHMS.SystemReports.Helpers;
 using LHMS.SystemReports.Services;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
+using NodaTime.Serialization.SystemTextJson;
+using NodaTime;
 
 try
 {
@@ -23,14 +26,16 @@ try
     builder.Services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
     builder.Services.AddScoped<ISystemNameService, SystemNameService>();
     builder.Services.AddCors();
-    builder.Services.AddControllers();
+    builder.Services.AddControllers().AddJsonOptions(options => {
+            options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
+        });
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-            .MinimumLevel.Override("System", LogEventLevel.Warning)
-            .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Information)
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Debug)
+            .MinimumLevel.Override("System", LogEventLevel.Debug)
+            .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Debug)
             .Enrich.FromLogContext()
             .WriteTo.File("logs/SystemReports.log", rollingInterval: RollingInterval.Day)
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Literate);
@@ -47,16 +52,16 @@ try
     }
     else
     {
-        /*
-        if(app.Environment.IsStaging())
-        {
-            while (!System.Diagnostics.Debugger.IsAttached)
-            {
-                Thread.Sleep(100); //Or Task.Delay()
-            }
+        // #if (Debug)
+        //     if(app.Environment.IsStaging())
+        //     {
+        //         while (!System.Diagnostics.Debugger.IsAttached)
+        //         {
+        //             System.Threading.Thread.Sleep(100); //Or Task.Delay()
+        //         }
 
-        }
-        */
+        //     }
+        // #endif
 
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
@@ -77,8 +82,8 @@ try
     }
     catch (Exception ex)
     {
-        Log.Error("Migration failed!");
-        Log.Error(ex.ToString());
+        Log.Fatal("Migration failed!");
+        Log.Fatal(ex.ToString());
         return;
     }
 
@@ -106,6 +111,7 @@ try
 catch (Exception ex)
 {
     Log.Fatal(ex, "Unhandled Exception");
+    Log.Fatal(ex.Message.ToString());
 }
 finally
 {
