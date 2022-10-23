@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 
 namespace LHMS.SystemReports.Entities
 {
-    [Table("SystemNames")]
     public class SystemName
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
