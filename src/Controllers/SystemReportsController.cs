@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LHMS.SystemReports.Services;
+using Microsoft.AspNetCore.Authorization;
 
 //TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
 namespace LHMS.SystemReportsControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SystemReportController : ControllerBase
+    public class SystemReportsController : ControllerBase
     {
         private readonly ISystemReportService _systemReportService;
 
-        public SystemReportController(ISystemReportService systemReportService)
+        public SystemReportsController(ISystemReportService systemReportService)
         {
             _systemReportService = systemReportService;
         }
 
         // GET: api/SystemReport
         [HttpGet]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public ActionResult<IEnumerable<SystemReportResponse>> GetAll()
         {
             var systemReports = _systemReportService.GetAllSystemReports();
@@ -26,6 +29,8 @@ namespace LHMS.SystemReportsControllers
         }
         // GET: api/SystemReport/5
         [HttpGet("{id}")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public ActionResult<SystemReportResponse> GetById(int id)
         {
             var systemReport = _systemReportService.GetByID(id);
@@ -36,6 +41,8 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
         public ActionResult<SystemReportResponse> Update(int id, SystemReportRequest systemReport)
         {
 
@@ -47,6 +54,8 @@ namespace LHMS.SystemReportsControllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Authorize]
+        [Consumes("application/json")]
         public ActionResult Create(SystemReportRequest systemReport)
         {
             _systemReportService.Create(systemReport);
@@ -55,6 +64,7 @@ namespace LHMS.SystemReportsControllers
 
         // DELETE: api/SystemReport/5
         [HttpDelete("{id}")]
+        [Consumes("application/json")]
         public ActionResult Delete(int id)
         {
             _systemReportService.Delete(id);

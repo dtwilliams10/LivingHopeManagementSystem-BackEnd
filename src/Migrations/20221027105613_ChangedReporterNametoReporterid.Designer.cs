@@ -2,6 +2,7 @@
 using LHMS.SystemReports.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NodaTime;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,13 +12,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace SystemReports.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20221027105613_ChangedReporterNametoReporterid")]
+    partial class ChangedReporterNametoReporterid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -36,9 +38,9 @@ namespace SystemReports.Migrations
                         .HasColumnName("name");
 
                     b.HasKey("Id")
-                        .HasName("pk_sr_system_names_lkp");
+                        .HasName("pk_system_names");
 
-                    b.ToTable("sr.system_names_lkp");
+                    b.ToTable("system_names", (string)null);
                 });
 
             modelBuilder.Entity("LHMS.SystemReports.Entities.SystemReport", b =>
@@ -103,15 +105,15 @@ namespace SystemReports.Migrations
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id")
-                        .HasName("pk_sr_system_reports");
+                        .HasName("pk_system_reports");
 
                     b.HasIndex("SystemNameId")
-                        .HasDatabaseName("ix_sr_system_reports_system_name_id");
+                        .HasDatabaseName("ix_system_reports_system_name_id");
 
                     b.HasIndex("SystemReportStatusId")
-                        .HasDatabaseName("ix_sr_system_reports_system_report_status_id");
+                        .HasDatabaseName("ix_system_reports_system_report_status_id");
 
-                    b.ToTable("sr.system_reports");
+                    b.ToTable("system_reports", (string)null);
                 });
 
             modelBuilder.Entity("LHMS.SystemReports.Entities.SystemReportStatus", b =>
@@ -128,9 +130,9 @@ namespace SystemReports.Migrations
                         .HasColumnName("status");
 
                     b.HasKey("Id")
-                        .HasName("pk_sr_system_report_status_lkp");
+                        .HasName("pk_system_report_status");
 
-                    b.ToTable("sr.system_report_status_lkp");
+                    b.ToTable("system_report_status", (string)null);
                 });
 
             modelBuilder.Entity("LHMS.SystemReports.Entities.SystemReport", b =>
@@ -140,14 +142,14 @@ namespace SystemReports.Migrations
                         .HasForeignKey("SystemNameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("fk_sr_system_reports_sr_system_names_lkp_system_name_id");
+                        .HasConstraintName("fk_system_reports_system_names_system_name_id");
 
                     b.HasOne("LHMS.SystemReports.Entities.SystemReportStatus", "SystemReportStatus")
                         .WithMany()
                         .HasForeignKey("SystemReportStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("fk_sr_system_reports_sr_system_report_status_lkp_system_report");
+                        .HasConstraintName("fk_system_reports_system_report_status_system_report_status_id");
 
                     b.Navigation("SystemName");
 

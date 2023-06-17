@@ -2,6 +2,7 @@
 using LHMS.SystemReports.Services;
 using System.Collections.Generic;
 using LHMS.SystemReports.Models.SystemReportStatus;
+using System.Threading.Tasks;
 
 namespace LHMS.SystemReports.Controllers
 {
@@ -17,10 +18,14 @@ namespace LHMS.SystemReports.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<SystemReportStatusResponse>> GetAll()
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<SystemReportStatusResponse>>> GetAll()
         {
-            var systemReportStatuses = _systemReportStatusService.GetAllSystemReportStatuses();
-            return Ok(systemReportStatuses);
+            var systemReportStatuses = await _systemReportStatusService.GetAllSystemReportStatuses();
+            if (systemReportStatuses != null)
+                return Ok(systemReportStatuses);
+
+            return BadRequest();
         }
     }
 }

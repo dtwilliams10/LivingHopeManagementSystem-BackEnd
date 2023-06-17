@@ -2,12 +2,14 @@
 using LHMS.SystemReports.Entities;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace LHMS.SystemReports.Services
 {
     public interface ISystemReportStatusService
     {
-        IEnumerable<SystemReportStatus> GetAllSystemReportStatuses();
+        Task<List<SystemReportStatus>> GetAllSystemReportStatuses();
     }
 
     public class SystemReportStatusService : ISystemReportStatusService
@@ -19,11 +21,11 @@ namespace LHMS.SystemReports.Services
             _context = context;
         }
 
-        public IEnumerable<SystemReportStatus> GetAllSystemReportStatuses()
+        public async Task<List<SystemReportStatus>> GetAllSystemReportStatuses()
         {
             try
             {
-                var systemReportStatuses = _context.SystemReportStatus.AsQueryable();
+                var systemReportStatuses = await _context.SystemReportStatus.AsQueryable().ToListAsync();
                 return systemReportStatuses;
             }
             catch (Exception ex)

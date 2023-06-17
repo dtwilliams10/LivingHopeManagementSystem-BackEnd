@@ -3,12 +3,16 @@ using LHMS.SystemReports.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LHMS.SystemReports.Services
 {
     public interface ISystemNameService
     {
-        IQueryable<SystemName> GetAllSystemNames();
+        Task<List<SystemName>> GetAllSystemNames();
+        Task<SystemName> GetSystemNameById(int Id);
     }
 
     public class SystemNameService : ISystemNameService
@@ -20,18 +24,26 @@ namespace LHMS.SystemReports.Services
             _context = context;
         }
 
-        public IQueryable<SystemName> GetAllSystemNames()
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<List<SystemName>> GetAllSystemNames()
         {
             try
             {
-                var systemNames = _context.SystemNames;
-                return systemNames;
+                return await _context.SystemNames.AsQueryable<SystemName>().ToListAsync();
             }
             catch (Exception ex)
             {
                 Serilog.Log.Error("Error in System Name Service: {@ex}", ex);
                 throw new AppException();
             }
+        }
+
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<SystemName> GetSystemNameById(int Id)
+        {
+            return await _context.SystemNames.FirstOrDefaultAsync(x => x.Id == Id);
         }
     }
 }

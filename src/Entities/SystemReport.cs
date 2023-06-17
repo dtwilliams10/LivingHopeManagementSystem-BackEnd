@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace LHMS.SystemReports.Entities
 {
+    [Table("sr.system_reports")]
     public class SystemReport
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        //TODO: Update with logic to use the logged in user's info from Identity Server 4.
-        public string ReporterName { get; set; }
+        public int ReporterId { get; set; }
 
         public string ReportName { get; set; }
 

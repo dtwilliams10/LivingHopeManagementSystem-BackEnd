@@ -1,12 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LHMS.SystemReports.Entities
 {
+    [Table("sr.system_report_status_lkp")]
     public class SystemReportStatus
     {
-      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-      public int Id { get; set; }
-      public string Status {get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string Status { get; set; }
     }
 
 }

@@ -35,14 +35,15 @@ namespace LHMS.SystemReports.Services
             _context = context;
             _mapper = mapper;
         }
-
+        
         public SystemReportResponse Create(SystemReportRequest systemReportRequest)
         {
             try
             {
-
                 var systemReport = _mapper.Map<SystemReport>(systemReportRequest);
                 //TODO: Add logic to pull logged in user and assign to Reporter spot.
+                /// Grab deserialized JWT and add the userID to reporterID. 
+                systemReport.ReporterId = 4;
                 systemReport.CreatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
                 systemReport.UpdatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
                 if (systemReport.SystemReportStatusId == 0)
