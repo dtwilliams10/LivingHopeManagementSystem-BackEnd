@@ -6,3 +6,4 @@ obj/
 src/logs/*
 src/appsettings.Development.json
 src/appsettings.json
+src/appsettings.Local.json
