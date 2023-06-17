@@ -4,7 +4,8 @@ select * from system_report_status;
 
 insert into system_report_status
 select *
-from (values (1, 'Inactive'), 
+from (values 
+	  (1, 'Inactive'), 
 	  (2, 'Draft'),
 	  (3, 'Submitted to Team Lead'),
 	  (4, 'Rejected by Team Lead'),

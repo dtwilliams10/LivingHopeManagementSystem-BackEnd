@@ -924,7 +924,7 @@ VALUES (
 2
 );
 
-IINSERT INTO system_reports (
+INSERT INTO system_reports (
 reporter_name,
 report_name,
 report_date,
