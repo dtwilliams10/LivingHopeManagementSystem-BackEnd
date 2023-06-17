@@ -1,6 +1,4 @@
-﻿#define Debug
-
-using System;
+﻿using System;
 using LHMS.SystemReports.Helpers;
 using LHMS.SystemReports.Services;
 using Microsoft.AspNetCore.Builder;
@@ -13,6 +11,7 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using NodaTime.Serialization.SystemTextJson;
 using NodaTime;
+using Microsoft.AspNetCore.Authorization;
 
 try
 {
@@ -26,10 +25,17 @@ try
     builder.Services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
     builder.Services.AddScoped<ISystemNameService, SystemNameService>();
     builder.Services.AddCors();
-    builder.Services.AddControllers().AddJsonOptions(options => {
-            options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
-        });
+    builder.Services.AddControllers().AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
+    });
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    // builder.Services.AddAuthorization(options =>
+    // {
+    // options.FallbackPolicy = new AuthorizationPolicyBuilder()
+    //     .RequireAuthenticatedUser()
+    //     .Build();
+    // });
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
@@ -52,21 +58,10 @@ try
     }
     else
     {
-        // #if (Debug)
-        //     if(app.Environment.IsStaging())
-        //     {
-        //         while (!System.Diagnostics.Debugger.IsAttached)
-        //         {
-        //             System.Threading.Thread.Sleep(100); //Or Task.Delay()
-        //         }
-
-        //     }
-        // #endif
-
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c =>
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SystemReports V1")
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "SystemReports V1")
         );
     }
 
@@ -76,7 +71,8 @@ try
         using (var context = app.Services.CreateScope())
         {
             var databaseContext = context.ServiceProvider.GetRequiredService<DatabaseContext>();
-            databaseContext.Database.Migrate();
+            await databaseContext.Database.MigrateAsync();
+            await Models.Seed.SeedData(databaseContext);
         }
         Log.Information("Database migrated successfully!");
     }
@@ -90,12 +86,12 @@ try
     app.UseRouting();
 
     app.UseCors(x => x
+    .WithOrigins("http://localhost:3000", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
     .AllowAnyMethod()
     .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true)
     .AllowCredentials());
 
-    app.UseAuthorization();
+    //app.UseAuthorization();
 
     app.UseEndpoints(endpoints =>
     {
