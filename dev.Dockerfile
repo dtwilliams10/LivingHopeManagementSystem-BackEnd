@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine  AS build-env
+﻿FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine3.18  AS build-env
 WORKDIR /app
 
 # Copy Test csproj and restore as distinct layers
@@ -12,7 +12,7 @@ COPY . ./
 RUN dotnet publish -c Debug -o out src/SystemReports.csproj
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine3.18
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENV ASPNETCORE_URLS=http://*:5002
