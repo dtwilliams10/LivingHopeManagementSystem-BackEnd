@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LHMS.SystemReports.Services;
-using Microsoft.AspNetCore.Authorization;
+//using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
 
 //TODO: NEED TO ADD AUTHORIZATION BACK TO THIS CONTROLLER
 namespace LHMS.SystemReportsControllers
@@ -18,7 +19,6 @@ namespace LHMS.SystemReportsControllers
             _systemReportService = systemReportService;
         }
 
-        // GET: api/SystemReport
         [HttpGet]
         [Consumes("application/json")]
         [Produces("application/json")]
@@ -27,7 +27,7 @@ namespace LHMS.SystemReportsControllers
             var systemReports = _systemReportService.GetAllSystemReports();
             return Ok(systemReports);
         }
-        // GET: api/SystemReport/5
+
         [HttpGet("{id}")]
         [Consumes("application/json")]
         [Produces("application/json")]
@@ -37,32 +37,30 @@ namespace LHMS.SystemReportsControllers
             return Ok(systemReport);
         }
 
-        // PUT: api/SystemReport/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         [Consumes("application/json")]
         [Produces("application/json")]
-        public ActionResult<SystemReportResponse> Update(int id, SystemReportRequest systemReport)
+        public async Task<IActionResult> Update(int id, [FromBody] SystemReportRequest systemReport)
         {
+            var _systemReport = await _systemReportService.Update(systemReport);
+            if (_systemReport is not null)
+                return Ok(_systemReport);
 
-            var _systemReport = _systemReportService.Update(systemReport);
-            return Ok(_systemReport);
+            return BadRequest();
         }
 
-        // POST: api/SystemReport
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         [Consumes("application/json")]
-        public ActionResult Create(SystemReportRequest systemReport)
+        public async Task<ActionResult> Create(SystemReportRequest systemReport)
         {
-            _systemReportService.Create(systemReport);
-            return Ok();
+            var createdReport = await _systemReportService.Create(systemReport);
+            if (createdReport is not null)
+                return Ok(createdReport);
+
+            return BadRequest();
         }
 
-        // DELETE: api/SystemReport/5
         [HttpDelete("{id}")]
         [Consumes("application/json")]
         public ActionResult Delete(int id)

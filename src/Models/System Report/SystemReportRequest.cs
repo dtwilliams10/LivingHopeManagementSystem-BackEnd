@@ -1,4 +1,6 @@
-﻿namespace LHMS.SystemReports.Models.SystemReport
+﻿using LHMS.SystemReports.Models.SystemReportStatus;
+
+namespace LHMS.SystemReports.Models.SystemReport
 {
     public class SystemReportRequest
     {
@@ -6,7 +8,7 @@
         public int Id { get; set; }
 
         //TODO: Update with logic to use the logged in user's info from Identity Server 4.
-        public int ReporterId { get; set; }
+        public string ReporterId { get; set; }
 
         public string ReportName { get; set; }
 
@@ -16,9 +18,9 @@
 
         public NodaTime.Instant? UpdatedDate { get; set; }
 
-        public int SystemReportStatusId { get; set; }
+        public SystemReportStatusRequest SystemReportStatus { get; set; }
 
-        public int SystemNameId { get; set; }
+        public SystemNameRequest SystemName { get; set; }
 
         public string SystemUpdate { get; set; }
 
