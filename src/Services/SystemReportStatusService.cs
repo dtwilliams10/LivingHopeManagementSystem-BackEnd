@@ -10,6 +10,8 @@ namespace LHMS.SystemReports.Services
     public interface ISystemReportStatusService
     {
         Task<List<SystemReportStatus>> GetAllSystemReportStatuses();
+
+        Task<SystemReportStatus> GetSystemReportStatusById(int id);
     }
 
     public class SystemReportStatusService : ISystemReportStatusService
@@ -31,6 +33,20 @@ namespace LHMS.SystemReports.Services
             catch (Exception ex)
             {
                 Serilog.Log.Error("Error in System Report Service: {@ex}", ex);
+                throw new AppException();
+            }
+        }
+
+        public async Task<SystemReportStatus> GetSystemReportStatusById(int id)
+        {
+            try
+            {
+                var systemReportStatus = await _context.SystemReportStatus.FirstOrDefaultAsync(x => x.Id == id);
+                return systemReportStatus;
+            }
+            catch (Exception ex)
+            {
+                Serilog.Log.Error("Error in System Report Status Service: {@ex}", ex);
                 throw new AppException();
             }
         }
