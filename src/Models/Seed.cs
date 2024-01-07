@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,52 +22,40 @@ namespace Models
                 Log.Information("Building Seed Data");
                 systemNames = new List<SystemName>
                 {
-                    new SystemName
-                    {
+                    new() {
                         Name = "Administrative"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Campus Preservation"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Childrens"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Christian Development"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Creative"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "First Touch"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Hispanic"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Media"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Second Touch"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Specialized Ministries"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Worship"
                     },
-                    new SystemName
-                    {
+                    new() {
                         Name = "Youth"
                     }
                 };
@@ -75,60 +64,46 @@ namespace Models
             {
                 systemReportStatuses = new List<SystemReportStatus>
                 {
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Inactive"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Draft"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Submitted to Team Lead"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Rejected by Team Lead"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Approved By Team Lead"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Submitted to System Director"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Rejected by System Director"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Approved by System Director"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Submitted to Administrative Pastor"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Rejected by Administrative Pastor"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Approved by Administrative Pastor"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Submitted to Senior Pastor"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Rejected by Senior Pastor"
                     },
-                    new SystemReportStatus
-                    {
+                    new() {
                         Status = "Approved by Senior Pastor"
                     }
                 };
@@ -137,12 +112,11 @@ namespace Models
             {
                 systemReports = new List<SystemReport>
                 {
-                    new SystemReport
-                    {
-                        ReporterId = 1,
+                    new() {
+                        ReporterId = "1",
                         ReportName = "Creative System Report",
-                        ReportDate = NodaTime.Instant.FromUtc(2023, 03, 15, 00, 00),
-                        CreatedDate = NodaTime.Instant.FromUtc(2023, 03, 15, 00, 00),
+                        ReportDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow),
+                        CreatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow),
                         SystemReportStatusId = 5,
                         SystemNameId = 5,
                         SystemUpdate = "This is my system update",
@@ -152,12 +126,11 @@ namespace Models
                         HowCanIHelpYou = "This is how you can help me",
                         PersonalGrowthAndDevelopment = "This is my personal growth and development"
                     },
-                    new SystemReport
-                    {
-                        ReporterId = 1,
+                    new() {
+                        ReporterId = "1",
                         ReportName = "First Touch System Report",
-                        ReportDate = NodaTime.Instant.FromUtc(2023, 03, 15, 00, 00),
-                        CreatedDate = NodaTime.Instant.FromUtc(2023, 03, 15, 00, 00),
+                        ReportDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow),
+                        CreatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow),
                         SystemReportStatusId = 4,
                         SystemNameId = 6,
                         SystemUpdate = "This is my system update",
