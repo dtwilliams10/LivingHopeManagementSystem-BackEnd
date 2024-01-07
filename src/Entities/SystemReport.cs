@@ -9,7 +9,7 @@ namespace LHMS.SystemReports.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int ReporterId { get; set; }
+        public string ReporterId { get; set; }
 
         public string ReportName { get; set; }
 
