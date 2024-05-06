@@ -1,6 +1,7 @@
 stages:
- - build
- - .post
+  - build
+  - sonarqube-check
+  - .post
 
 test build job:
   image: docker:latest
@@ -29,24 +30,49 @@ test deploy job:
     project: LHMS/LHMS
     branch: develop
 
-prod build job:
-    image: docker:latest
-    stage: build
-    only:
-      - master@LHMS/SystemReports
-    tags:
-      - production
+sonarqube-check:
+  stage: sonarqube-check
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar" # Defines the location of the analysis task cache
+    GIT_DEPTH: "0" # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - "apt-get update"
+    - "apt-get install --yes --no-install-recommends openjdk-17-jre"
+    - "dotnet tool install --global dotnet-sonarscanner"
+    - 'export PATH="$PATH:$HOME/.dotnet/tools"'
+    - 'dotnet sonarscanner begin /k:"LHMS_SystemReports_0df9a5b6-8edc-418d-93f6-8004c8316131" /d:sonar.token="$SONAR_TOKEN" /d:"sonar.host.url=$SONAR_HOST_URL" '
+    - "dotnet build"
+    - 'dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"'
+  allow_failure: true
+  only:
+    - merge_requests
+    - master
+    - main
+    - develop
 
-    script:
-      - sed -i 's/$Secret/'"$SECRET"'/g' src/appsettings.Production.json
-      - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' src/appsettings.Production.json
-      - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' src/appsettings.Production.json
-      - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' src/appsettings.Production.json
-      - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' src/appsettings.Production.json
-      - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' src/appsettings.Production.json
-      - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' src/appsettings.Production.json
-      - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' src/appsettings.Production.json
-      - docker build -f prod.Dockerfile -t systemreports .
+prod build job:
+  image: docker:latest
+  stage: build
+  only:
+    - master@LHMS/SystemReports
+  tags:
+    - production
+
+  script:
+    - sed -i 's/$Secret/'"$SECRET"'/g' src/appsettings.Production.json
+    - sed -i 's/$Emailfrom/'"$EMAILFROM"'/g' src/appsettings.Production.json
+    - sed -i 's/$SmtpHost/'"$SMTPHOST"'/g' src/appsettings.Production.json
+    - sed -i 's/$SmtpPort/'"$SMTPPORT"'/g' src/appsettings.Production.json
+    - sed -i 's/$SmtpUser/'"$SMTPUSER"'/g' src/appsettings.Production.json
+    - sed -i 's/$SmtpPass/'"$SMTPPASS"'/g' src/appsettings.Production.json
+    - sed -i 's/$DisplayedSender/'"$DISPLAYEDSENDER"'/g' src/appsettings.Production.json
+    - sed -i 's/$ConnectString/'"$CONNECTSTRING"'/g' src/appsettings.Production.json
+    - docker build -f prod.Dockerfile -t systemreports .
 
 prod deploy job:
   stage: .post
