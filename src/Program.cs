@@ -11,7 +11,8 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using NodaTime.Serialization.SystemTextJson;
 using NodaTime;
-using Microsoft.AspNetCore.Authorization;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 try
 {
@@ -25,6 +26,7 @@ try
     builder.Services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
     builder.Services.AddScoped<ISystemNameService, SystemNameService>();
     builder.Services.AddCors();
+    builder.Services.AddHealthChecks();
     builder.Services.AddControllers().AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
@@ -36,6 +38,7 @@ try
     //     .RequireAuthenticatedUser()
     //     .Build();
     // });
+    builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"));
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
@@ -43,7 +46,7 @@ try
             .MinimumLevel.Override("System", LogEventLevel.Debug)
             .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Debug)
             .Enrich.FromLogContext()
-            .WriteTo.File("logs/SystemReports.log", rollingInterval: RollingInterval.Day)
+            .WriteTo.File("logs/SystemReports.log", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Literate);
     });
 
@@ -53,7 +56,7 @@ try
 
     if (app.Environment.IsProduction())
     {
-        Serilog.Log.Information("Running in production.");
+        Log.Information("Running in production.");
         app.UseExceptionHandler("/Error");
     }
     else
@@ -92,13 +95,8 @@ try
     .AllowCredentials());
 
     //app.UseAuthorization();
-
-    app.UseEndpoints(endpoints =>
-    {
-        ///Adding this caused the app to crash on startup. Need to investigate
-        //endpoints.MapHealthChecks("/health");
-        endpoints.MapControllers();
-    });
+    app.MapHealthChecks("/health");
+    app.MapControllers();
 
     app.UseSerilogRequestLogging();
 
