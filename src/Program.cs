@@ -11,8 +11,9 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using NodaTime.Serialization.SystemTextJson;
 using NodaTime;
-using System.Configuration;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 try
 {
@@ -27,6 +28,7 @@ try
     builder.Services.AddScoped<ISystemNameService, SystemNameService>();
     builder.Services.AddCors();
     builder.Services.AddHealthChecks();
+    builder.Services.AddHealthChecksUI();
     builder.Services.AddControllers().AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
@@ -38,7 +40,10 @@ try
     //     .RequireAuthenticatedUser()
     //     .Build();
     // });
-    builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"));
+    builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"), name: "PostgreSQL");
+    builder.Services.AddHealthChecksUI(setupSettings: setup => {
+        setup.AddHealthCheckEndpoint("Postgres Health Check", "/health");
+    }).AddInMemoryStorage();
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
@@ -51,6 +56,8 @@ try
     });
 
     var app = builder.Build();
+    app.UseStaticFiles();
+
 
     Log.Information("Starting System Reports Service!");
 
@@ -87,7 +94,6 @@ try
     }
 
     app.UseRouting();
-
     app.UseCors(x => x
     .WithOrigins("http://localhost:3000", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
     .AllowAnyMethod()
@@ -95,11 +101,18 @@ try
     .AllowCredentials());
 
     //app.UseAuthorization();
-    app.MapHealthChecks("/health");
-    app.MapControllers();
 
+    app.MapHealthChecks("/health", new HealthCheckOptions
+    {
+        Predicate = _ => true,
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
+
+    app.MapHealthChecksUI(setup => {
+        setup.UIPath = "/health-ui";
+        setup.AddCustomStylesheet("health-checks.css");
+    });
     app.UseSerilogRequestLogging();
-
     app.Run();
 }
 catch (Exception ex)
