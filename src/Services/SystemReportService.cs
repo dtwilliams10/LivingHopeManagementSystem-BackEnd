@@ -30,14 +30,11 @@ namespace LHMS.SystemReports.Services
         private readonly DatabaseContext _context;
         private readonly IMapper _mapper;
         private readonly ISystemNameService _systemNameService;
-        private readonly ISystemReportStatusService _systemReportStatusService;
-
-        public SystemReportService(DatabaseContext context, IMapper mapper, ISystemNameService systemNameService, ISystemReportStatusService systemReportStatusService)
+        public SystemReportService(DatabaseContext context, IMapper mapper, ISystemNameService systemNameService)
         {
             _context = context;
             _mapper = mapper;
             _systemNameService = systemNameService;
-            _systemReportStatusService = systemReportStatusService;
         }
 
         public async Task<SystemReportResponse> Create(SystemReportRequest systemReportRequest)
