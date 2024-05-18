@@ -43,6 +43,7 @@ try
     builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"), name: "PostgreSQL");
     builder.Services.AddHealthChecksUI(setupSettings: setup => {
         setup.AddHealthCheckEndpoint("Postgres Health Check", "/health");
+        setup.MaximumHistoryEntriesPerEndpoint(25);
     }).AddInMemoryStorage();
     builder.Host.UseSerilog((context, config) =>
     {
@@ -57,7 +58,6 @@ try
 
     var app = builder.Build();
     app.UseStaticFiles();
-
 
     Log.Information("Starting System Reports Service!");
 
@@ -94,6 +94,7 @@ try
     }
 
     app.UseRouting();
+
     app.UseCors(x => x
     .WithOrigins("http://localhost:3000", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
     .AllowAnyMethod()
