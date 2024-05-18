@@ -5,6 +5,7 @@ WORKDIR /app
 COPY *.sln .
 COPY tests/*.csproj ./tests/
 COPY src/*.csproj ./src/
+COPY src/health-checks.css ./src/
 RUN dotnet restore
 
 # Copy everything else and build
@@ -15,5 +16,6 @@ RUN dotnet publish -c Debug -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine3.18
 WORKDIR /app
 COPY --from=build /app/out .
+COPY --from=build /app/src/health-checks.css .
 ENV ASPNETCORE_URLS=http://+:5002
 ENTRYPOINT ["dotnet", "SystemReports.dll"]
