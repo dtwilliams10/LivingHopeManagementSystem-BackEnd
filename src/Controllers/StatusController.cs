@@ -6,20 +6,15 @@ namespace LHMS.SystemReports.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class StatusController : ControllerBase
+    public class StatusController(IStatusService statusService) : ControllerBase
     {
 
-        private readonly IStatusService _statusService;
-
-        public StatusController(IStatusService statusService)
-        {
-            _statusService = statusService;
-        }
+        private readonly IStatusService _statusService = statusService;
 
         [HttpGet]
-        public Task<string> GetDatabaseStatus()
+        public async Task<string> GetDatabaseStatus()
         {
-            var response = _statusService.getDatabaseStatus();
+            var response = await _statusService.getDatabaseStatus();
 
             return response;
         }
