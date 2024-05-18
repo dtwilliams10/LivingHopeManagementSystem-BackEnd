@@ -10,14 +10,9 @@ namespace LHMS.SystemReportsControllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SystemReportsController : ControllerBase
+    public class SystemReportsController(ISystemReportService systemReportService) : ControllerBase
     {
-        private readonly ISystemReportService _systemReportService;
-
-        public SystemReportsController(ISystemReportService systemReportService)
-        {
-            _systemReportService = systemReportService;
-        }
+        private readonly ISystemReportService _systemReportService = systemReportService;
 
         [HttpGet]
         [Consumes("application/json")]
@@ -37,10 +32,10 @@ namespace LHMS.SystemReportsControllers
             return Ok(systemReport);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [Consumes("application/json")]
         [Produces("application/json")]
-        public async Task<IActionResult> Update(int id, [FromBody] SystemReportRequest systemReport)
+        public async Task<IActionResult> Update([FromBody] SystemReportRequest systemReport)
         {
             var _systemReport = await _systemReportService.Update(systemReport);
             if (_systemReport is not null)
@@ -52,11 +47,11 @@ namespace LHMS.SystemReportsControllers
         [HttpPost]
         //[Authorize]
         [Consumes("application/json")]
-        public async Task<ActionResult> Create(SystemReportRequest systemReport)
+        public async Task<IActionResult> Create(SystemReportRequest systemReport)
         {
             var createdReport = await _systemReportService.Create(systemReport);
             if (createdReport is not null)
-                return Ok(createdReport);
+                return Ok();
 
             return BadRequest();
         }

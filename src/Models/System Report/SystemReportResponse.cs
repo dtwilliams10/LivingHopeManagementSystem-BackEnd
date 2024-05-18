@@ -16,9 +16,9 @@ namespace LHMS.SystemReports.Models.SystemReport
 
         public NodaTime.Instant? UpdatedDate { get; set; }
 
-        public SystemReportStatusResponse SystemReportStatus { get; set; }
+        public int SystemStatusId {get; set;}
 
-        public SystemNameResponse SystemName { get; set; }
+        public int SystemNameId {get;set;}
 
         public string SystemUpdate { get; set; }
 

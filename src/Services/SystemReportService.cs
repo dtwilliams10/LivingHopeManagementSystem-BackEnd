@@ -18,9 +18,9 @@ namespace LHMS.SystemReports.Services
 
         SystemReportResponse GetByID(int id);
 
-        Task<SystemReportResponse> Create(SystemReportRequest model);
+        Task<SystemReportResponse> Create(SystemReportRequest systemReportRequest);
 
-        Task<SystemReportResponse> Update(SystemReportRequest model);
+        Task<SystemReportResponse> Update(SystemReportRequest systemReportRequest);
 
         void Delete(int id);
     }
@@ -50,7 +50,7 @@ namespace LHMS.SystemReports.Services
                 systemReport.ReporterId = systemReportRequest.ReporterId.ToString();
                 systemReport.CreatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
                 systemReport.UpdatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
-                systemReport.SystemReportStatus = await _systemReportStatusService.GetSystemReportStatusById(systemReport.SystemReportStatusId);
+                //systemReport.SystemReportStatus = await _systemReportStatusService.GetSystemReportStatusById(systemReport.SystemReportStatusId);
                 if (systemReport.SystemReportStatusId == 0)
                     systemReport.SystemReportStatusId = 1;
                 systemReport.SystemName = await _systemNameService.GetSystemNameById(systemReport.SystemNameId);
@@ -96,7 +96,7 @@ namespace LHMS.SystemReports.Services
             foreach (SystemReport sr in systemReports)
             {
                 sr.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == sr.SystemNameId);
-                sr.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == sr.SystemReportStatusId);
+                //sr.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == sr.SystemReportStatusId);
                 var mappedReport = _mapper.Map<SystemReportResponse>(sr);
                 response.Add(mappedReport);
             }
@@ -108,7 +108,7 @@ namespace LHMS.SystemReports.Services
         {
             SystemReport systemReport = _context.SystemReports.FirstOrDefault(s => s.Id == id);
             systemReport.SystemName = _context.SystemNames.FirstOrDefault(s => s.Id == systemReport.SystemNameId);
-            systemReport.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == systemReport.SystemReportStatusId);
+            //systemReport.SystemReportStatus = _context.SystemReportStatus.FirstOrDefault(s => s.Id == systemReport.SystemReportStatusId);
             SystemReportResponse response = _mapper.Map<SystemReportResponse>(systemReport);
             return response;
         }
@@ -130,8 +130,8 @@ namespace LHMS.SystemReports.Services
                     systemReport.HowCanIHelpYou = systemReportRequest.HowCanIHelpYou;
                     systemReport.PersonnelUpdates = systemReportRequest.PersonnelUpdates;
                     systemReport.PersonalGrowthAndDevelopment = systemReportRequest.PersonalGrowthAndDevelopment;
-                    systemReport.SystemNameId = systemReportRequest.SystemName.Id;
-                    systemReport.SystemReportStatusId = systemReportRequest.SystemReportStatus.Id;
+                    systemReport.SystemNameId = systemReportRequest.SystemNameId;
+                    systemReport.SystemReportStatusId = systemReportRequest.SystemReportStatusId;
                     systemReport.SystemUpdate = systemReportRequest.SystemUpdate;
                     systemReport.UpdatedDate = NodaTime.Instant.FromDateTimeUtc(DateTime.UtcNow);
                 }

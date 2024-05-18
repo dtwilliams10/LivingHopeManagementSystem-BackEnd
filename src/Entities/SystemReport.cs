@@ -21,9 +21,6 @@ namespace LHMS.SystemReports.Entities
 
         public int SystemReportStatusId { get; set; }
 
-        [ForeignKey("SystemReportStatusId")]
-        public SystemReportStatus SystemReportStatus { get; set; }
-
         public int SystemNameId { get; set; }
 
         [ForeignKey("SystemNameId")]
