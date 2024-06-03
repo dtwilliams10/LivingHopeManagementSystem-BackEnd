@@ -32,9 +32,9 @@ namespace LHMS.SystemReports.Services
             {
                 return await _context.SystemNames.AsQueryable<SystemName>().ToListAsync();
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Serilog.Log.Error("Error in System Name Service: {@ex}", ex);
+                Serilog.Log.Error(Ex, "Error in System Name Service: {Ex}");
                 throw new AppException();
             }
         }

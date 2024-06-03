@@ -4,13 +4,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace LHMS.SystemReports.Helpers
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext(IConfiguration configuration) : DbContext
     {
-        protected readonly IConfiguration Configuration;
-        public DatabaseContext(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        protected readonly IConfiguration Configuration = configuration;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseNpgsql(Configuration.GetConnectionString("SystemReports"), o => o.UseNodaTime()).UseSnakeCaseNamingConvention();
         public DbSet<SystemReport> SystemReports { get; set; }
         public DbSet<SystemReportStatus> SystemReportStatus { get; set; }

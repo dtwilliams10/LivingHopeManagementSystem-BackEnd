@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace LHMS.SystemReports.Services
 {
@@ -27,12 +28,12 @@ namespace LHMS.SystemReports.Services
         {
             try
             {
-                var systemReportStatuses = await _context.SystemReportStatus.AsQueryable().ToListAsync();
+                var systemReportStatuses = await _context.SystemReportStatus.AsQueryable<SystemReportStatus>().ToListAsync();
                 return systemReportStatuses;
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Serilog.Log.Error("Error in System Report Service: {@ex}", ex);
+                Serilog.Log.Error(Ex, "Error in System Report Service: {Ex}");
                 throw new AppException();
             }
         }
@@ -44,9 +45,9 @@ namespace LHMS.SystemReports.Services
                 var systemReportStatus = await _context.SystemReportStatus.FirstOrDefaultAsync(x => x.Id == id);
                 return systemReportStatus;
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Serilog.Log.Error("Error in System Report Status Service: {@ex}", ex);
+                Serilog.Log.Error(Ex, "Error in System Report Status Service: {Ex}");
                 throw new AppException();
             }
         }

@@ -37,17 +37,17 @@ namespace LHMS.SystemReports.Services
                 {
                     while (await reader.ReadAsync())
                     {
-                        StatusResponse rows = new StatusResponse { status = reader.GetString(0) };
+                        StatusResponse rows = new() { status = reader.GetString(0) };
                         status.Add(rows.status);
                     }
                 }
                 reader.Dispose();
             }
 
-            catch(System.Net.Sockets.SocketException ex)
+            catch (System.Net.Sockets.SocketException Ex)
             {
-                Serilog.Log.Error(ex.Message);
-                return "An error ocurred connecting with the database. Please contact an administrator.";
+                Serilog.Log.Error(Ex, "An error ocurred connecting with the database: {Ex}");
+                return Ex.Message.ToString();
             }
 
             finally

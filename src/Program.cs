@@ -41,10 +41,11 @@ try
     //     .Build();
     // });
     builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"), name: "PostgreSQL");
-    builder.Services.AddHealthChecksUI(setupSettings: setup => {
+    builder.Services.AddHealthChecksUI(setupSettings: setup =>
+    {
         setup.AddHealthCheckEndpoint("Postgres Health Check", "/health");
-        setup.MaximumHistoryEntriesPerEndpoint(25);
-    }).AddInMemoryStorage();
+        setup.MaximumHistoryEntriesPerEndpoint(50);
+    }).AddInMemoryStorage(databaseName: "HealthChecksUI");
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
@@ -88,8 +89,7 @@ try
     }
     catch (Exception ex)
     {
-        Log.Fatal("Migration failed!");
-        Log.Fatal(ex.ToString());
+        Log.Fatal(ex, "Migration failed!");
         return;
     }
 
@@ -103,23 +103,26 @@ try
 
     //app.UseAuthorization();
 
+    app.MapControllers();
+
     app.MapHealthChecks("/health", new HealthCheckOptions
     {
         Predicate = _ => true,
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 
-    app.MapHealthChecksUI(setup => {
+    app.MapHealthChecksUI(setup =>
+    {
         setup.UIPath = "/health-ui";
         setup.AddCustomStylesheet("health-checks.css");
     });
+
     app.UseSerilogRequestLogging();
     app.Run();
 }
 catch (Exception ex)
 {
     Log.Fatal(ex, "Unhandled Exception");
-    Log.Fatal(ex.Message.ToString());
 }
 finally
 {
