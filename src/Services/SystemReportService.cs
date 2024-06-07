@@ -57,10 +57,9 @@ namespace LHMS.SystemReports.Services
                 var response = _mapper.Map<SystemReportResponse>(systemReport);
                 return response;
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Log.Error("Error in System Report Service: {@ex}", ex.ToString());
-                Log.Error(ex.InnerException.Message);
+                Log.Error(Ex, "Error in System Report Service: {Ex}");
                 throw new AppException();
             }
         }
@@ -137,10 +136,11 @@ namespace LHMS.SystemReports.Services
                 await _context.SaveChangesAsync();
                 return response;
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Log.Error("Error updating System Report with ID: {@id}", systemReportRequest.Id);
-                throw new AppException(ex.InnerException.ToString());
+                Log.Error(systemReportRequest.Id.ToString(), "Error updating System Report with ID: {Id}");
+                Log.Error(Ex, "Exception ocurred with {Ex}");
+                throw new AppException(Ex.InnerException.ToString());
             }
 
         }
