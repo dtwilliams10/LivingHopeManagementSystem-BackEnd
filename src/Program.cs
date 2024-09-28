@@ -1,6 +1,7 @@
 ﻿using System;
 using LHMS.SystemReports.Helpers;
 using LHMS.SystemReports.Services;
+using LHMS.SystemReports.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,6 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using NodaTime.Serialization.SystemTextJson;
-using NodaTime;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
@@ -19,33 +18,13 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Services.AddSwaggerGen();
-    builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-    builder.Services.AddDbContext<DatabaseContext>();
-    builder.Services.AddScoped<IStatusService, StatusService>();
-    builder.Services.AddScoped<ISystemReportService, SystemReportService>();
-    builder.Services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
-    builder.Services.AddScoped<ISystemNameService, SystemNameService>();
-    builder.Services.AddCors();
-    builder.Services.AddHealthChecks();
-    builder.Services.AddHealthChecksUI();
-    builder.Services.AddControllers().AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
-    });
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    
     // builder.Services.AddAuthorization(options =>
     // {
     // options.FallbackPolicy = new AuthorizationPolicyBuilder()
     //     .RequireAuthenticatedUser()
     //     .Build();
     // });
-    builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("SystemReports"), name: "PostgreSQL");
-    builder.Services.AddHealthChecksUI(setupSettings: setup =>
-    {
-        setup.AddHealthCheckEndpoint("Postgres Health Check", "/health");
-        setup.MaximumHistoryEntriesPerEndpoint(50);
-    }).AddInMemoryStorage(databaseName: "HealthChecksUI");
     builder.Host.UseSerilog((context, config) =>
     {
         config.MinimumLevel.Debug()
@@ -57,10 +36,12 @@ try
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Literate);
     });
 
+    builder.Services.AddApplicationServices(builder.Configuration);
+
     var app = builder.Build();
     app.UseStaticFiles();
 
-    Log.Information("Starting System Reports Service!");
+    Log.Information("Starting System Reports Service");
 
     if (app.Environment.IsProduction())
     {
@@ -96,7 +77,7 @@ try
     app.UseRouting();
 
     app.UseCors(x => x
-    .WithOrigins("http://localhost:3000", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
+    .WithOrigins("http://localhost:3001", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
     .AllowAnyMethod()
     .AllowAnyHeader()
     .AllowCredentials());
@@ -118,7 +99,7 @@ try
     });
 
     app.UseSerilogRequestLogging();
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception ex)
 {
@@ -127,5 +108,5 @@ catch (Exception ex)
 finally
 {
     Log.Information("Shut down complete!");
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }
