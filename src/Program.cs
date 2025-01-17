@@ -1,7 +1,5 @@
 ﻿using System;
 using LHMS.SystemReports.Helpers;
-using LHMS.SystemReports.Services;
-using LHMS.SystemReports.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,15 +8,14 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
+using SystemReports.Extensions;
 
 try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    
     // builder.Services.AddAuthorization(options =>
     // {
     // options.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -36,7 +33,14 @@ try
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Literate);
     });
 
-    builder.Services.AddApplicationServices(builder.Configuration);
+    _ = builder.Environment.EnvironmentName switch
+    {
+        "Local" => builder.Services.AddApplicationServicesForDevelopment(builder.Configuration),
+        "Development" => builder.Services.AddApplicationServicesForDevelopment(builder.Configuration),
+        "Staging" => builder.Services.AddApplicationServicesForStaging(builder.Configuration),
+        "Production" => builder.Services.AddApplicationServicesForProduction(builder.Configuration),
+        _ => throw new InvalidOperationException($"Unknown environment: {builder.Environment.EnvironmentName}")
+    };
 
     var app = builder.Build();
     app.UseStaticFiles();
@@ -76,11 +80,7 @@ try
 
     app.UseRouting();
 
-    app.UseCors(x => x
-    .WithOrigins("http://localhost:3001", "https://test.lhms.dtwilliams10.com", "https://lhms.dtwilliams10.com")
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials());
+    app.UseCors("myAllowSpecificOrigins");
 
     //app.UseAuthorization();
 
