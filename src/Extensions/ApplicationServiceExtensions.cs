@@ -40,7 +40,7 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
             services.AddHealthChecksUI(setupSettings: setup =>
             {
@@ -71,7 +71,7 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
             services.AddHealthChecksUI(setupSettings: setup =>
             {
@@ -103,7 +103,7 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemReportStatusService, SystemReportStatusService>();
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
             services.AddHealthChecksUI(setupSettings: setup =>
             {
