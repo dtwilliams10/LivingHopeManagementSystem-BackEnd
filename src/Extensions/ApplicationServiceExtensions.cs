@@ -41,12 +41,12 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
-            services.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint(healthCheckName, localUrl);
-                setup.MaximumHistoryEntriesPerEndpoint(50);
-            }).AddInMemoryStorage(databaseName: "HealthChecksUI");
+            // services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
+            // services.AddHealthChecksUI(setupSettings: setup =>
+            // {
+            //     setup.AddHealthCheckEndpoint(healthCheckName, localUrl);
+            //     setup.MaximumHistoryEntriesPerEndpoint(50);
+            // }).AddInMemoryStorage(databaseName: "HealthChecksUI");
 
             return services;
         }
@@ -72,12 +72,12 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
-            services.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint(healthCheckName, testUrl);
-                setup.MaximumHistoryEntriesPerEndpoint(50);
-            }).AddInMemoryStorage(databaseName: "HealthChecksUI");
+            // services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
+            // services.AddHealthChecksUI(setupSettings: setup =>
+            // {
+            //     setup.AddHealthCheckEndpoint(healthCheckName, testUrl);
+            //     setup.MaximumHistoryEntriesPerEndpoint(50);
+            // }).AddInMemoryStorage(databaseName: "HealthChecksUI");
 
             return services;
         }
@@ -104,12 +104,12 @@ namespace SystemReports.Extensions
             services.AddScoped<ISystemNameService, SystemNameService>();
             services.AddControllers().AddJsonOptions(options => { options.JsonSerializerOptions.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb); });
             // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
-            services.AddHealthChecksUI(setupSettings: setup =>
-            {
-                setup.AddHealthCheckEndpoint(healthCheckName, productionUrl);
-                setup.MaximumHistoryEntriesPerEndpoint(50);
-            }).AddInMemoryStorage(databaseName: "HealthChecksUI");
+            // services.AddHealthChecks().AddNpgSql(connectionString: config.GetConnectionString("SystemReports"), name: healthCheckName, failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, tags: ["db", "sql", "postgres"]);
+            // services.AddHealthChecksUI(setupSettings: setup =>
+            // {
+            //     setup.AddHealthCheckEndpoint(healthCheckName, productionUrl);
+            //     setup.MaximumHistoryEntriesPerEndpoint(50);
+            // }).AddInMemoryStorage(databaseName: "HealthChecksUI");
 
             return services;
         }
